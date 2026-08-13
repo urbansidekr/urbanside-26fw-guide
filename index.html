@@ -841,7 +841,7 @@
   <div class="line-wrap">
     <div class="line-track">
       <!-- STOP 04 : CONTENT GUIDE -->
-      <div class="stop">
+      <div class="stop" id="content-guide">
         <span class="stop-num">Content Guide</span>
         <div class="stop-head">
           <h2>콘텐츠 제작 가이드</h2>
@@ -1092,6 +1092,38 @@
     document.getElementById('guideModalOverlay').addEventListener('click', function(e){
       if(e.target === this) closeGuideModal();
     });
+
+    // 맞춤 링크 파라미터로 탭 자동 선택 (?format=short&portfolio=launch)
+    (function(){
+      var params = new URLSearchParams(window.location.search);
+      var formatParam = params.get('format');     // short | feed | long
+      var portfolioParam = params.get('portfolio'); // launch | review | outdoor | free | office
+      var matched = false;
+
+      function selectTab(groupName, tabId){
+        var mod = document.querySelector('.tab-module[data-tab-group="'+groupName+'"]');
+        if(!mod) return;
+        var btn = mod.querySelector('.tab-btns button[data-tab="'+tabId+'"]');
+        if(!btn) return;
+        btn.click();
+        matched = true;
+        // 맞춤 링크로 들어온 경우 - 다른 탭/버튼은 숨기고 선택된 내용만 보여줌
+        var btnsBar = mod.querySelector('.tab-btns');
+        if(btnsBar) btnsBar.style.display = 'none';
+        mod.querySelectorAll('.tab-panel').forEach(function(p){
+          if(p.dataset.panel !== tabId) p.style.display = 'none';
+        });
+      }
+      if(formatParam) selectTab('format', 'format-' + formatParam);
+      if(portfolioParam) selectTab('portfolio', 'pf-' + portfolioParam);
+
+      if(matched){
+        setTimeout(function(){
+          var el = document.getElementById('content-guide');
+          if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+        }, 150);
+      }
+    })();
   </script>
 </body>
 </html>
