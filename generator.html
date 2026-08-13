@@ -24,10 +24,7 @@
     -webkit-font-smoothing:antialiased;
     padding:40px 20px;
   }
-  .wrap{
-    max-width:480px;
-    margin:0 auto;
-  }
+  .wrap{ max-width:480px; margin:0 auto; }
   .eyebrow{
     font-size:11px;
     font-weight:700;
@@ -36,20 +33,9 @@
     text-transform:uppercase;
     margin-bottom:8px;
   }
-  h1{
-    font-size:24px;
-    font-weight:800;
-    letter-spacing:-0.02em;
-    margin:0 0 6px;
-  }
-  .sub{
-    font-size:13px;
-    color:var(--ink-faint);
-    margin:0 0 28px;
-  }
-  .field{
-    margin-bottom:16px;
-  }
+  h1{ font-size:24px; font-weight:800; letter-spacing:-0.02em; margin:0 0 6px; }
+  .sub{ font-size:13px; color:var(--ink-faint); margin:0 0 28px; }
+  .field{ margin-bottom:16px; }
   .field label{
     display:block;
     font-size:12px;
@@ -68,15 +54,12 @@
     color:var(--ink);
     appearance:none;
     -webkit-appearance:none;
-    background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="%2315130F"><path d="M5.5 7.5l4.5 4.5 4.5-4.5" stroke="%2315130F" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+    background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none"><path d="M5.5 7.5l4.5 4.5 4.5-4.5" stroke="%2315130F" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>');
     background-repeat:no-repeat;
     background-position:right 12px center;
     padding-right:34px;
   }
-  select:focus{
-    outline:none;
-    border-color:var(--orange);
-  }
+  select:focus{ outline:none; border-color:var(--orange); }
 
   .result-card{
     margin-top:8px;
@@ -91,10 +74,7 @@
     justify-content:space-between;
     margin-bottom:12px;
   }
-  .result-head .rh-label{
-    font-size:13px;
-    font-weight:800;
-  }
+  .result-head .rh-label{ font-size:13px; font-weight:800; }
   .copy-btn{
     background:var(--ink);
     color:var(--bg);
@@ -121,14 +101,16 @@
     border-radius:8px;
     border:1px solid var(--hairline);
   }
-  .selected-summary{
-    margin-top:14px;
-    font-size:12.5px;
-    color:var(--ink-soft);
-  }
-  .selected-summary b{
-    color:var(--ink);
-    font-weight:700;
+  .selected-summary{ margin-top:14px; font-size:12.5px; color:var(--ink-soft); }
+  .selected-summary b{ color:var(--ink); font-weight:700; }
+
+  .note{
+    margin-top:28px;
+    font-size:11.5px;
+    color:var(--ink-faint);
+    line-height:1.6;
+    border-top:1px solid var(--hairline);
+    padding-top:16px;
   }
 </style>
 </head>
@@ -137,29 +119,20 @@
   <div class="wrap">
     <div class="eyebrow">26FW · Internal Tool</div>
     <h1>맞춤 가이드 링크 생성기</h1>
-    <p class="sub">크리에이터별 채널·포맷·포트폴리오에 맞는 링크를 만들어 전달하세요.</p>
+    <p class="sub">가이드의 "콘텐츠 형태별 가이드" · "포트폴리오 종류별 가이드" 모듈을 기준으로 링크를 만듭니다.</p>
 
     <div class="field">
-      <label>채널</label>
-      <select id="selChannel">
-        <option value="instagram">인스타그램</option>
-        <option value="youtube">유튜브</option>
-        <option value="tiktok">틱톡</option>
+      <label>콘텐츠 형태 (콘텐츠 형태별 가이드)</label>
+      <select id="selFormat">
+        <option value="short">숏폼(릴스/쇼츠)</option>
+        <option value="feed">피드형</option>
+        <option value="long">롱폼</option>
         <option value="blog">블로그</option>
       </select>
     </div>
 
     <div class="field">
-      <label>콘텐츠 형태</label>
-      <select id="selFormat">
-        <option value="short">숏폼(릴스/쇼츠)</option>
-        <option value="feed">피드형</option>
-        <option value="long">롱폼</option>
-      </select>
-    </div>
-
-    <div class="field">
-      <label>포트폴리오 종류</label>
+      <label>포트폴리오 종류 (포트폴리오 종류별 가이드)</label>
       <select id="selPortfolio">
         <option value="launch">런칭 소식 소구</option>
         <option value="review">제품 상세 리뷰 · USP</option>
@@ -177,26 +150,28 @@
       <div class="url-box" id="urlBox"></div>
       <div class="selected-summary" id="summaryBox"></div>
     </div>
+
+    <div class="note">
+      이 링크로 접속하면 가이드 페이지의 콘텐츠 형태·포트폴리오 탭이 자동으로 선택되고, 다른 탭은 숨겨진 채 해당 내용만 보입니다.
+    </div>
   </div>
 
   <script>
-    // ⚠ 페이지 주소가 바뀌면 여기만 수정하면 됩니다.
+    // ⚠ 가이드 페이지 주소가 바뀌면 여기만 수정하면 됩니다.
     var BASE_URL = 'https://urbansidekr.github.io/urbanside-26fw-guide/';
 
-    var channelLabels = {instagram:'인스타그램', youtube:'유튜브', tiktok:'틱톡', blog:'블로그'};
-    var formatLabels = {short:'숏폼(릴스/쇼츠)', feed:'피드형', long:'롱폼'};
+    var formatLabels = {short:'숏폼(릴스/쇼츠)', feed:'피드형', long:'롱폼', blog:'블로그'};
     var portfolioLabels = {launch:'런칭 소식 소구', review:'제품 상세 리뷰 · USP', outdoor:'야외 리뷰', free:'크리에이터 자율', office:'사무실 방문형'};
 
     function buildAndRender(){
-      var channel = document.getElementById('selChannel').value;
       var format = document.getElementById('selFormat').value;
       var portfolio = document.getElementById('selPortfolio').value;
 
-      var url = BASE_URL + '?channel=' + channel + '&format=' + format + '&portfolio=' + portfolio + '#content-guide';
+      var url = BASE_URL + '?format=' + format + '&portfolio=' + portfolio + '#content-guide';
 
       document.getElementById('urlBox').textContent = url;
       document.getElementById('summaryBox').innerHTML =
-        '선택한 모듈: <b>' + channelLabels[channel] + '</b> · <b>' + formatLabels[format] + '</b> · <b>' + portfolioLabels[portfolio] + '</b>';
+        '선택한 모듈: <b>' + formatLabels[format] + '</b> · <b>' + portfolioLabels[portfolio] + '</b>';
     }
 
     function copyLink(){
@@ -224,7 +199,7 @@
       }
     }
 
-    ['selChannel','selFormat','selPortfolio'].forEach(function(id){
+    ['selFormat','selPortfolio'].forEach(function(id){
       document.getElementById(id).addEventListener('change', buildAndRender);
     });
     buildAndRender();
