@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>어반사이드 촬영 가이드 · 캐리오버 완판작 편</title>
+<style>
+  @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css');
+
+  :root{
+    --bg: #ffffff;
+    --bg-raised: #f4f4f2;
+    --line: rgba(20,24,27,0.12);
+    --line-soft: rgba(20,24,27,0.07);
+    --ink: #14181b;
+    --ink-dim: #6c7472;
+    --ice: #21708f;
+    --ice-dim: #d7e6ec;
+    --amber: #a86a1c;
+    --amber-dim: #e7c896;
+  }
+
+  *{ box-sizing:border-box; }
+
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height:1.6;
+    padding:0 0 80px;
+  }
+
+  a{ color:inherit; text-decoration:underline; text-underline-offset:2px; }
+  a:hover{ opacity:0.75; }
+
+  .wrap{
+    max-width:880px;
+    margin:0 auto;
+    padding:56px 28px 0;
+  }
+
+  header{ margin-bottom:28px; }
+
+  .kicker{
+    color:var(--ink-dim);
+    font-size:14px;
+    margin:0;
+  }
+
+  /* carryover intro banner */
+  .banner{
+    background:var(--bg-raised);
+    border-left:3px solid var(--ink);
+    border-radius:4px;
+    padding:20px 22px;
+    margin-bottom:56px;
+    font-size:14.5px;
+  }
+  .banner strong{ font-weight:600; }
+  .banner p{ margin:0 0 8px; }
+  .banner p:last-child{ margin-bottom:0; }
+
+  section{ margin-bottom:64px; }
+
+  h2{
+    font-family:'Pretendard', sans-serif;
+    font-weight:600;
+    font-size:24px;
+    margin:0 0 24px;
+    padding-bottom:16px;
+    border-bottom:1px solid var(--line);
+  }
+
+  /* Spec comparison table */
+  .spec-table{
+    display:grid;
+    grid-template-columns: 1.1fr 1fr 1fr;
+    border:1px solid var(--line);
+    border-radius:4px;
+    overflow:hidden;
+    font-size:14.5px;
+  }
+  .spec-table > div{
+    padding:14px 16px;
+    border-bottom:1px solid var(--line-soft);
+  }
+  .spec-table > div:nth-child(3n+1){
+    color:var(--ink-dim);
+    background:var(--bg-raised);
+  }
+  .spec-table .col-a{ border-left:2px solid var(--ice); }
+  .spec-table .col-b{ border-left:2px solid var(--amber); }
+  .spec-table .product-name{
+    font-weight:600;
+    font-size:15px;
+    padding-top:18px;
+    padding-bottom:18px;
+  }
+  .spec-table .col-a.product-name{ color:var(--ice); }
+  .spec-table .col-b.product-name{ color:var(--amber); }
+
+  @media (max-width:640px){
+    .spec-table{ grid-template-columns: 1fr; }
+    .spec-table > div:nth-child(3n+1){
+      border-top:1px solid var(--line);
+      margin-top:8px;
+    }
+    .spec-table > div{ border-left:none !important; }
+  }
+
+  /* Hook cards */
+  .hooks{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:28px;
+  }
+  @media (max-width:680px){ .hooks{ grid-template-columns:1fr; } }
+
+  .hook-card{
+    background:var(--bg-raised);
+    border-radius:6px;
+    padding:26px 24px;
+    border-top:3px solid var(--ice);
+  }
+  .hook-card.amber{ border-top-color:var(--amber); }
+
+  .hook-card .product-tag{
+    font-size:13px;
+    color:var(--ice);
+    margin:0 0 4px;
+    font-weight:600;
+  }
+  .hook-card.amber .product-tag{ color:var(--amber); }
+
+  .hook-card .position{
+    color:var(--ink-dim);
+    font-size:13.5px;
+    margin:0 0 20px;
+  }
+
+  .hook-card ul{
+    margin:0;
+    padding:0;
+    list-style:none;
+  }
+  .hook-card li{
+    padding:14px 0;
+    border-top:1px solid var(--line-soft);
+    font-size:14.5px;
+  }
+  .hook-card li:first-child{ border-top:none; padding-top:0; }
+
+  .hook-line{
+    display:block;
+    font-weight:600;
+    margin-bottom:6px;
+    color:var(--ink);
+  }
+  .hook-desc{ color:var(--ink-dim); font-size:13.5px; }
+
+  /* improvement list (season over season) */
+  .improvements .item{
+    padding:20px 0;
+    border-top:1px solid var(--line-soft);
+  }
+  .improvements .item:first-child{ border-top:none; padding-top:0; }
+  .improvements .num{
+    font-family:'Pretendard', sans-serif;
+    font-weight:700;
+    font-size:14px;
+    margin-right:6px;
+  }
+  .improvements.ice .num{ color:var(--ice); }
+  .improvements.amber .num{ color:var(--amber); }
+  .improvements h4{
+    display:inline;
+    font-size:15.5px;
+    font-weight:600;
+    margin:0;
+  }
+  .improvements ul{
+    margin:10px 0 0;
+    padding-left:20px;
+  }
+  .improvements li{
+    font-size:14px;
+    color:var(--ink-dim);
+    margin-bottom:6px;
+  }
+  .improvements li:last-child{ margin-bottom:0; }
+
+  /* planning background */
+  .planning{
+    background:var(--bg-raised);
+    border-radius:6px;
+    padding:26px 26px 8px;
+  }
+  .planning .item{ padding-bottom:22px; }
+  .planning .num{
+    font-family:'Pretendard', sans-serif;
+    font-weight:700;
+    font-size:14px;
+    margin-right:6px;
+  }
+  .planning.ice .num{ color:var(--ice); }
+  .planning.amber .num{ color:var(--amber); }
+  .planning h4{
+    display:inline;
+    font-size:15.5px;
+    font-weight:600;
+    margin:0;
+  }
+  .planning ul{
+    margin:10px 0 0;
+    padding-left:20px;
+  }
+  .planning li{
+    font-size:14px;
+    color:var(--ink-dim);
+    margin-bottom:6px;
+  }
+  .planning li:last-child{ margin-bottom:0; }
+
+  /* caution / footer note */
+  .caution{
+    border:1px solid var(--amber-dim);
+    background:linear-gradient(180deg, rgba(168,106,28,0.06), rgba(168,106,28,0.015));
+    border-radius:6px;
+    padding:24px 26px;
+  }
+  .caution h3{
+    font-family:'Pretendard', sans-serif;
+    font-weight:600;
+    font-size:18px;
+    margin:0 0 12px;
+    color:var(--amber);
+  }
+  .caution p{
+    margin:0 0 10px;
+    font-size:14.5px;
+    color:var(--ink);
+  }
+  .caution p:last-child{ margin-bottom:0; }
+  .caution .example{
+    color:var(--ink-dim);
+    font-size:13.5px;
+  }
+  .caution .example .no{ color:#a83f3f; text-decoration:line-through; }
+  .caution .example .yes{ color:#337a3e; }
+
+  footer{
+    max-width:880px;
+    margin:0 auto;
+    padding:0 28px;
+    color:var(--ink-dim);
+    font-size:13px;
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header>
+    <p class="kicker">어반사이드 26FW · 촬영 가이드 — 캐리오버 완판작 편</p>
+  </header>
+
+  <div class="banner">
+    <p><strong>에일러론 울트라 1000 SUL 다운 재킷</strong>과 <strong>제로인 옥타 하이브리드 쉘 후드 재킷</strong>, 둘 다 작년 출시 후 한 달 만에 품절된 캐리오버 스테디셀러입니다.</p>
+  </div>
+
+  <section>
+    <h2>스펙 비교</h2>
+    <div class="spec-table">
+      <div></div>
+      <div class="col-a product-name">에일러론 울트라 1000 SUL 다운</div>
+      <div class="col-b product-name">제로인 옥타 하이브리드 쉘 후드</div>
+
+      <div>가격</div>
+      <div class="col-a">₩379,000</div>
+      <div class="col-b">₩289,000</div>
+
+      <div>핵심 소재</div>
+      <div class="col-a">1000FP · POLISH P/WHITE MOTHER GOOSE DOWN (95:5) · 80g</div>
+      <div class="col-b">OCTA® 안감 · 20D 메카니컬 2-way 스트레치 나일론</div>
+
+      <div>무게 (L)</div>
+      <div class="col-a">255g</div>
+      <div class="col-b">312g</div>
+
+      <div>핏</div>
+      <div class="col-a">레귤러 (전시즌 슬림 핏에서 확장)</div>
+      <div class="col-b">세미오버</div>
+
+      <div>후드</div>
+      <div class="col-a">논후디 (후드 없음)</div>
+      <div class="col-b">와이어 챙 + 후면 E-band 입체 후드</div>
+
+      <div>체감 온도<br>(저활동 기준)</div>
+      <div class="col-a">약 −5°C ~ 5°C</div>
+      <div class="col-b">약 −3°C ~ 8°C</div>
+
+      <div>작년 대비 핵심 변화</div>
+      <div class="col-a">충전량 64g → 80g, 슬림 핏 → 레귤러 핏</div>
+      <div class="col-b">후드 안정성 강화, 등판 보온 보완, 포켓 메쉬 전환</div>
+
+      <div>색상 · 사이즈</div>
+      <div class="col-a">Black, Silver · S–XXL</div>
+      <div class="col-b">Black, Brown · S–XL</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="hooks">
+
+      <div class="hook-card">
+        <p class="product-tag">에일러론 울트라 1000 SUL 다운</p>
+        <p class="position">한 달 만에 품절됐던 초경량 다운, 더 두꺼워져서 귀환</p>
+        <ul>
+          <li>
+            <span class="hook-line">"작년에 한 달 만에 품절됐던 그 다운, 더 든든해져서 돌아왔다"</span>
+            <span class="hook-desc">완판 이력은 신뢰도를 만드는 훅. "이번엔 뭐가 달라졌길래" 궁금증으로 바로 이어가면 좋음.</span>
+          </li>
+          <li>
+            <span class="hook-line">"충전량 64g → 80g, 얇다는 얘기 나올 일 없다"</span>
+            <span class="hook-desc">전시즌 대비 +16g 증량. 손으로 눌러서 로프트(복원력) 차이를 보여주는 컷 추천.</span>
+          </li>
+          <li>
+            <span class="hook-line">"슬림했던 핏이 레귤러로 넉넉해졌다"</span>
+            <span class="hook-desc">단독 착용 시 실루엣이 자연스러워진 부분. 작년 제품과 나란히 두고 핏 차이를 비교하면 좋음.</span>
+          </li>
+          <li>
+            <span class="hook-line">"패커블백, 이제 잃어버릴 걱정 없다"</span>
+            <span class="hook-desc">분리형 파우치에서 제품 일체형 구조로 변경. 접어서 매다는 장면이 비주얼로 강함.</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="hook-card amber">
+        <p class="product-tag">제로인 옥타 하이브리드 쉘 후드</p>
+        <p class="position">완판작의 약점을 보완한 액티브 하이브리드 쉘</p>
+        <ul>
+          <li>
+            <span class="hook-line">"이것도 작년에 한 달 만에 품절됐던 제품"</span>
+            <span class="hook-desc">에일러론과 같은 완판 서사를 공유. 두 제품을 "돌아온 완판템" 시리즈로 묶어서 소개하면 좋음.</span>
+          </li>
+          <li>
+            <span class="hook-line">"후드에 와이어 챙과 백밴드가 생겼다"</span>
+            <span class="hook-desc">바람 불 때 후드가 흔들리지 않고 형태를 유지하는 걸 실제로 보여주는 컷. 작년 제품엔 없던 디테일.</span>
+          </li>
+          <li>
+            <span class="hook-line">"등판 중앙, 이제 안 시원하다"</span>
+            <span class="hook-desc">기존엔 통기성 때문에 옥타 안감을 뺐던 등판 중앙부까지 이번엔 확대 적용. "왜 추웠는지" 원인과 "어떻게 고쳤는지" 해결을 함께 던지면 설득력 있음.</span>
+          </li>
+          <li>
+            <span class="hook-line">"손 넣는 포켓, 기모에서 메쉬로 바뀐 이유"</span>
+            <span class="hook-desc">활동 중 습기·열 배출을 위한 변경. 액티브 웨어라는 포지션을 자연스럽게 설명할 수 있는 포인트.</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <h2>작년 대비 개선 포인트 — 에일러론 울트라 1000 SUL 다운</h2>
+    <div class="improvements ice">
+      <div class="item">
+        <h4><span class="num">01</span>다운 충전량 증가</h4>
+        <ul>
+          <li>L 사이즈 기준 64g → 80g으로 증량 (+16g)</li>
+          <li>단순 볼륨 증가가 아닌 체감 보온성과 로프트 안정성 중심으로 개선</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">02</span>핏 밸런스 개선</h4>
+        <ul>
+          <li>기존 슬림 핏에서 여유 있는 레귤러 핏으로 구조 확장</li>
+          <li>단독 착용과 미드 레이어 활용이 모두 가능하도록 활용 범위 개선</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">03</span>내부 수납 활용성 강화</h4>
+        <ul>
+          <li>내부 메쉬 오픈 포켓 신규 적용</li>
+          <li>외부 포켓 중심 구조에서 내부 수납 활용성까지 확장</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">04</span>패커블 구조 사용성 개선</h4>
+        <ul>
+          <li>분리형 보관 방식에서 제품 연결형 패커블 구조로 변경</li>
+          <li>휴대·보관 시 패커블 백 분실 가능성 감소</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>작년 대비 개선 포인트 — 제로인 옥타 하이브리드 쉘 후드</h2>
+    <div class="improvements amber">
+      <div class="item">
+        <h4><span class="num">01</span>후드 구조 안정성 강화</h4>
+        <ul>
+          <li>후드 전면 와이어 챙 적용으로 시야 확보와 형태 유지력 개선</li>
+          <li>후드 후면 E-band 추가로 활동 중 흔들림 최소화</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">02</span>보온 밸런스 개선을 위한 옥타 안감 구조 보완</h4>
+        <ul>
+          <li>기존엔 통기성을 위해 등판 중앙부에 OCTA® 안감 미적용</li>
+          <li>이번 시즌은 해당 구간까지 확대 적용해 등판 전체 보온 연속성 확보</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">03</span>착용 목적에 맞춘 썸홀 삭제</h4>
+        <ul>
+          <li>레이어링 시 간섭 요소 제거 및 범용성 강화</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">04</span>핸드 포켓 기능 방향성 변경</h4>
+        <ul>
+          <li>포켓 안감을 기모에서 메쉬로 변경해 활동 중 습기·열 배출 개선</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">05</span>기능 기반 배색 구조 재정비</h4>
+        <ul>
+          <li>측면·소매 하단 통기 구간은 유지, 등판 상단에 신규 배색 구간 추가</li>
+          <li>과도한 열 배출을 방지해 통기 중심 설계에서 보온까지 고려한 밸런스형 구조로 재정의</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">06</span>지퍼 풀러 경량화</h4>
+        <ul>
+          <li>경량 지퍼 풀러로 변경해 불필요한 부자재 중량 감소</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>제품 기획 목적 — 에일러론 울트라 1000 SUL 다운</h2>
+    <div class="planning ice">
+      <div class="item">
+        <h4><span class="num">01</span>하이엔드 다운 소재의 경량 활용 극대화</h4>
+        <ul>
+          <li>수급이 제한적인 1000FP 폴란드 퓨어화이트 마더구스 다운을 적용해 동일 중량 대비 최대 수준의 로프트와 경량성, 보온 효율을 목표로 설계</li>
+          <li>초경량성과 고효율 보온 성능의 밸런스를 고려한 퍼포먼스 SUL 다운 방향 구축</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">02</span>동급 제품 대비 실질적 우위 확보</h4>
+        <ul>
+          <li>동일 필파워 제품 대비 높은 충전량 적용 (L 사이즈 기준 80g)</li>
+          <li>스펙이 아닌 실제 체감 보온성 기준에서 우위 확보, 가격 접근성을 고려한 포지셔닝</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">03</span>기존 시리즈의 실사용 한계 보완</h4>
+        <ul>
+          <li>전시즌 64g 초경량 제품은 미드 레이어 중심으로 기획되어 단독 착용 시 보온성·볼륨감 부족</li>
+          <li>충전량을 80g으로 확대해 단독 착용과 미드레이어를 모두 커버 가능한 제품으로 개선</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">04</span>경량성과 보온성의 밸런스 재정의</h4>
+        <ul>
+          <li>10D 초경량 원단과 스티치 스루 구조를 유지하면서도 충전량·핏 구조를 조정해 체감 보온성 향상</li>
+          <li>단순 초경량 제품이 아닌 "실제 겨울에 입을 수 있는 경량 다운"으로 리포지셔닝</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">05</span>레이어링 확장 기반의 착용 범위 확대</h4>
+        <ul>
+          <li>슬림 핏에서 레귤러 핏으로 확장해 과하지 않은 여유 확보, 다양한 이너와의 레이어링 대응</li>
+          <li>간절기부터 한겨울까지 폭넓게 대응 가능한 활용성 중심 구조 적용</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">06</span>울트라 1000 SUL 시리즈 세분화</h4>
+        <ul>
+          <li>동일 1000FP 기반 제품군 내 충전량·핏 밸런스를 차별화해 라인업 구축</li>
+          <li>초경량 중심 SUL 포지션과 실사용 보온 중심 포지션을 구분해 제품 방향성 고도화</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>제품 기획 목적 — 제로인 옥타 하이브리드 쉘 후드</h2>
+    <div class="planning amber">
+      <div class="item">
+        <h4><span class="num">01</span>OCTA® 기반 브랜드 아이덴티티 확립</h4>
+        <ul>
+          <li>핵심 기능성 소재인 OCTA®를 전략적으로 고도화해 브랜드 정체성 구축</li>
+          <li>단순 소재 적용이 아닌 OCTA® 기반 퍼포먼스 레이어 시스템을 구축하는 브랜드로 포지셔닝 강화</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">02</span>제로인 시리즈를 통한 소재 기반 제품 라인 체계화</h4>
+        <ul>
+          <li>단일 제품 중심 구조에서 벗어나 OCTA® 기반 통합 라인 ZeroIn 시리즈로 재정의</li>
+          <li>시즌 대응형 제품이 아닌 상시 확장 가능한 기능성 플랫폼 라인으로 포지션 전환</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">03</span>활동 환경 대응 중심의 액티브 하이브리드 쉘 설계</h4>
+        <ul>
+          <li>보온뿐 아니라 활동 중 체온 변화와 습도까지 함께 대응하도록 설계된 액티브 하이브리드 쉘</li>
+          <li>트레킹·하이킹·러닝·여행 이동 등 활동량이 높은 환경에서도 안정적인 체온 밸런스 유지가 목표</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">04</span>체온 및 습도 밸런스를 고려한 상체 레이어 시스템 구축</h4>
+        <ul>
+          <li>OCTA® 기반 통기 구조와 배색 구조를 결합해 상체 내부 열기·습도 제어 가능하도록 설계</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">05</span>실사용 환경 중심 디테일 개선</h4>
+        <ul>
+          <li>썸홀 삭제, 메쉬 포켓 안감 적용, 경량 지퍼 풀러 적용 등 실사용 기준의 불필요 요소 정리</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">06</span>어반사이드 액티브 쉘 포지션 확장</h4>
+        <ul>
+          <li>단순 경량 바람막이가 아닌, 체온 컨트롤과 활동성을 함께 고려한 액티브 하이브리드 쉘 레이어 방향 구축</li>
+          <li>도심과 아웃도어를 모두 대응하는 범용성 기반 제품으로 기획</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="caution">
+      <h3>촬영 시 유의사항</h3>
+      <p>스펙 비교 멘트에서 <strong>타 브랜드명은 직접 언급하지 말아주세요.</strong> "동급 제품 대비", "일반 소재 대비"처럼 수치와 포지션으로만 비교해 주시면 됩니다.</p>
+      <p class="example">
+        <span class="no">"○○ 브랜드는 열을 가두기만 하는데 저희는 조절해요"</span> (X) &nbsp;→&nbsp;
+        <span class="yes">"일반 소재는 열을 가두는 방식인데, 저희는 열을 조절하는 방식이에요"</span> (O)
+      </p>
+      <p>에일러론 울트라 1000 SUL 다운은 <strong>폴란드 퓨어화이트 마더구스 다운 소재와 95:5 비율</strong>을 강조해서 언급해 주세요.</p>
+      <p>두 제품 모두 <strong>"완전 신상"이 아니라 "돌아온 완판템"</strong>이라는 톤을 유지해 주세요. "작년에 부족했던 부분을 이렇게 고쳤다"는 서사가 가장 설득력 있습니다.</p>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  어반사이드 26FW 콘텐츠 촬영 가이드 · 문의 사항은 담당자에게 확인해 주세요.
+</footer>
+
+</body>
+</html>
