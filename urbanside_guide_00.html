@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>어반사이드 촬영 가이드 · 디나쑈</title>
+<style>
+  @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css');
+
+  :root{
+    --bg: #ffffff;
+    --bg-raised: #f4f4f2;
+    --line: rgba(20,24,27,0.12);
+    --line-soft: rgba(20,24,27,0.07);
+    --ink: #14181b;
+    --ink-dim: #6c7472;
+    --ice: #21708f;
+    --ice-dim: #d7e6ec;
+    --amber: #a86a1c;
+    --amber-dim: #e7c896;
+  }
+
+  *{ box-sizing:border-box; }
+
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height:1.6;
+    padding:0 0 80px;
+  }
+
+  .wrap{
+    max-width:880px;
+    margin:0 auto;
+    padding:56px 28px 0;
+  }
+
+  header{
+    margin-bottom:56px;
+  }
+
+  .kicker{
+    color:var(--ink-dim);
+    font-size:14px;
+    margin:0 0 14px;
+  }
+
+  h1{
+    font-family:'Pretendard', sans-serif;
+    font-weight:600;
+    font-size:clamp(32px, 5vw, 46px);
+    line-height:1.15;
+    margin:0 0 18px;
+    max-width:16ch;
+  }
+
+  .lead{
+    color:var(--ink-dim);
+    font-size:16px;
+    max-width:56ch;
+    margin:0;
+  }
+
+  .lead strong{ color:var(--ink); font-weight:600; }
+
+  section{ margin-bottom:64px; }
+
+  h2{
+    font-family:'Pretendard', sans-serif;
+    font-weight:600;
+    font-size:24px;
+    margin:0 0 24px;
+    padding-bottom:16px;
+    border-bottom:1px solid var(--line);
+  }
+
+  /* Spec comparison table */
+  .spec-table{
+    display:grid;
+    grid-template-columns: 1.1fr 1fr 1fr;
+    border:1px solid var(--line);
+    border-radius:4px;
+    overflow:hidden;
+    font-size:14.5px;
+  }
+  .spec-table > div{
+    padding:14px 16px;
+    border-bottom:1px solid var(--line-soft);
+  }
+  .spec-table > div:nth-child(3n+1){
+    color:var(--ink-dim);
+    background:var(--bg-raised);
+  }
+  .spec-table .col-a{ border-left:2px solid var(--ice); }
+  .spec-table .col-b{ border-left:2px solid var(--amber); }
+  .spec-table .product-name{
+    font-weight:600;
+    font-size:15px;
+    padding-top:18px;
+    padding-bottom:18px;
+  }
+  .spec-table .col-a.product-name{ color:var(--ice); }
+  .spec-table .col-b.product-name{ color:var(--amber); }
+
+  @media (max-width:640px){
+    .spec-table{ grid-template-columns: 1fr; }
+    .spec-table > div:nth-child(3n+1){
+      border-top:1px solid var(--line);
+      margin-top:8px;
+    }
+    .spec-table > div{ border-left:none !important; }
+  }
+
+  a{ color:inherit; text-decoration:underline; text-underline-offset:2px; }
+  a:hover{ opacity:0.75; }
+
+  /* Hook cards */
+  .hooks{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:28px;
+  }
+  @media (max-width:680px){ .hooks{ grid-template-columns:1fr; } }
+
+  .hook-card{
+    background:var(--bg-raised);
+    border-radius:6px;
+    padding:26px 24px;
+    border-top:3px solid var(--ice);
+  }
+  .hook-card.amber{ border-top-color:var(--amber); }
+
+  .hook-card .product-tag{
+    font-size:13px;
+    color:var(--ice);
+    margin:0 0 4px;
+    font-weight:600;
+  }
+  .hook-card.amber .product-tag{ color:var(--amber); }
+
+  .hook-card .position{
+    color:var(--ink-dim);
+    font-size:13.5px;
+    margin:0 0 20px;
+  }
+
+  .hook-card ul{
+    margin:0;
+    padding:0;
+    list-style:none;
+  }
+  .hook-card li{
+    padding:14px 0;
+    border-top:1px solid var(--line-soft);
+    font-size:14.5px;
+  }
+  .hook-card li:first-child{ border-top:none; padding-top:0; }
+
+  .hook-line{
+    display:block;
+    font-weight:600;
+    margin-bottom:6px;
+    color:var(--ink);
+  }
+  .hook-desc{ color:var(--ink-dim); font-size:13.5px; }
+
+  /* improvement list (season over season) */
+  .improvements .item{
+    padding:20px 0;
+    border-top:1px solid var(--line-soft);
+  }
+  .improvements .item:first-child{ border-top:none; padding-top:0; }
+  .improvements .num{
+    font-family:'Pretendard', sans-serif;
+    font-weight:700;
+    color:var(--ice);
+    font-size:14px;
+    margin-right:6px;
+  }
+  .improvements h4{
+    display:inline;
+    font-size:15.5px;
+    font-weight:600;
+    margin:0;
+  }
+  .improvements ul{
+    margin:10px 0 0;
+    padding-left:20px;
+  }
+  .improvements li{
+    font-size:14px;
+    color:var(--ink-dim);
+    margin-bottom:6px;
+  }
+  .improvements li:last-child{ margin-bottom:0; }
+
+  /* planning background */
+  .planning{
+    background:var(--bg-raised);
+    border-radius:6px;
+    padding:26px 26px 8px;
+  }
+  .planning .item{
+    padding-bottom:22px;
+  }
+  .planning .num{
+    font-family:'Pretendard', sans-serif;
+    font-weight:700;
+    color:var(--amber);
+    font-size:14px;
+    margin-right:6px;
+  }
+  .planning h4{
+    display:inline;
+    font-size:15.5px;
+    font-weight:600;
+    margin:0;
+  }
+  .planning ul{
+    margin:10px 0 0;
+    padding-left:20px;
+  }
+  .planning li{
+    font-size:14px;
+    color:var(--ink-dim);
+    margin-bottom:6px;
+  }
+  .planning li:last-child{ margin-bottom:0; }
+
+  /* combo section */
+  .combo{
+    background:var(--bg-raised);
+    border-radius:6px;
+    padding:24px 26px;
+  }
+  .combo ul{ margin:0; padding-left:18px; }
+  .combo li{ margin-bottom:10px; font-size:14.5px; }
+  .combo li:last-child{ margin-bottom:0; }
+
+  /* caution / footer note */
+  .caution{
+    border:1px solid var(--amber-dim);
+    background:linear-gradient(180deg, rgba(168,106,28,0.06), rgba(168,106,28,0.015));
+    border-radius:6px;
+    padding:24px 26px;
+  }
+  .caution h3{
+    font-family:'Pretendard', sans-serif;
+    font-weight:600;
+    font-size:18px;
+    margin:0 0 12px;
+    color:var(--amber);
+  }
+  .caution p{
+    margin:0 0 10px;
+    font-size:14.5px;
+    color:var(--ink);
+  }
+  .caution p:last-child{ margin-bottom:0; }
+  .caution .example{
+    color:var(--ink-dim);
+    font-size:13.5px;
+  }
+  .caution .example .no{ color:#a83f3f; text-decoration:line-through; }
+  .caution .example .yes{ color:#337a3e; }
+
+  footer{
+    max-width:880px;
+    margin:0 auto;
+    padding:0 28px;
+    color:var(--ink-dim);
+    font-size:13px;
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header>
+    <p class="kicker">어반사이드 26FW · 촬영 가이드 — 디나쑈님</p>
+  </header>
+
+  <section>
+    <h2>스펙 비교</h2>
+    <div class="spec-table">
+      <div></div>
+      <div class="col-a product-name"><a href="https://urbanside.co.kr/product/detail.html?product_no=1694" target="_blank" rel="noopener">에일러론 울트라 1000 SUL 후드 다운 재킷</a></div>
+      <div class="col-b product-name"><a href="https://urbanside.co.kr/product/detail.html?product_no=1626" target="_blank" rel="noopener">써모코어 액티브 후드 재킷</a></div>
+
+      <div>가격</div>
+      <div class="col-a">₩579,000</div>
+      <div class="col-b">₩209,000</div>
+
+      <div>충전재</div>
+      <div class="col-a">1000FP · POLISH P/WHITE MOTHER GOOSE DOWN (95:5) · 125g</div>
+      <div class="col-b">PrimaLoft® ThermoPlume® Ball 270g</div>
+
+      <div>무게 (L)</div>
+      <div class="col-a">330g</div>
+      <div class="col-b">485g</div>
+
+      <div>원단</div>
+      <div class="col-a">TORAY AIRTASTIC® 10D 나일론</div>
+      <div class="col-b">국내생산 10D 나일론</div>
+
+      <div>핏</div>
+      <div class="col-a">세미오버</div>
+      <div class="col-b">세미오버</div>
+
+      <div>후드 구조</div>
+      <div class="col-a">3포인트 조절(좌·우·후면) + 히든 스트링</div>
+      <div class="col-b">전면 접밴드 + 후면 히든 스트링</div>
+
+      <div>체감 온도<br>(저활동 기준)</div>
+      <div class="col-a">약 −8°C ~ 3°C</div>
+      <div class="col-b">약 −5°C ~ 5°C</div>
+
+      <div>특수 구성</div>
+      <div class="col-a">일체형 패커블 백 + 리페어 키트</div>
+      <div class="col-b">부위별 하이브리드 충전 패널 (몸판·소매·후드 볼타입 / 측면 판타입)</div>
+
+      <div>사이즈</div>
+      <div class="col-a">S–XXL · 5 컬러</div>
+      <div class="col-b">S–XL · 2 컬러</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="hooks">
+
+      <div class="hook-card">
+        <p class="product-tag"><a href="https://urbanside.co.kr/product/detail.html?product_no=1694" target="_blank" rel="noopener">에일러론 울트라 1000 SUL 후드 다운 재킷</a></p>
+        <p class="position">하이엔드 한겨울 SUL 포지션</p>
+        <ul>
+          <li>
+            <span class="hook-line">"작년엔 한 달 만에 품절, 올해는 컬러 5종"</span>
+            <span class="hook-desc">전시즌 완판 이력은 신뢰도를 만드는 훅. 이번 시즌 블랙·실버·차콜·블루 블랙·블루 5색으로 확대된 점과 함께 언급하면 좋음.</span>
+          </li>
+          <li>
+            <span class="hook-line">"330g인데 영하 8도까지 버틴다"</span>
+            <span class="hook-desc">무게 대비 보온 범위가 가장 강력한 훅. 숫자를 그대로 자막으로 던지면 임팩트 있음.</span>
+          </li>
+          <li>
+            <span class="hook-line">"후드가 두상에 딱 붙는다"</span>
+            <span class="hook-desc">3포인트 조절(좌·우·뒷목)로 고개를 돌려도 후드가 흔들리지 않는 걸 실제로 보여주는 컷. 바람 부는 상황 연출 추천.</span>
+          </li>
+          <li>
+            <span class="hook-line">"동급 다운 대비 충전량 약 30% 더"</span>
+            <span class="hook-desc">가격 대비 충전량이 많다는 가성비 서사. 구체 브랜드명은 언급하지 않고 수치로만 비교.</span>
+          </li>
+          <li>
+            <span class="hook-line">어울리는 촬영 콘텍스트</span>
+            <span class="hook-desc">겨울 등산·한파 콘텐츠, 아우터 단독으로 한겨울을 버티는 그림.</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="hook-card amber">
+        <p class="product-tag"><a href="https://urbanside.co.kr/product/detail.html?product_no=1626" target="_blank" rel="noopener">써모코어 액티브 후드 재킷</a></p>
+        <p class="position">데일리 액티브 포지션</p>
+        <ul>
+          <li>
+            <span class="hook-line">"다운 아닌데 이만큼 풍성하다"</span>
+            <span class="hook-desc">볼타입 충전재라 로프트감이 다운 못지않음. 비 와도 관리 편한 게 차별점.</span>
+          </li>
+          <li>
+            <span class="hook-line">"몸통·팔은 볼, 옆구리는 판"</span>
+            <span class="hook-desc">부위별로 충전 방식이 다른 하이브리드 구조를 옷 안쪽 클로즈업으로 보여주면 반응 좋음.</span>
+          </li>
+          <li>
+            <span class="hook-line">"20만원대에 후드까지"</span>
+            <span class="hook-desc">동급 제품 대비 가격 메리트 강조. 역시 구체 브랜드명 없이 수치로만.</span>
+          </li>
+          <li>
+            <span class="hook-line">어울리는 촬영 콘텍스트</span>
+            <span class="hook-desc">일상 착용·데일리 룩 콘텐츠, 세미오버 핏과 후드로 캐주얼함 강조.</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <h2>전시즌(25FW) 대비 개선 포인트 — <a href="https://urbanside.co.kr/product/detail.html?product_no=1694" target="_blank" rel="noopener">에일러론 울트라 1000 SUL 후드 다운 재킷</a></h2>
+    <div class="improvements">
+      <div class="item">
+        <h4><span class="num">01</span>다운 충전량 업그레이드</h4>
+        <ul>
+          <li>L 사이즈 기준 112g → 125g으로 증량 (+13g)</li>
+          <li>단순 볼륨 증가가 아닌 체감 보온성과 로프트 안정성 중심으로 개선</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">02</span>핏 밸런스 개선</h4>
+        <ul>
+          <li>기존 슬림 세미오버 핏에서 여유 있는 세미오버 핏으로 구조 확장</li>
+          <li>플리스, 경량 다운 등 다양한 이너 레이어 착용이 가능하도록 활용 범위 개선</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">03</span>후드 스트링 구조 개선</h4>
+        <ul>
+          <li>외부 노출형 스트링 구조에서 내부 히든형 구조로 변경</li>
+          <li>스트링·스토퍼 노출 최소화로 외부 걸림 및 마모 감소</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">04</span>내부 수납 활용성 강화</h4>
+        <ul>
+          <li>내부 메쉬 오픈 포켓 추가 적용</li>
+          <li>외부 포켓 중심 구조에서 내부 수납 활용성까지 확장</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">05</span>패커블 구조 사용성 개선</h4>
+        <ul>
+          <li>분리형 보관 방식에서 제품 연결형 패커블 구조로 변경</li>
+          <li>휴대·보관 시 패커블 백 분실 가능성 감소</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>제품 기획 목적 — <a href="https://urbanside.co.kr/product/detail.html?product_no=1694" target="_blank" rel="noopener">에일러론 울트라 1000 SUL 후드 다운 재킷</a></h2>
+    <div class="planning">
+      <div class="item">
+        <h4><span class="num">01</span>최고 스펙 다운 소재의 기능 극대화</h4>
+        <ul>
+          <li>수급이 제한적인 하이엔드 스펙인 1000FP 폴란드 퓨어화이트 마더구스 다운을 적용해 동일 중량 대비 최대 수준의 로프트(복원력)와 경량성, 보온 효율을 목표로 설계</li>
+          <li>단순 고스펙 적용이 아닌 실제 착용 환경에서 체감 가능한 보온 효율 구현이 목표</li>
+          <li>초경량성과 고효율 보온 성능의 밸런스를 고려한 퍼포먼스 SUL 다운 방향 구축</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">02</span>동급 제품 대비 실질적 우위 확보</h4>
+        <ul>
+          <li>동급 1000FP 제품 대비 높은 충전량 적용 (L 사이즈 기준 125g)</li>
+          <li>스펙이 아닌 실제 체감 보온성 기준에서 경쟁력 확보</li>
+          <li>가격 접근성을 고려한 포지셔닝으로 프리미엄 성능 대비 진입 장벽 완화</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">03</span>기존 울트라 1000 SUL 시리즈의 실사용 한계 보완</h4>
+        <ul>
+          <li>기존 시리즈는 경량성·휴대성은 우수하나 충전량·구조적 한계로 실제 겨울 환경에서 보온성이 부족한 영역 존재</li>
+          <li>1000FP 고효율 다운에 충전량을 112g → 125g으로 증가시켜 경량성을 유지하면서도 실사용 가능한 보온 성능 확보</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">04</span>경량성과 보온성의 밸런스 재정의</h4>
+        <ul>
+          <li>10D 초경량 원단과 스티치 스루 구조를 유지하면서도 충전량·핏 구조를 조정해 체감 보온성 향상</li>
+          <li>단순 초경량 다운이 아닌 "실제 겨울에 입을 수 있는 경량 다운"으로 리포지셔닝</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">05</span>레이어링 기반 활용 범위 확장</h4>
+        <ul>
+          <li>슬림 세미오버 핏에서 세미오버 핏으로 구조 확장, 플리스·경량 다운 등 다양한 이너 레이어 착용 가능</li>
+          <li>간절기부터 한겨울까지 폭넓게 대응 가능한 활용성 중심 구조 적용</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">06</span>울트라 1000 SUL 시리즈 세분화</h4>
+        <ul>
+          <li>동일 1000FP 기반 제품군 내 충전량·핏 밸런스를 차별화해 라인업 구축</li>
+          <li>초경량 중심 SUL 포지션과 실사용 보온 중심 포지션을 구분해 제품 방향성 고도화</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>제품 기획 목적 — <a href="https://urbanside.co.kr/product/detail.html?product_no=1626" target="_blank" rel="noopener">써모코어 액티브 후드 재킷</a></h2>
+    <div class="planning">
+      <div class="item">
+        <h4><span class="num">01</span>일상과 액티브 환경을 모두 커버하는 경량 패딩 카테고리 구축</h4>
+        <ul>
+          <li>기존 다운 중심 아우터와 달리, 일상 착용과 가벼운 아웃도어 활동까지 대응 가능한 경량 인슐레이션 패딩으로 기획</li>
+          <li>PrimaLoft® ThermoPlume® Ball Type 충전재로 가벼운 무게 대비 안정적인 보온성 확보</li>
+          <li>정적인 아우터가 아닌 이동성 중심의 일상/아웃도어 착용 환경을 모두 커버하는 구조</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">02</span>데일리 아웃도어 및 캐주얼 시장 대응 포지션 확보</h4>
+        <ul>
+          <li>기능성 아우터와 캐주얼 패딩의 경계 영역을 커버하는 데일리 퍼포먼스 카테고리 확보</li>
+          <li>아웃도어 전용이 아닌 일상~아웃도어 확장형 기능성 패딩 포지션</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">03</span>다운 대비 관리 리스크 최소화 구조</h4>
+        <ul>
+          <li>다운 대비 습기 및 세탁 환경에서의 안정성 확보</li>
+          <li>볼 타입 충전재 적용으로 형태 유지력 및 복원력 강화</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">04</span>가격 포지셔닝 기반 대중 접근성 확보</h4>
+        <ul>
+          <li>209,000원 가격 포지션 기반으로 진입 장벽 최소화</li>
+          <li>하이엔드 라인이 아닌, 첫 기능성 아우터 구매층까지 확장 가능한 구조</li>
+          <li>기능성, 캐주얼, 가격 접근성을 동시에 확보한 엔트리 퍼포먼스 라인 구축</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">05</span>충전재 및 원단 구조 기반 성능 안정성 강화</h4>
+        <ul>
+          <li>동급 합성 충전재 대비 PrimaLoft® ThermoPlume® 은 습윤 환경 및 장시간 착용 안정성 측면에서 구조적 우위 확보</li>
+          <li>동급 제품의 7D 원단 대비 10D 나일론 적용으로 인열 강도 및 실사용 내구성 개선</li>
+          <li>경량성은 유지하면서도 장기 착용 시 성능 유지력 확보</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">06</span>가격 포지셔닝 기반 시장 확장 전략</h4>
+        <ul>
+          <li>동일 카테고리 대비 더 낮은 가격 포지션으로 진입 장벽 최소화</li>
+          <li>기능성 인슐레이션 시장 내 하이엔드 브랜드 대비 접근 가능한 퍼포먼스 아우터 포지션 확보</li>
+          <li>브랜드 프리미엄 경쟁이 아닌 성능 대비 가성비 구조</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="caution">
+      <h3>촬영 시 유의사항</h3>
+      <p>스펙 비교 멘트에서 <strong>타 브랜드명은 직접 언급하지 말아주세요.</strong> "동급 제품 대비", "비슷한 가격대 제품과 비교했을 때"처럼 수치와 포지션으로만 비교해 주시면 됩니다.</p>
+      <p class="example">
+        <span class="no">"○○ 브랜드보다 충전량이 30% 많아요"</span> (X) &nbsp;→&nbsp;
+        <span class="yes">"동급 다운 제품 대비 충전량이 약 30% 더 많아요"</span> (O)
+      </p>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  어반사이드 26FW 콘텐츠 촬영 가이드 · 문의 사항은 담당자에게 확인해 주세요.
+</footer>
+
+</body>
+</html>
