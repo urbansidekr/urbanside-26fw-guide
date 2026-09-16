@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>어반사이드 촬영 가이드 · 에일러론 후드 다운 × 제로인 옥타 에어 후디</title>
+<style>
+  @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css');
+
+  :root{
+    --bg: #ffffff;
+    --bg-raised: #f4f4f2;
+    --line: rgba(20,24,27,0.12);
+    --line-soft: rgba(20,24,27,0.07);
+    --ink: #14181b;
+    --ink-dim: #6c7472;
+    --ice: #21708f;
+    --ice-dim: #d7e6ec;
+    --amber: #a86a1c;
+    --amber-dim: #e7c896;
+  }
+
+  *{ box-sizing:border-box; }
+
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height:1.6;
+    padding:0 0 80px;
+  }
+
+  a{ color:inherit; text-decoration:underline; text-underline-offset:2px; }
+  a:hover{ opacity:0.75; }
+
+  .wrap{
+    max-width:880px;
+    margin:0 auto;
+    padding:56px 28px 0;
+  }
+
+  header{ margin-bottom:28px; }
+
+  .kicker{
+    color:var(--ink-dim);
+    font-size:14px;
+    margin:0;
+  }
+
+  .banner{
+    background:var(--bg-raised);
+    border-left:3px solid var(--ink);
+    border-radius:4px;
+    padding:20px 22px;
+    margin-bottom:56px;
+    font-size:14.5px;
+  }
+  .banner strong{ font-weight:600; }
+  .banner p{ margin:0 0 8px; }
+  .banner p:last-child{ margin-bottom:0; }
+
+  section{ margin-bottom:64px; }
+
+  h2{
+    font-family:'Pretendard', sans-serif;
+    font-weight:600;
+    font-size:24px;
+    margin:0 0 24px;
+    padding-bottom:16px;
+    border-bottom:1px solid var(--line);
+  }
+
+  /* Spec comparison table */
+  .spec-table{
+    display:grid;
+    grid-template-columns: 1.1fr 1fr 1fr;
+    border:1px solid var(--line);
+    border-radius:4px;
+    overflow:hidden;
+    font-size:14.5px;
+  }
+  .spec-table > div{
+    padding:14px 16px;
+    border-bottom:1px solid var(--line-soft);
+  }
+  .spec-table > div:nth-child(3n+1){
+    color:var(--ink-dim);
+    background:var(--bg-raised);
+  }
+  .spec-table .col-a{ border-left:2px solid var(--ice); }
+  .spec-table .col-b{ border-left:2px solid var(--amber); }
+  .spec-table .product-name{
+    font-weight:600;
+    font-size:15px;
+    padding-top:18px;
+    padding-bottom:18px;
+  }
+  .spec-table .col-a.product-name{ color:var(--ice); }
+  .spec-table .col-b.product-name{ color:var(--amber); }
+
+  @media (max-width:640px){
+    .spec-table{ grid-template-columns: 1fr; }
+    .spec-table > div:nth-child(3n+1){
+      border-top:1px solid var(--line);
+      margin-top:8px;
+    }
+    .spec-table > div{ border-left:none !important; }
+  }
+
+  /* Hook cards */
+  .hooks{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:28px;
+  }
+  @media (max-width:680px){ .hooks{ grid-template-columns:1fr; } }
+
+  .hook-card{
+    background:var(--bg-raised);
+    border-radius:6px;
+    padding:26px 24px;
+    border-top:3px solid var(--ice);
+  }
+  .hook-card.amber{ border-top-color:var(--amber); }
+
+  .hook-card .product-tag{
+    font-size:13px;
+    color:var(--ice);
+    margin:0 0 4px;
+    font-weight:600;
+  }
+  .hook-card.amber .product-tag{ color:var(--amber); }
+
+  .hook-card .position{
+    color:var(--ink-dim);
+    font-size:13.5px;
+    margin:0 0 20px;
+  }
+
+  .hook-card ul{ margin:0; padding:0; list-style:none; }
+  .hook-card li{
+    padding:14px 0;
+    border-top:1px solid var(--line-soft);
+    font-size:14.5px;
+  }
+  .hook-card li:first-child{ border-top:none; padding-top:0; }
+
+  .hook-line{
+    display:block;
+    font-weight:600;
+    margin-bottom:6px;
+    color:var(--ink);
+  }
+  .hook-desc{ color:var(--ink-dim); font-size:13.5px; }
+
+  /* design points / improvement / planning list */
+  .list-block .item{
+    padding:20px 0;
+    border-top:1px solid var(--line-soft);
+  }
+  .list-block .item:first-child{ border-top:none; padding-top:0; }
+  .list-block .num{
+    font-family:'Pretendard', sans-serif;
+    font-weight:700;
+    font-size:14px;
+    margin-right:6px;
+  }
+  .list-block.ice .num{ color:var(--ice); }
+  .list-block.amber .num{ color:var(--amber); }
+  .list-block h4{
+    display:inline;
+    font-size:15.5px;
+    font-weight:600;
+    margin:0;
+  }
+  .list-block ul{ margin:10px 0 0; padding-left:20px; }
+  .list-block li{ font-size:14px; color:var(--ink-dim); margin-bottom:6px; }
+  .list-block li:last-child{ margin-bottom:0; }
+
+  .planning-block{
+    background:var(--bg-raised);
+    border-radius:6px;
+    padding:26px 26px 8px;
+  }
+  .planning-block .item{ padding-bottom:22px; border-top:none; }
+
+  /* caution */
+  .caution{
+    border:1px solid var(--amber-dim);
+    background:linear-gradient(180deg, rgba(168,106,28,0.06), rgba(168,106,28,0.015));
+    border-radius:6px;
+    padding:24px 26px;
+  }
+  .caution h3{
+    font-family:'Pretendard', sans-serif;
+    font-weight:600;
+    font-size:18px;
+    margin:0 0 12px;
+    color:var(--amber);
+  }
+  .caution p{ margin:0 0 10px; font-size:14.5px; color:var(--ink); }
+  .caution p:last-child{ margin-bottom:0; }
+  .caution .example{ color:var(--ink-dim); font-size:13.5px; }
+  .caution .example .no{ color:#a83f3f; text-decoration:line-through; }
+  .caution .example .yes{ color:#337a3e; }
+
+  footer{
+    max-width:880px;
+    margin:0 auto;
+    padding:0 28px;
+    color:var(--ink-dim);
+    font-size:13px;
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header>
+    <p class="kicker">어반사이드 26FW · 촬영 가이드</p>
+  </header>
+
+  <div class="banner">
+    <p><strong>에일러론 울트라 1000 SUL 후드 다운 재킷</strong>은 작년에 완판되었던 제품으로, 전시즌 대비 보완된 <strong>캐리오버 모델</strong>이고, <strong>제로인 옥타 에어 후디</strong>는 작년에 품절되었던 시리즈에서 확장된 새로운 미드레이어 제품입니다.</p>
+  </div>
+
+  <section>
+    <h2>스펙 비교</h2>
+    <div class="spec-table">
+      <div></div>
+      <div class="col-a product-name">에일러론 울트라 1000 SUL 후드 다운</div>
+      <div class="col-b product-name">제로인 옥타 에어 후디</div>
+
+      <div>가격</div>
+      <div class="col-a">₩579,000</div>
+      <div class="col-b">₩179,000</div>
+
+      <div>핵심 소재</div>
+      <div class="col-a">1000FP · POLISH P/WHITE MOTHER GOOSE DOWN (95:5) · 125g</div>
+      <div class="col-b">OCTA® · 폴리에스터 100%</div>
+
+      <div>무게</div>
+      <div class="col-a">330g (L 사이즈 기준)</div>
+      <div class="col-b">219g (L 사이즈 기준)</div>
+
+      <div>원단</div>
+      <div class="col-a">TORAY AIRTASTIC® 10D 나일론</div>
+      <div class="col-b">OCTA® (겉감 폴리에스터 100%)</div>
+
+      <div>핏</div>
+      <div class="col-a">세미오버 (전시즌 슬림 세미오버에서 확장)</div>
+      <div class="col-b">세미오버</div>
+
+      <div>후드</div>
+      <div class="col-a">3포인트 조절 시스템 + 히든 후드 스트링</div>
+      <div class="col-b">바라클라바형 후드 (얼굴·목 일체형)</div>
+
+      <div>체감 온도<br>(저활동 기준)</div>
+      <div class="col-a">약 −8°C ~ 3°C</div>
+      <div class="col-b">약 −5°C ~ 5°C</div>
+
+      <div>색상 · 사이즈</div>
+      <div class="col-a">Black, Silver, Charcoal, Blue Black, Blue · S–XXL</div>
+      <div class="col-b">Black, Brown, Light Gray, Camel · S–XL</div>
+
+      <div>제조국</div>
+      <div class="col-a">베트남</div>
+      <div class="col-b">중국</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="hooks">
+
+      <div class="hook-card">
+        <p class="product-tag">에일러론 울트라 1000 SUL 후드 다운</p>
+        <p class="position">전시즌 대비 보완된 최상위 SUL 다운</p>
+        <ul>
+          <li>
+            <span class="hook-line">"충전량 112g → 125g, 더 든든해졌다"</span>
+            <span class="hook-desc">전시즌 대비 +13g 증량. 손으로 눌러서 로프트 차이를 보여주는 컷 추천.</span>
+          </li>
+          <li>
+            <span class="hook-line">"후드 스트링, 밖으로 안 나온다"</span>
+            <span class="hook-desc">외부 노출형에서 내부 히든형 구조로 변경. 후드 외관이 깔끔해진 걸 클로즈업으로 보여주면 좋음.</span>
+          </li>
+          <li>
+            <span class="hook-line">"후드 3포인트로 고정, 고개 돌려도 안 흔들린다"</span>
+            <span class="hook-desc">좌·우·후면 3점 조절 시스템. 바람 부는 상황에서 후드가 두상에 밀착되는 걸 실제로 보여주는 컷.</span>
+          </li>
+          <li>
+            <span class="hook-line">"컬러도 5가지로 늘었다"</span>
+            <span class="hook-desc">Black, Silver, Charcoal, Blue Black, Blue. 컬러 라인업을 나열하는 컷으로 선택지를 강조하면 좋음.</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="hook-card amber">
+        <p class="product-tag">제로인 옥타 에어 후디</p>
+        <p class="position">옥타 레이어링 시스템을 확장하는 신규 액티브 미드레이어</p>
+        <ul>
+          <li>
+            <span class="hook-line">"후드가 아니라 목까지 감싸는 바라클라바"</span>
+            <span class="hook-desc">일반 후드가 아니라 얼굴·목 라인이 이어지는 바라클라바형 구조. 후드를 뒤집어써서 목까지 감싸지는 걸 보여주는 컷이 핵심.</span>
+          </li>
+          <li>
+            <span class="hook-line">"219g, 미드레이어인데 이렇게 가볍다"</span>
+            <span class="hook-desc">에일러론 안에 겹쳐 입어도 부담 없는 무게. 다운 재킷 안에 레이어링하는 장면과 잘 어울림.</span>
+          </li>
+          <li>
+            <span class="hook-line">"옆선이 하나로 이어져 있다"</span>
+            <span class="hook-desc">소매 하단부터 밑단까지 이어지는 사이드 일체형 패널 구조. 팔 벌리는 동작으로 당김이 없다는 걸 보여주면 좋음.</span>
+          </li>
+          <li>
+            <span class="hook-line">"지퍼도, 스트링도 뺐다"</span>
+            <span class="hook-desc">핸드 포켓 지퍼와 밑단 스트링을 없애고 접밴드로 정리한 경량 미니멀 구조.</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="banner" style="border-left-color:var(--ice); margin-bottom:0;">
+      <p><strong>레이어링 포인트:</strong> 에일러론(330g)과 제로인 옥타 에어 후디(219g)를 같이 입어도 합쳐서 <strong>500그램대</strong>입니다. 두 벌을 겹쳐 입는 컷으로 "이만큼 껴입어도 가볍다"는 걸 보여주면 좋습니다.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>디자인 포인트 — 에일러론 울트라 1000 SUL 후드 다운</h2>
+    <div class="list-block ice">
+      <div class="item">
+        <h4><span class="num">01</span>세미오버 핏 확장</h4>
+        <ul>
+          <li>기존 슬림 세미오버 핏에서 여유 있는 세미오버 핏으로 개선</li>
+          <li>충전량 증가에 따른 자연스러운 볼륨감 형성, 일상·여행·아웃도어 활용도 확대</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">02</span>볼륨감 있는 프리미엄 다운 외관</h4>
+        <ul>
+          <li>충전량 증가(112g → 125g)에 따라 보다 풍성한 로프트 형성</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">03</span>히든 후드 스트링 구조 적용</h4>
+        <ul>
+          <li>외부 노출형 스트링에서 내부 히든형 구조로 개선</li>
+          <li>스토퍼·스트링 노출 최소화로 미니멀하고 정돈된 외관 구현</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">04</span>내부 메쉬 오픈 포켓 적용</h4>
+        <ul>
+          <li>실사용 수납 편의성 향상, 테크니컬 아웃도어 무드 강화</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">05</span>제품 일체형 패커블 백 적용</h4>
+        <ul>
+          <li>패커블 백을 제품과 연결되는 일체형 구조로 적용, 필요 시 분리 가능</li>
+          <li>별도 파우치 분실 가능성을 줄이고 휴대 편의성 강화</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">06</span>밑단 스트링 적용</h4>
+        <ul>
+          <li>착용자 체형 및 스타일에 따라 핏 조절 가능</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">07</span>3포인트 후드 조절 시스템 적용</h4>
+        <ul>
+          <li>후드 좌측 + 우측 + 후면 3점 조절 구조 적용</li>
+          <li>후드 전체를 두상에 맞게 입체적으로 고정하는 안정형 후드 실루엣 구현</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">08</span>친가드(Chin Guard) 기모 안감 적용</h4>
+        <ul>
+          <li>지퍼 상단 턱 닿는 부분에 기모 안감을 적용해 부드러운 터치감 강화</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>디자인 포인트 — 제로인 옥타 에어 후디</h2>
+    <div class="list-block amber">
+      <div class="item">
+        <h4><span class="num">01</span>바라클라바형 후드 구조</h4>
+        <ul>
+          <li>후드와 넥 라인이 자연스럽게 연결되는 바라클라바형 구조 적용</li>
+          <li>저온 및 강풍 환경에서도 체온 유지와 착용 안정성을 동시에 고려</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">02</span>라글란 패턴과 사이드 일체형 패널 구조</h4>
+        <ul>
+          <li>라글란 슬리브로 어깨와 팔 움직임을 자연스럽게 따라오는 구조</li>
+          <li>언더암홀 부위 절개를 삭제해 활동 시 마찰과 당김 최소화</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">03</span>핸드 포켓·밑단 접밴드 적용 경량 미니멀 구조</h4>
+        <ul>
+          <li>핸드 포켓 지퍼와 밑단 스트링을 제거하고 접밴드를 적용해 무게와 디테일 최소화</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">04</span>썸홀 적용</h4>
+        <ul>
+          <li>소매 말림 및 들뜸을 줄여 활동 시 안정적인 착용감 유지</li>
+          <li>저온 환경에서 손등까지 자연스럽게 감싸 체감 보온성 향상</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">05</span>플랫 스티치 적용</h4>
+        <ul>
+          <li>봉제선이 외관적으로도 깔끔하게 정리, 피부 마찰·압박감 최소화</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">06</span>핸드 포켓 기모 안감 적용</h4>
+        <ul>
+          <li>저온 환경에서 손 보온성을 높이도록 설계</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>작년 대비 개선 포인트 — 에일러론 울트라 1000 SUL 후드 다운</h2>
+    <div class="list-block ice">
+      <div class="item">
+        <h4><span class="num">01</span>다운 충전량 업그레이드</h4>
+        <ul>
+          <li>L 사이즈 기준 112g → 125g으로 증량 (+13g)</li>
+          <li>단순 볼륨 증가가 아닌 체감 보온성과 로프트 안정성 중심으로 개선</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">02</span>핏 밸런스 개선</h4>
+        <ul>
+          <li>기존 슬림 세미오버 핏에서 여유 있는 세미오버 핏으로 구조 확장</li>
+          <li>플리스, 경량 다운 등 다양한 이너 레이어 착용이 가능하도록 활용 범위 개선</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">03</span>후드 스트링 구조 개선</h4>
+        <ul>
+          <li>외부 노출형 스트링 구조에서 내부 히든형 구조로 변경</li>
+          <li>스트링·스토퍼 노출을 최소화해 외부 걸림 및 마모 감소</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">04</span>내부 수납 활용성 강화</h4>
+        <ul>
+          <li>내부 메쉬 오픈 포켓 추가 적용</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">05</span>패커블 구조 사용성 개선</h4>
+        <ul>
+          <li>분리형 보관 방식에서 제품 연결형 패커블 구조로 변경</li>
+          <li>휴대·보관 시 패커블 백 분실 가능성 감소</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>제품 기획 목적 — 에일러론 울트라 1000 SUL 후드 다운</h2>
+    <div class="list-block ice planning-block">
+      <div class="item">
+        <h4><span class="num">01</span>최고 스펙 다운 소재의 기능 극대화</h4>
+        <ul>
+          <li>수급이 제한적인 1000FP 폴란드 퓨어화이트 마더구스 다운을 적용해 동일 중량 대비 최대 수준의 로프트와 경량성, 보온 효율을 목표로 설계</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">02</span>동급 제품 대비 실질적 우위 확보</h4>
+        <ul>
+          <li>동급 1000FP 제품 대비 높은 충전량 적용 (L 사이즈 기준 125g)</li>
+          <li>스펙이 아닌 실제 체감 보온성 기준에서 경쟁력 확보, 가격 접근성을 고려한 포지셔닝</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">03</span>기존 시리즈의 실사용 한계 보완</h4>
+        <ul>
+          <li>기존 시리즈는 경량성·휴대성은 우수하나 충전량·구조적 한계로 실제 겨울 환경에서 보온성이 부족한 영역 존재</li>
+          <li>충전량을 125g으로 증가시켜 경량성을 유지하면서도 실사용 가능한 보온 성능 확보</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">04</span>경량성과 보온성의 밸런스 재정의</h4>
+        <ul>
+          <li>10D 초경량 원단과 스티치 스루 구조를 유지하면서도 충전량·핏 구조를 조정해 체감 보온성 향상</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">05</span>레이어링 기반 활용 범위 확장</h4>
+        <ul>
+          <li>슬림 세미오버 핏에서 세미오버 핏으로 확장, 플리스·경량 다운 등 다양한 이너 레이어 착용 가능</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">06</span>울트라 1000 SUL 시리즈 세분화</h4>
+        <ul>
+          <li>동일 1000FP 기반 제품군 내 충전량·핏 밸런스를 차별화해 라인업 구축</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>제품 기획 목적 — 제로인 옥타 에어 후디</h2>
+    <div class="list-block amber planning-block">
+      <div class="item">
+        <h4><span class="num">01</span>OCTA® 기반 브랜드 아이덴티티 확립</h4>
+        <ul>
+          <li>핵심 기능성 소재인 OCTA®를 전략적으로 고도화해 브랜드 정체성 구축</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">02</span>제로인 시리즈를 통한 소재 기반 제품 라인 체계화</h4>
+        <ul>
+          <li>단일 제품 중심 구조에서 벗어나 OCTA® 기반 통합 라인 ZeroIn 시리즈로 재정의</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">03</span>어반사이드 옥타 레이어링 시스템 확장</h4>
+        <ul>
+          <li>기존 옥타 하이브리드 쉘 시리즈와 연결되는 액티브 미드레이어 포지션 구축</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">04</span>활동 환경 대응형 초경량 후디 개발</h4>
+        <ul>
+          <li>기존 플리스 후디의 과열·습도 축적 문제에 대응해 보온·통기·건조 성능을 동시에 확보하는 것이 목표</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">05</span>단독 착용과 레이어링을 모두 고려한 범용 액티브웨어 구축</h4>
+        <ul>
+          <li>과도한 스포츠 무드를 줄이고 도시 착용까지 가능한 밸런스 실루엣 적용</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">06</span>경량성과 장시간 착용 안정성 중심 제품군 강화</h4>
+        <ul>
+          <li>불필요한 디테일과 중량 요소를 최소화하고 경량성·활동성을 우선 고려한 구조 설계</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="caution">
+      <h3>촬영 시 유의사항</h3>
+      <p>스펙 비교 멘트에서 <strong>타 브랜드명은 직접 언급하지 말아주세요.</strong> "동급 제품 대비"처럼 수치와 포지션으로만 비교해 주시면 됩니다.</p>
+      <p class="example">
+        <span class="no">"○○ 브랜드보다 충전량이 30% 많아요"</span> (X) &nbsp;→&nbsp;
+        <span class="yes">"동급 제품 대비 충전량이 약 30% 더 많아요"</span> (O)
+      </p>
+      <p>에일러론은 <strong>"작년보다 좋아진 캐리오버"</strong>, 제로인 옥타 에어 후디는 <strong>"이번 시즌 새로 나온 신제품"</strong>이라는 톤을 각각 유지해 주세요. 두 제품의 서사를 서로 바꿔서 쓰지 않도록 주의해 주세요.</p>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  어반사이드 26FW 콘텐츠 촬영 가이드 · 문의 사항은 담당자에게 확인해 주세요.
+</footer>
+
+</body>
+</html>
