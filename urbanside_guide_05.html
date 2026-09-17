@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>어반사이드 촬영 가이드 · 에일러론 후드 다운 10D × 7D</title>
+<style>
+  @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css');
+
+  :root{
+    --bg: #ffffff;
+    --bg-raised: #f4f4f2;
+    --line: rgba(20,24,27,0.12);
+    --line-soft: rgba(20,24,27,0.07);
+    --ink: #14181b;
+    --ink-dim: #6c7472;
+    --ice: #21708f;
+    --amber: #a86a1c;
+    --amber-dim: #e7c896;
+  }
+
+  *{ box-sizing:border-box; }
+
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height:1.6;
+    padding:0 0 80px;
+  }
+
+  a{ color:inherit; text-decoration:underline; text-underline-offset:2px; }
+  a:hover{ opacity:0.75; }
+
+  .wrap{
+    max-width:880px;
+    margin:0 auto;
+    padding:56px 28px 0;
+  }
+
+  header{ margin-bottom:28px; }
+
+  .kicker{
+    color:var(--ink-dim);
+    font-size:14px;
+    margin:0;
+  }
+
+  .banner{
+    background:var(--bg-raised);
+    border-left:3px solid var(--ink);
+    border-radius:4px;
+    padding:20px 22px;
+    margin-bottom:56px;
+    font-size:14.5px;
+  }
+  .banner strong{ font-weight:600; }
+  .banner p{ margin:0 0 8px; }
+  .banner p:last-child{ margin-bottom:0; }
+
+  section{ margin-bottom:64px; }
+
+  h2{
+    font-family:'Pretendard', sans-serif;
+    font-weight:600;
+    font-size:24px;
+    margin:0 0 24px;
+    padding-bottom:16px;
+    border-bottom:1px solid var(--line);
+  }
+
+  /* Spec comparison table */
+  .spec-table{
+    display:grid;
+    grid-template-columns: 1.1fr 1fr 1fr;
+    border:1px solid var(--line);
+    border-radius:4px;
+    overflow:hidden;
+    font-size:14.5px;
+  }
+  .spec-table > div{
+    padding:14px 16px;
+    border-bottom:1px solid var(--line-soft);
+  }
+  .spec-table > div:nth-child(3n+1){
+    color:var(--ink-dim);
+    background:var(--bg-raised);
+  }
+  .spec-table .col-a{ border-left:2px solid var(--ice); }
+  .spec-table .col-b{ border-left:2px solid var(--amber); }
+  .spec-table .product-name{
+    font-weight:600;
+    font-size:15px;
+    padding-top:18px;
+    padding-bottom:18px;
+  }
+  .spec-table .col-a.product-name{ color:var(--ice); }
+  .spec-table .col-b.product-name{ color:var(--amber); }
+
+  @media (max-width:640px){
+    .spec-table{ grid-template-columns: 1fr; }
+    .spec-table > div:nth-child(3n+1){
+      border-top:1px solid var(--line);
+      margin-top:8px;
+    }
+    .spec-table > div{ border-left:none !important; }
+  }
+
+  /* Hook cards */
+  .hooks{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:28px;
+  }
+  @media (max-width:680px){ .hooks{ grid-template-columns:1fr; } }
+
+  .hook-card{
+    background:var(--bg-raised);
+    border-radius:6px;
+    padding:26px 24px;
+    border-top:3px solid var(--ice);
+  }
+  .hook-card.amber{ border-top-color:var(--amber); }
+
+  .hook-card .product-tag{
+    font-size:13px;
+    color:var(--ice);
+    margin:0 0 4px;
+    font-weight:600;
+  }
+  .hook-card.amber .product-tag{ color:var(--amber); }
+
+  .hook-card .position{
+    color:var(--ink-dim);
+    font-size:13.5px;
+    margin:0 0 20px;
+  }
+
+  .hook-card ul{ margin:0; padding:0; list-style:none; }
+  .hook-card li{
+    padding:14px 0;
+    border-top:1px solid var(--line-soft);
+    font-size:14.5px;
+  }
+  .hook-card li:first-child{ border-top:none; padding-top:0; }
+
+  .hook-line{
+    display:block;
+    font-weight:600;
+    margin-bottom:6px;
+    color:var(--ink);
+  }
+  .hook-desc{ color:var(--ink-dim); font-size:13.5px; }
+
+  /* design points / improvement / planning list */
+  .list-block .item{
+    padding:20px 0;
+    border-top:1px solid var(--line-soft);
+  }
+  .list-block .item:first-child{ border-top:none; padding-top:0; }
+  .list-block .num{
+    font-family:'Pretendard', sans-serif;
+    font-weight:700;
+    font-size:14px;
+    margin-right:6px;
+  }
+  .list-block.ice .num{ color:var(--ice); }
+  .list-block.amber .num{ color:var(--amber); }
+  .list-block h4{
+    display:inline;
+    font-size:15.5px;
+    font-weight:600;
+    margin:0;
+  }
+  .list-block ul{ margin:10px 0 0; padding-left:20px; }
+  .list-block li{ font-size:14px; color:var(--ink-dim); margin-bottom:6px; }
+  .list-block li:last-child{ margin-bottom:0; }
+
+  .planning-block{
+    background:var(--bg-raised);
+    border-radius:6px;
+    padding:26px 26px 8px;
+  }
+  .planning-block .item{ padding-bottom:22px; border-top:none; }
+
+  /* caution */
+  .caution{
+    border:1px solid var(--amber-dim);
+    background:linear-gradient(180deg, rgba(168,106,28,0.06), rgba(168,106,28,0.015));
+    border-radius:6px;
+    padding:24px 26px;
+  }
+  .caution h3{
+    font-family:'Pretendard', sans-serif;
+    font-weight:600;
+    font-size:18px;
+    margin:0 0 12px;
+    color:var(--amber);
+  }
+  .caution p{ margin:0 0 10px; font-size:14.5px; color:var(--ink); }
+  .caution p:last-child{ margin-bottom:0; }
+  .caution .example{ color:var(--ink-dim); font-size:13.5px; }
+  .caution .example .no{ color:#a83f3f; text-decoration:line-through; }
+  .caution .example .yes{ color:#337a3e; }
+
+  /* footer */
+  footer{
+    max-width:880px;
+    margin:0 auto;
+    padding:0 28px;
+    color:var(--ink-dim);
+    font-size:13px;
+  }
+
+  /* positioning hero (7D vs 10D design goals) */
+  .pos-hero{ margin-bottom:64px; }
+  .pos-hero .kicker-line{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    color:var(--ink-dim);
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:0.02em;
+    margin-bottom:14px;
+  }
+  .pos-hero .kicker-line::after{
+    content:"";
+    display:inline-block;
+    width:36px;
+    height:2px;
+    background:var(--ink);
+  }
+  .pos-hero h3{
+    font-family:'Pretendard', sans-serif;
+    font-weight:700;
+    font-size:clamp(26px, 4vw, 34px);
+    line-height:1.3;
+    margin:0 0 14px;
+  }
+  .pos-hero .sub{
+    color:var(--ink-dim);
+    font-size:15px;
+    margin:0 0 28px;
+  }
+  .pos-cards{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+  }
+  @media (max-width:680px){ .pos-cards{ grid-template-columns:1fr; } }
+  .pos-card{
+    border-radius:10px;
+    padding:28px 26px;
+    border:1px solid var(--line);
+  }
+  .pos-card.a{ background:#ffffff; }
+  .pos-card.b{ background:var(--ice-dim); border-color:transparent; }
+  .pos-card .tag{
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:0.02em;
+    color:var(--ink-dim);
+    margin:0 0 16px;
+  }
+  .pos-card h4{
+    font-family:'Pretendard', sans-serif;
+    font-weight:700;
+    font-size:20px;
+    margin:0 0 18px;
+    line-height:1.4;
+  }
+  .pos-card p{
+    font-size:13.5px;
+    color:var(--ink-dim);
+    margin:0 0 6px;
+    line-height:1.6;
+  }
+  .pos-card p:last-child{ margin-bottom:0; }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header>
+    <p class="kicker">어반사이드 26FW · 촬영 가이드 — 울트라 1000 SUL 후드 다운 라인업</p>
+  </header>
+
+  <div class="banner">
+    <p>같은 <strong>울트라 1000 SUL 후드 다운</strong> 라인 안에 있는 두 모델입니다. <strong>10D 후드 다운</strong>은 작년에 완판되었던 제품으로 전시즌 대비 보완된 캐리오버 모델이고, <strong>7D 후드 다운</strong>은 기존 80g·125g 모델 사이 공백을 메우는 이번 시즌 신규 코어 모델입니다.</p>
+    <p>같은 시리즈, 같은 후드 다운이지만 <strong>원단 두께·충전 방식이 다른 선택지</strong>라는 점을 중심으로 소개해 주시면 됩니다.</p>
+  </div>
+
+  <div class="pos-hero">
+    <p class="kicker-line">AILERON™ ULTRA 7D / 10D</p>
+    <h3>같은 1000FP,<br>다른 개발 목표.</h3>
+    <p class="sub">7D와 10D는 등급 차이가 아니라, 무엇을 우선했는지의 차이입니다.</p>
+    <div class="pos-cards">
+      <div class="pos-card a">
+        <p class="tag">7D · LIGHTWEIGHT / HYBRID</p>
+        <h4>기존 10D 다운보다 더 가볍게.</h4>
+        <p>TORAY AIRTASTIC® 7D + 1000FP Mother Goose Down 95g + PrimaLoft® Gold.</p>
+        <p>원단 단계부터 경량화하고, 습기 영향을 많이 받는 어깨·겨드랑이는 합성 인슐레이션으로 역할을 분담했습니다.</p>
+      </div>
+      <div class="pos-card b">
+        <p class="tag">10D · DOWN VOLUME / INSULATION</p>
+        <h4>다운 볼륨과 보온 비중을 더 크게.</h4>
+        <p>TORAY AIRTASTIC® 10D + 1000FP Mother Goose Down 125g.</p>
+        <p>하이브리드보다 다운 자체의 충전량과 볼륨을 확보하는 방향으로 설계했습니다.</p>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <h2>스펙 비교</h2>
+    <div class="spec-table">
+      <div></div>
+      <div class="col-a product-name">에일러론 울트라 1000 SUL 후드 다운 (10D)</div>
+      <div class="col-b product-name">에일러론 울트라 1000 SUL 7D 후드 다운</div>
+
+      <div>충전재</div>
+      <div class="col-a">1000FP · POLISH P/WHITE MOTHER GOOSE DOWN (95:5) · 125g</div>
+      <div class="col-b">1000FP · 다운 95g + PrimaLoft® Gold Insulation 하이브리드</div>
+
+      <div>무게</div>
+      <div class="col-a">330g (L 사이즈 기준)</div>
+      <div class="col-b">280g (L 사이즈 기준)</div>
+
+      <div>원단</div>
+      <div class="col-a">TORAY AIRTASTIC® 10D 나일론</div>
+      <div class="col-b">TORAY AIRTASTIC® 7D 나일론</div>
+
+      <div>핏</div>
+      <div class="col-a">세미오버</div>
+      <div class="col-b">세미오버</div>
+
+      <div>후드</div>
+      <div class="col-a">3포인트 조절 시스템 + 히든 후드 스트링</div>
+      <div class="col-b">접밴드 + 후면 조절 스트링</div>
+
+      <div>체감 온도<br>(저활동 기준)</div>
+      <div class="col-a">약 −8°C ~ 3°C</div>
+      <div class="col-b">약 −8°C ~ 3°C</div>
+
+      <div>색상 · 사이즈</div>
+      <div class="col-a">Black, Silver, Charcoal, Blue Black, Blue · S–XXL</div>
+      <div class="col-b">Black, Beige, Orange · S–XXL</div>
+
+      <div>포지션</div>
+      <div class="col-a">작년 대비 보완된 캐리오버</div>
+      <div class="col-b">80g~125g 사이 공백을 메우는 신규 모델</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="hooks">
+
+      <div class="hook-card">
+        <p class="product-tag">에일러론 울트라 1000 SUL 후드 다운 (10D)</p>
+        <p class="position">작년 완판작, 전시즌 대비 보완된 캐리오버</p>
+        <ul>
+          <li>
+            <span class="hook-line">"충전량 112g → 125g, 더 든든해졌다"</span>
+            <span class="hook-desc">전시즌 대비 +13g 증량. 손으로 눌러서 로프트 차이를 보여주는 컷 추천.</span>
+          </li>
+          <li>
+            <span class="hook-line">"후드 스트링, 밖으로 안 나온다"</span>
+            <span class="hook-desc">외부 노출형에서 내부 히든형 구조로 변경. 후드 외관이 깔끔해진 걸 클로즈업으로.</span>
+          </li>
+          <li>
+            <span class="hook-line">"후드 3포인트로 고정, 고개 돌려도 안 흔들린다"</span>
+            <span class="hook-desc">좌·우·후면 3점 조절 시스템. 바람 부는 상황에서 후드가 두상에 밀착되는 걸 보여주면 좋음.</span>
+          </li>
+          <li>
+            <span class="hook-line">"이 시리즈에서 제일 두꺼운 다운"</span>
+            <span class="hook-desc">125g은 라인업 내 최대 충전량. 한겨울 정면 대응이 필요할 때의 선택지라는 포지션 강조.</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="hook-card amber">
+        <p class="product-tag">에일러론 울트라 1000 SUL 7D 후드 다운</p>
+        <p class="position">80g·125g 사이 공백을 메우는 신규 코어 모델</p>
+        <ul>
+          <li>
+            <span class="hook-line">"80g과 125g 사이, 그 공백을 메우는 95g"</span>
+            <span class="hook-desc">라인업 전체를 나란히 두고 이 모델이 채우는 자리를 설명하면 좋음.</span>
+          </li>
+          <li>
+            <span class="hook-line">"다운에 프리마로프트를 더했다"</span>
+            <span class="hook-desc">언더암·어깨·후드 아대처럼 땀이 많이 나는 부위에만 PrimaLoft® Gold를 배치한 하이브리드 구조. 안감 클로즈업으로 패널 구분을 보여주면 좋음.</span>
+          </li>
+          <li>
+            <span class="hook-line">"7D, 이 라인에서 제일 얇은 원단"</span>
+            <span class="hook-desc">10D보다 더 얇고 가벼운 원단. 두 원단을 나란히 만져보는 질감 비교 컷 추천.</span>
+          </li>
+          <li>
+            <span class="hook-line">"후드가 스트링 없이도 얼굴을 감싼다"</span>
+            <span class="hook-desc">접밴드 구조라 별도 조임 없이 정돈된 후드 실루엣.</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <h2>디자인 포인트 — 에일러론 울트라 1000 SUL 후드 다운 (10D)</h2>
+    <div class="list-block ice">
+      <div class="item">
+        <h4><span class="num">01</span>세미오버 핏 확장</h4>
+        <ul>
+          <li>기존 슬림 세미오버 핏에서 여유 있는 세미오버 핏으로 개선</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">02</span>볼륨감 있는 프리미엄 다운 외관</h4>
+        <ul>
+          <li>충전량 증가(112g → 125g)에 따라 보다 풍성한 로프트 형성</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">03</span>히든 후드 스트링 구조 적용</h4>
+        <ul>
+          <li>외부 노출형 스트링에서 내부 히든형 구조로 개선</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">04</span>내부 메쉬 오픈 포켓 적용</h4>
+        <ul>
+          <li>실사용 수납 편의성 향상, 테크니컬 아웃도어 무드 강화</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">05</span>제품 일체형 패커블 백 적용</h4>
+        <ul>
+          <li>패커블 백을 제품과 연결되는 일체형 구조로 적용, 필요 시 분리 가능</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">06</span>밑단 스트링 적용</h4>
+        <ul>
+          <li>착용자 체형 및 스타일에 따라 핏 조절 가능</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">07</span>3포인트 후드 조절 시스템 적용</h4>
+        <ul>
+          <li>후드 좌측 + 우측 + 후면 3점 조절 구조로 안정형 후드 실루엣 구현</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">08</span>친가드(Chin Guard) 기모 안감 적용</h4>
+        <ul>
+          <li>지퍼 상단 턱 닿는 부분에 기모 안감을 적용해 부드러운 터치감 강화</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>디자인 포인트 — 에일러론 울트라 1000 SUL 7D 후드 다운</h2>
+    <div class="list-block amber">
+      <div class="item">
+        <h4><span class="num">01</span>프리미엄 SUL 볼륨 실루엣</h4>
+        <ul>
+          <li>95g 충전량 기반의 균형 잡힌 로프트 형성</li>
+          <li>초경량 제품 특유의 납작한 느낌을 줄이고 자연스러운 볼륨감 구현</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">02</span>하이브리드 패널 디자인</h4>
+        <ul>
+          <li>언더암, 어깨, 후드 아대 패널에 별도 충전 구간 구성</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">03</span>후드 접밴드 구조 적용</h4>
+        <ul>
+          <li>후드 개구부에 접밴드를 적용해 별도 스트링 조절 없이 얼굴 주변을 감싸는 구조</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">04</span>밑단 스트링 적용</h4>
+        <ul>
+          <li>착용자 체형 및 스타일에 따라 핏 조절 가능</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">05</span>내부 메쉬 오픈 포켓 적용</h4>
+        <ul>
+          <li>실사용 수납 편의성 향상, 테크니컬 아웃도어 무드 강화</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">06</span>제품 일체형 패커블 백 적용</h4>
+        <ul>
+          <li>패커블 백을 제품과 연결되는 일체형 구조로 적용, 필요 시 분리 가능</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">07</span>후드 후면 조절 스트링 시스템 적용</h4>
+        <ul>
+          <li>후드 후면에 조절 스트링을 적용해 입체적인 후드 실루엣 구현</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>작년 대비 개선 포인트 — 에일러론 울트라 1000 SUL 후드 다운 (10D)</h2>
+    <div class="list-block ice">
+      <div class="item">
+        <h4><span class="num">01</span>다운 충전량 업그레이드</h4>
+        <ul>
+          <li>L 사이즈 기준 112g → 125g으로 증량 (+13g)</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">02</span>핏 밸런스 개선</h4>
+        <ul>
+          <li>기존 슬림 세미오버 핏에서 여유 있는 세미오버 핏으로 구조 확장</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">03</span>후드 스트링 구조 개선</h4>
+        <ul>
+          <li>외부 노출형 스트링 구조에서 내부 히든형 구조로 변경</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">04</span>내부 수납 활용성 강화</h4>
+        <ul>
+          <li>내부 메쉬 오픈 포켓 추가 적용</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">05</span>패커블 구조 사용성 개선</h4>
+        <ul>
+          <li>분리형 보관 방식에서 제품 연결형 패커블 구조로 변경</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>제품 기획 목적 — 에일러론 울트라 1000 SUL 후드 다운 (10D)</h2>
+    <div class="list-block ice planning-block">
+      <div class="item">
+        <h4><span class="num">01</span>최고 스펙 다운 소재의 기능 극대화</h4>
+        <ul>
+          <li>수급이 제한적인 1000FP 폴란드 퓨어화이트 마더구스 다운을 적용해 최대 수준의 로프트와 경량성, 보온 효율을 목표로 설계</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">02</span>동급 제품 대비 실질적 우위 확보</h4>
+        <ul>
+          <li>동급 1000FP 제품 대비 높은 충전량 적용 (L 사이즈 기준 125g)</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">03</span>기존 시리즈의 실사용 한계 보완</h4>
+        <ul>
+          <li>충전량을 125g으로 증가시켜 경량성을 유지하면서도 실사용 가능한 보온 성능 확보</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">04</span>경량성과 보온성의 밸런스 재정의</h4>
+        <ul>
+          <li>10D 초경량 원단과 스티치 스루 구조를 유지하면서도 충전량·핏 구조를 조정해 체감 보온성 향상</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">05</span>레이어링 기반 활용 범위 확장</h4>
+        <ul>
+          <li>슬림 세미오버 핏에서 세미오버 핏으로 확장해 다양한 이너 레이어 착용 가능</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">06</span>울트라 1000 SUL 시리즈 세분화</h4>
+        <ul>
+          <li>동일 1000FP 기반 제품군 내 충전량·핏 밸런스를 차별화해 라인업 구축</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>제품 기획 목적 — 에일러론 울트라 1000 SUL 7D 후드 다운</h2>
+    <div class="list-block amber planning-block">
+      <div class="item">
+        <h4><span class="num">01</span>프리미엄 다운 기술력 및 브랜드 정체성 강화</h4>
+        <ul>
+          <li>7D 초경량 원단 + 1000FP 다운 + 합성 충전재 혼용 구조는 원가·생산 난이도·수급 면에서 진입 장벽이 높은 영역</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">02</span>울트라 1000 SUL 시리즈의 코어 모델 구축</h4>
+        <ul>
+          <li>80g과 125g 사이 공백 구간을 메우는 95g 충전량 모델로 라인업 완성도 강화</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">03</span>프리미엄 하이브리드 인슐레이션 설계</h4>
+        <ul>
+          <li>1000FP 다운에 PrimaLoft® Gold Insulation을 혼용 적용해 경량성·로프트와 습기 대응력·보온 안정성을 결합</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">04</span>초경량 소재 기반 보온 효율 극대화</h4>
+        <ul>
+          <li>7D 원단으로 원단 중량을 최소화하고 다운 로프트를 극대화</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">05</span>하이엔드 퍼포먼스 시장 대응</h4>
+        <ul>
+          <li>초경량·고스펙 제품 수요층을 타겟, 동일·유사 스펙 대비 가격 경쟁력으로 차별화된 포지셔닝 확보</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">06</span>어반사이드 FW 코어 라인 확장</h4>
+        <ul>
+          <li>울트라 1000 SUL 시리즈를 브랜드 아이덴티티를 전달하는 대표 제품군으로 강화</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="caution">
+      <h3>촬영 시 유의사항</h3>
+      <p>스펙 비교 멘트에서 <strong>타 브랜드명은 직접 언급하지 말아주세요.</strong> "동급 제품 대비"처럼 수치와 포지션으로만 비교해 주시면 됩니다.</p>
+      <p class="example">
+        <span class="no">"○○ 브랜드보다 충전량이 많아요"</span> (X) &nbsp;→&nbsp;
+        <span class="yes">"동급 제품 대비 충전량이 더 많아요"</span> (O)
+      </p>
+      <p>두 제품은 <strong>경쟁 관계가 아니라 같은 라인업의 선택지</strong>입니다. "10D는 최대 보온, 7D는 그 사이 균형"처럼 상호 보완적인 포지션으로 소개해 주세요.</p>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  어반사이드 26FW 콘텐츠 촬영 가이드 · 문의 사항은 담당자에게 확인해 주세요.
+</footer>
+
+</body>
+</html>
