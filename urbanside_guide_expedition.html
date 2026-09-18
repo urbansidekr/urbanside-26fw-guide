@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>에일러론 900 익스페디션 다운 파카 · 촬영 가이드</title>
+<style>
+  @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css');
+
+  :root{
+    --bg: #ffffff;
+    --bg-raised: #f4f4f2;
+    --line: rgba(20,24,27,0.12);
+    --line-soft: rgba(20,24,27,0.07);
+    --ink: #14181b;
+    --ink-dim: #6c7472;
+    --ice: #21708f;
+    --amber: #a86a1c;
+    --amber-dim: #e7c896;
+  }
+
+  *{ box-sizing:border-box; }
+
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height:1.6;
+    padding:0 0 80px;
+  }
+
+  .wrap{ max-width:820px; margin:0 auto; padding:56px 28px 0; }
+
+  header{ margin-bottom:28px; }
+  .kicker{ color:var(--ink-dim); font-size:14px; margin:0 0 10px; }
+
+  h1{
+    font-family:'Pretendard', sans-serif;
+    font-weight:700;
+    font-size:30px;
+    margin:0;
+    color:var(--ink);
+  }
+
+  .flag-badge{
+    display:inline-block;
+    margin-top:14px;
+    padding:6px 14px;
+    background:var(--ink);
+    color:#fff;
+    font-size:13px;
+    font-weight:600;
+    border-radius:20px;
+  }
+
+  .banner{
+    background:var(--bg-raised);
+    border-left:3px solid var(--ink);
+    border-radius:4px;
+    padding:20px 22px;
+    margin:24px 0 56px;
+    font-size:14.5px;
+  }
+  .banner strong{ font-weight:600; }
+  .banner p{ margin:0 0 8px; }
+  .banner p:last-child{ margin-bottom:0; }
+
+  section{ margin-bottom:56px; }
+
+  h2{
+    font-family:'Pretendard', sans-serif;
+    font-weight:600;
+    font-size:22px;
+    margin:0 0 22px;
+    padding-bottom:14px;
+    border-bottom:1px solid var(--line);
+  }
+
+  .spec-list{
+    display:grid;
+    grid-template-columns: 130px 1fr;
+    border:1px solid var(--line);
+    border-radius:4px;
+    overflow:hidden;
+    font-size:14.5px;
+  }
+  .spec-list > div{
+    padding:13px 16px;
+    border-bottom:1px solid var(--line-soft);
+  }
+  .spec-list > div:nth-child(2n+1){
+    color:var(--ink-dim);
+    background:var(--bg-raised);
+  }
+  .spec-list > div:nth-last-child(-n+2){ border-bottom:none; }
+
+  .hook-card{
+    background:var(--bg-raised);
+    border-radius:6px;
+    padding:26px 24px;
+    border-top:3px solid var(--ice);
+  }
+  .hook-card ul{ margin:0; padding:0; list-style:none; }
+  .hook-card li{
+    padding:14px 0;
+    border-top:1px solid var(--line-soft);
+    font-size:14.5px;
+  }
+  .hook-card li:first-child{ border-top:none; padding-top:0; }
+  .hook-line{ display:block; font-weight:600; margin-bottom:6px; color:var(--ink); }
+  .hook-desc{ color:var(--ink-dim); font-size:13.5px; }
+
+  .list-block .item{
+    padding:20px 0;
+    border-top:1px solid var(--line-soft);
+  }
+  .list-block .item:first-child{ border-top:none; padding-top:0; }
+  .list-block .num{
+    font-family:'Pretendard', sans-serif;
+    font-weight:700;
+    font-size:14px;
+    color:var(--ice);
+    margin-right:6px;
+  }
+  .list-block h4{
+    display:inline;
+    font-size:15.5px;
+    font-weight:600;
+    margin:0;
+  }
+  .list-block ul{ margin:10px 0 0; padding-left:20px; }
+  .list-block li{ font-size:14px; color:var(--ink-dim); margin-bottom:6px; }
+  .list-block li:last-child{ margin-bottom:0; }
+
+  .planning-block{
+    background:var(--bg-raised);
+    border-radius:6px;
+    padding:26px 26px 8px;
+  }
+  .planning-block .item{ padding-bottom:22px; border-top:none; }
+
+  .caution{
+    border:1px solid var(--amber-dim);
+    background:linear-gradient(180deg, rgba(168,106,28,0.06), rgba(168,106,28,0.015));
+    border-radius:6px;
+    padding:24px 26px;
+  }
+  .caution h3{
+    font-family:'Pretendard', sans-serif;
+    font-weight:600;
+    font-size:18px;
+    margin:0 0 12px;
+    color:var(--amber);
+  }
+  .caution p{ margin:0 0 10px; font-size:14.5px; color:var(--ink); }
+  .caution p:last-child{ margin-bottom:0; }
+  .caution .example{ color:var(--ink-dim); font-size:13.5px; }
+  .caution .example .no{ color:#a83f3f; text-decoration:line-through; }
+  .caution .example .yes{ color:#337a3e; }
+
+  footer{ max-width:820px; margin:0 auto; padding:0 28px; color:var(--ink-dim); font-size:13px; }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header>
+    <p class="kicker">어반사이드 26FW · 촬영 가이드</p>
+    <h1>에일러론 900 익스페디션 다운 파카</h1>
+    <span class="flag-badge">브랜드 플래그십 신제품</span>
+  </header>
+
+  <div class="banner">
+    <p>이 제품은 <strong>어반사이드의 기술력을 대표하는 플래그십 익스페디션 다운 파카</strong>입니다. 판매량보다 <strong>"이 브랜드는 실제 극한 환경에서도 기능하는 제품을 만든다"</strong>는 걸 증명하는 것이 이 제품의 역할입니다.</p>
+    <p>스튜디오 연출보다 <strong>실제 혹한·필드 환경에서의 착용 테스트</strong>로 다뤄주시면 좋습니다. 이번 시즌 처음 나온 신제품이라 캐리오버 톤("작년보다")은 쓰지 않습니다.</p>
+  </div>
+
+  <section>
+    <h2>스펙</h2>
+    <div class="spec-list">
+      <div>가격</div><div>₩679,000</div>
+      <div>충전재</div><div>900FP · POLISH GRAY MOTHER GOOSE DOWN (95:5) · 210g (L 사이즈 기준)</div>
+      <div>충전 방식</div><div>박스월(Box Wall) — 스티치 쓰루가 아닌 입체 챔버 구조</div>
+      <div>무게</div><div>820g (L 사이즈 기준)</div>
+      <div>겉감</div><div>CORDURA® 20D 2.5-Layer</div>
+      <div>안감</div><div>10D 나일론</div>
+      <div>핏</div><div>오버 (OVER)</div>
+      <div>체감 온도</div><div>혹한 기준 약 −20°C ~ −5°C</div>
+      <div>구성</div><div>본품, 리페어 키트</div>
+      <div>색상 · 사이즈</div><div>Black, Khaki Gray · S–XL</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="hook-card">
+      <ul>
+        <li>
+          <span class="hook-line">"900FP, 이 브랜드가 낼 수 있는 최고 스펙"</span>
+          <span class="hook-desc">필파워는 다운의 복원력·보온 효율을 나타내는 숫자. 900FP가 왜 높은 스펙인지 짧게 짚어주면 좋음.</span>
+        </li>
+        <li>
+          <span class="hook-line">"충전량 210g, 이 라인에서 가장 두껍다"</span>
+          <span class="hook-desc">손으로 눌러서 로프트가 얼마나 빨리 복원되는지 보여주는 컷 추천.</span>
+        </li>
+        <li>
+          <span class="hook-line">"스티치 쓰루가 아니라 박스월"</span>
+          <span class="hook-desc">일반 봉제선 다운은 그 라인을 따라 다운이 얇아지는 콜드스팟이 생기는데, 박스월은 챔버가 입체적으로 분리돼 있어 그 문제를 줄임. 봉제선 구조를 비교해서 보여주면 설득력 있음.</span>
+        </li>
+        <li>
+          <span class="hook-line">"지퍼도 방수, 손목도 벨크로로 완전 밀폐"</span>
+          <span class="hook-desc">전면 방수 지퍼 + 손목 벨크로 조절. 눈이나 물을 직접 흘려서 방수 지퍼를 보여주는 컷이 강력함.</span>
+        </li>
+        <li>
+          <span class="hook-line">"820g인데 오버 핏, 그런데 둔하지 않다"</span>
+          <span class="hook-desc">헤비다운치고 무겁지 않다는 인상. Cordura 20D 2.5-Layer 겉감과 10D 안감 조합 덕분이라는 점을 짚어주면 좋음.</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>디자인 포인트</h2>
+    <div class="list-block">
+      <div class="item">
+        <h4><span class="num">01</span>익스페디션 기반 볼륨 실루엣 설계</h4>
+        <ul>
+          <li>극한 환경 대응을 고려한 오버 실루엣, 기능 중심의 입체 실루엣 방향 설계</li>
+          <li>착용 시 다운 로프트가 자연스럽게 살아나도록 전체 밸런스 최적화</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">02</span>박스월(Box Wall) 기반 구조 디자인</h4>
+        <ul>
+          <li>다운 챔버 간 입체 구조가 드러나는 박스월 디자인 적용</li>
+          <li>기능 구조 자체가 외관 디자인 요소로 드러나는 퍼포먼스 기반 디자인</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">03</span>익스페디션 대응 기능 디테일</h4>
+        <ul>
+          <li>전체 방수 지퍼, 손목 조절 벨크로, 밑단 스트링으로 필드 환경 대응</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">04</span>착좌 가슴 포켓 적용</h4>
+        <ul>
+          <li>활동 중 자주 쓰는 소지품을 빠르게 수납, 장갑 착용 환경까지 고려한 위치</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">05</span>3포인트 후드 조절 시스템</h4>
+        <ul>
+          <li>후드 좌측 + 우측 + 후면 3점 조절로 두상에 맞는 안정형 후드 실루엣</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">06</span>포켓 및 친가드(Chin Guard) 기모 안감</h4>
+        <ul>
+          <li>포켓 내부와 지퍼 상단 턱 닿는 부분에 기모 안감 적용, 부드러운 터치감</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">07</span>하이브리드 이너 포켓 구조</h4>
+        <ul>
+          <li>내부 좌측 지퍼 포켓(안전성) + 내부 우측 메쉬 오픈 포켓(접근성) 분리 구성</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">08</span>히든 스톰 커프(Storm Cuff)</h4>
+        <ul>
+          <li>외관에서는 보이지 않는 내부 이중 소매 구조로 한기 유입 최소화</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>제품 기획 목적</h2>
+    <div class="list-block planning-block">
+      <div class="item">
+        <h4><span class="num">01</span>아웃도어 브랜드 필수 상징 제품 구축</h4>
+        <ul>
+          <li>익스페디션급 다운 파카 카테고리 진입, 브랜드 기술력과 방향성을 보여주는 플래그십 제품</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">02</span>하이엔드 다운 스펙 기반 극한 환경 대응력 확보</h4>
+        <ul>
+          <li>900FP 다운 + 210g 충전량으로 높은 로프트와 강력한 보온력 구현</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">03</span>박스월 구조 기반 브랜드 기술력 강화</h4>
+        <ul>
+          <li>스티치 쓰루가 아닌 박스월 구조로 다운 눌림·콜드스팟 최소화</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">04</span>경량 헤비 다운이라는 새로운 밸런스 제안</h4>
+        <ul>
+          <li>Cordura® 20D 2.5-Layer 겉감 + 10D 안감으로 무겁고 둔탁하지 않은 퍼포먼스 헤비다운 구현</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">05</span>동급 제품 대비 실질적 상품 경쟁력 확보</h4>
+        <ul>
+          <li>글로벌 하이엔드 익스페디션 제품군과 경쟁 가능한 소재·충전재 스펙, 접근 가능한 가격 포지셔닝</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">06</span>국내 아웃도어 시장 내 희소성 확보</h4>
+        <ul>
+          <li>고필파워 + 고충전량 + 경량 고내구성 외피 조합은 국내 시장에서 희소성이 높음</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h4><span class="num">07</span>FW 시즌 퍼포먼스 콘텐츠 중심 필드 마케팅 활용</h4>
+        <ul>
+          <li>스튜디오 중심 이미지 소비가 아닌 실제 혹한 환경에서의 필드 퍼포먼스 검증 콘텐츠로 운영</li>
+          <li>브랜드의 기술 신뢰도를 축적하는 필드 테스트형 자산으로 기획</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="caution">
+      <h3>촬영 시 참고사항</h3>
+      <p>스펙 비교 멘트에서 <strong>타 브랜드명은 직접 언급하지 말아주세요.</strong> "동급 제품 대비"처럼 수치와 포지션으로만 비교해 주시면 됩니다.</p>
+      <p class="example">
+        <span class="no">"○○ 브랜드는 850FP인데 저희는 900FP예요"</span> (X) &nbsp;→&nbsp;
+        <span class="yes">"동급 익스페디션 제품 대비 필파워가 더 높아요"</span> (O)
+      </p>
+      <p>이 제품은 <strong>매출보다 브랜드 기술력 증명이 목적</strong>인 전략 제품입니다. 스튜디오보다는 <strong>실제 아웃도어·혹한 환경에서의 착용 테스트</strong> 톤으로 촬영해 주세요. 눈, 바람, 방수 지퍼 사용 장면처럼 "실제로 작동한다"는 걸 보여주는 컷이 가장 중요합니다.</p>
+      <p>이번 시즌 첫 출시되는 <strong>신제품</strong>입니다. "돌아왔다"·"작년보다" 같은 캐리오버 톤은 쓰지 말아주세요.</p>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  어반사이드 26FW 콘텐츠 촬영 가이드 · 문의 사항은 담당자에게 확인해 주세요.
+</footer>
+
+</body>
+</html>
