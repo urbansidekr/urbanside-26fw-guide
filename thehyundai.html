@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>어반사이드 x 더현대 여의도 팝업 | 크리에이터 콘텐츠 가이드</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+
+  :root{
+    --bg:#F7F5EE;
+    --panel:#FFFFFF;
+    --ink:#22251E;
+    --ink-soft:#5C6053;
+    --ink-faint:#8A8D7F;
+    --line:#E4DECB;
+    --accent:#3B5741;
+    --accent-deep:#2C4432;
+    --accent-soft:#E7EDE3;
+    --amber:#8C6B22;
+    --amber-soft:#F1E8D2;
+    --rust:#AE4B2E;
+    --rust-soft:#F5E3DA;
+    --serif: var(--sans);
+    --sans:'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+    --radius:14px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:var(--sans); font-size:16px; line-height:1.78;
+    -webkit-font-smoothing:antialiased;
+  }
+  strong{font-weight:700;}
+  p{margin:0 0 14px;}
+
+  /* ---------------- top bar ---------------- */
+  .topbar{
+    position:sticky; top:0; z-index:20;
+    background:rgba(247,245,238,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .topbar-inner{
+    max-width:760px; margin:0 auto; padding:14px 24px;
+    display:flex; align-items:center; gap:18px;
+  }
+  .topbar .mark{
+    font-family:var(--serif); font-weight:700; font-size:14.5px;
+    color:var(--accent-deep); white-space:nowrap;
+  }
+  .topbar nav{
+    display:flex; gap:4px; overflow-x:auto; scrollbar-width:none;
+  }
+  .topbar nav::-webkit-scrollbar{display:none;}
+  .topbar nav a{
+    white-space:nowrap; text-decoration:none; font-size:13px;
+    color:var(--ink-soft); padding:6px 12px; border-radius:100px;
+  }
+  .topbar nav a:hover{ background:var(--accent-soft); color:var(--accent-deep); }
+
+  .wrap{ max-width:760px; margin:0 auto; padding:0 24px 100px; }
+
+  /* ---------------- hero ---------------- */
+  .hero{ padding:52px 0 40px; border-bottom:1px solid var(--line); margin-bottom:44px; }
+  .hero .kicker{
+    font-size:14px; color:var(--ink-faint); margin:0 0 14px;
+    font-family:var(--sans);
+  }
+  .hero h1{
+    font-family:var(--serif); font-weight:700; font-size:34px; line-height:1.36;
+    letter-spacing:-0.015em; margin:0 0 18px; color:var(--ink);
+  }
+  .hero p.lede{ font-size:16.5px; color:var(--ink-soft); max-width:520px; margin:0; }
+
+  /* ---------------- section shell ---------------- */
+  section{ margin-bottom:60px; scroll-margin-top:70px; }
+  .s-head{ display:flex; align-items:center; gap:14px; margin-bottom:22px; }
+  .s-num{
+    font-family:var(--serif); font-weight:700; font-size:15px;
+    color:var(--accent); background:var(--accent-soft);
+    width:34px; height:34px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  }
+  section h2{
+    font-family:var(--serif); font-weight:700; font-size:22px;
+    letter-spacing:-0.01em; margin:0;
+  }
+  h3{ font-size:15px; font-weight:700; margin:0 0 8px; }
+
+  /* ---------------- generic card ---------------- */
+  .card{
+    background:var(--panel); border:1px solid var(--line); border-radius:var(--radius);
+    padding:22px 24px;
+  }
+  .grid-2{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  @media (max-width:640px){ .grid-2{ grid-template-columns:1fr; } }
+
+  .stat-label{ font-size:13px; color:var(--ink-faint); margin-bottom:6px; }
+  .stat-body{ font-size:15px; }
+
+  /* ---------------- type cards ---------------- */
+  .type-card{ border-radius:var(--radius); padding:24px; border:1px solid var(--line); background:var(--panel); }
+  .type-card.discover{ border-top:3px solid var(--accent); }
+  .type-card.compare{ border-top:3px solid var(--amber); }
+  .type-icon{
+    width:38px; height:38px; border-radius:10px;
+    display:flex; align-items:center; justify-content:center; margin-bottom:14px;
+  }
+  .type-card.discover .type-icon{ background:var(--accent-soft); }
+  .type-card.compare .type-icon{ background:var(--amber-soft); }
+  .type-card .type-title{ font-family:var(--serif); font-weight:700; font-size:17px; margin-bottom:8px; }
+  .type-card p{ font-size:14.3px; color:var(--ink-soft); }
+
+  .flow{ list-style:none; margin:16px 0 0; padding:0; position:relative; }
+  .flow::before{
+    content:""; position:absolute; left:11px; top:8px; bottom:8px;
+    width:1px; background:var(--line);
+  }
+  .flow li{
+    position:relative; padding:0 0 16px 34px; font-size:13.8px; color:var(--ink);
+  }
+  .flow li:last-child{ padding-bottom:0; }
+  .flow li::before{
+    content:attr(data-i); position:absolute; left:0; top:-1px;
+    width:23px; height:23px; border-radius:50%; background:var(--bg);
+    border:1px solid var(--accent); color:var(--accent-deep);
+    font-size:11.5px; font-weight:700;
+    display:flex; align-items:center; justify-content:center; z-index:1;
+  }
+  .type-card.compare .flow li::before{ border-color:var(--amber); color:var(--amber); }
+
+  /* ---------------- checklist ---------------- */
+  .checklist{ list-style:none; margin:0; padding:0; }
+  .checklist li{
+    display:flex; gap:12px; align-items:flex-start; padding:11px 0;
+    border-bottom:1px solid var(--line); font-size:15px;
+  }
+  .checklist li:last-child{ border-bottom:none; }
+  .checklist li svg{ flex-shrink:0; margin-top:3px; }
+
+  .callout{
+    border-radius:var(--radius); padding:16px 20px; margin:0 0 16px;
+    font-size:14.3px; color:var(--ink-soft); border:1px solid var(--line); background:var(--panel);
+  }
+  .callout.warn{ background:var(--rust-soft); border-color:#E7C2AE; color:#7A3A24; }
+  .callout.warn strong{ color:var(--rust); }
+
+  /* ---------------- before/after ---------------- */
+  .ba-card{
+    border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; margin-bottom:12px;
+    background:var(--panel);
+  }
+  .ba-row{ display:flex; }
+  .ba-col{ flex:1; padding:16px 18px; font-size:14.5px; }
+  .ba-col.avoid{ background:var(--rust-soft); }
+  .ba-col.fix{ background:var(--accent-soft); }
+  .ba-tag{ font-size:11.5px; font-weight:700; letter-spacing:0.02em; margin-bottom:6px; display:block; }
+  .ba-col.avoid .ba-tag{ color:var(--rust); }
+  .ba-col.fix .ba-tag{ color:var(--accent-deep); }
+  .ba-col.avoid p{ text-decoration:line-through; text-decoration-color:#C98065; color:#7A3A24; margin:0; }
+  .ba-col.fix p{ color:var(--ink); margin:0; }
+  @media (max-width:600px){ .ba-row{ flex-direction:column; } }
+
+  /* ---------------- quote block ---------------- */
+  .quote-block{
+    border-radius:var(--radius); background:var(--accent-deep); color:#EFEFE6;
+    padding:26px 28px; margin-bottom:16px;
+  }
+  .quote-block .q-label{ font-size:12.5px; color:#B9CDBB; margin-bottom:10px; }
+  .quote-block p{ font-family:var(--serif); font-size:16.5px; line-height:1.6; margin:0; }
+
+  /* ---------------- timeline (shorts flow) ---------------- */
+  .tl{ list-style:none; margin:0; padding:0; position:relative; }
+  .tl::before{ content:""; position:absolute; left:15px; top:6px; bottom:6px; width:1px; background:var(--line); }
+  .tl li{ position:relative; padding:0 0 22px 42px; }
+  .tl li:last-child{ padding-bottom:0; }
+  .tl li::before{
+    content:""; position:absolute; left:8px; top:4px; width:15px; height:15px;
+    border-radius:50%; background:var(--panel); border:2px solid var(--accent);
+  }
+  .tl .tl-step{ font-size:12.5px; color:var(--ink-faint); margin-bottom:4px; }
+  .tl .tl-body{ font-size:14.8px; }
+  .tl .tl-body b{ color:var(--accent-deep); }
+
+  footer{
+    padding-top:26px; margin-top:10px; border-top:1px solid var(--line);
+    color:var(--ink-faint); font-size:13px;
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <span class="mark">크리에이터 가이드</span>
+    <nav>
+      <a href="#s1">캠페인 소개</a>
+      <a href="#s2">콘텐츠 유형</a>
+      <a href="#s3">필수 장면</a>
+      <a href="#s4">피해야 할 표현</a>
+      <a href="#s5">광고 고지</a>
+      <a href="#s6">촬영 유의사항</a>
+      <a href="#s7">구성 예시</a>
+      <a href="#s8">제출·일정</a>
+    </nav>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="hero">
+    <p class="kicker">Urbanside × The Hyundai 여의도</p>
+    <h1>크리에이터 콘텐츠 가이드</h1>
+    <p class="lede">이번 팝업 콘텐츠를 맡아주실 크리에이터분들이 촬영 전 확인해주셔야 할 내용만 담았습니다. 궁금한 부분은 담당 마케터에게 편하게 물어봐주세요.</p>
+  </div>
+
+  <!-- 1 -->
+  <section id="s1">
+    <div class="s-head"><span class="s-num">1</span><h2>캠페인 소개</h2></div>
+    <div class="grid-2">
+      <div class="card">
+        <p class="stat-label">목적</p>
+        <p class="stat-body">경량 아웃도어 구매를 고려 중인 소비자에게 어반사이드의 구체적인 구매 이유를 소개하고, 더현대 여의도 팝업 방문·체험을 유도합니다.</p>
+      </div>
+      <div class="card">
+        <p class="stat-label">타깃</p>
+        <p class="stat-body">경량 다운·아웃도어 의류를 비교 구매하는 고객. 일상용인지 하이킹용인지, 어떤 상황에 입을 옷인지 콘텐츠 안에서 명확히 보여주세요.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="s2">
+    <div class="s-head"><span class="s-num">2</span><h2>콘텐츠 유형 — 나는 어떤 쪽인가요</h2></div>
+    <p style="color:var(--ink-soft); font-size:14.5px; margin-bottom:18px;">사전에 안내드린 유형에 따라 아래 둘 중 하나로 진행됩니다.</p>
+    <div class="grid-2">
+      <div class="type-card discover">
+        <div class="type-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#3B5741" stroke-width="1.8"/><path d="M15 9l-2 5-5 2 2-5 5-2z" fill="#3B5741"/></svg>
+        </div>
+        <p class="type-title">발견형</p>
+        <p>여러 브랜드를 보던 중 어반사이드를 발견하고 실제로 착용해보는 흐름이에요. 특정 경쟁 제품과 직접 비교하지 않고, 본인만의 구매 기준과 제품이 어떻게 맞아떨어지는지를 보여주시면 됩니다.</p>
+        <ul class="flow">
+          <li data-i="1">내가 옷을 고를 때 보는 기준 소개</li>
+          <li data-i="2">어반사이드 착용 · 핏과 디테일 확인</li>
+          <li data-i="3">내게 맞는 구매 이유</li>
+          <li data-i="4">팝업 방문 안내</li>
+        </ul>
+      </div>
+      <div class="type-card compare">
+        <div class="type-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 3v18M6 7l-3 6a3 3 0 0 0 6 0l-3-6zM18 7l-3 6a3 3 0 0 0 6 0l-3-6zM4 21h16" stroke="#8C6B22" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <p class="type-title">비교형</p>
+        <p>기존에 고려하던 특정 모델과 어반사이드를 나란히 비교하는 흐름이에요. 사전에 담당자와 협의한 비교 모델·항목만 사용해주세요.</p>
+        <ul class="flow">
+          <li data-i="1">비교하는 두 모델과 사용 목적 소개</li>
+          <li data-i="2">같은 기준으로 두 제품 확인</li>
+          <li data-i="3">어떤 기준에서 본인에게 맞았는지 설명</li>
+          <li data-i="4">팝업 방문 안내</li>
+        </ul>
+      </div>
+    </div>
+    <div class="callout warn" style="margin-top:16px;">
+      <strong>비교형으로 진행하신다면</strong> — 다음 두 섹션(필수 장면 / 피해야 할 표현)을 특히 꼼꼼히 봐주세요.
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section id="s3">
+    <div class="s-head"><span class="s-num">3</span><h2>필수로 담아야 할 장면</h2></div>
+    <div class="card">
+      <ul class="checklist">
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#3B5741" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>실제 착용 장면과 움직임 확인 (팔 들기, 지퍼 여닫기 등 실제 사용성이 드러나는 동작)</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#3B5741" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>본인이 제시한 구매 기준과 연결되는 구체적인 디테일</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#3B5741" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>정확한 제품명 (브랜드, 모델명, 컬러/사이즈 혼동 없이)</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#3B5741" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>팝업 방문 정보 (기간, 위치, 운영시간)</li>
+      </ul>
+    </div>
+    <div class="callout warn" style="margin-top:14px;">
+      <strong>비교형 추가 필수</strong> — 비교 모델명, 사이즈, 확인일, 비교 조건, 사용한 사실 정보의 출처, 그리고 어디까지가 "제 개인적인 체감"인지 콘텐츠 안에서 밝혀주세요.
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section id="s4">
+    <div class="s-head"><span class="s-num">4</span><h2>피해야 할 표현</h2></div>
+    <p style="color:var(--ink-soft); font-size:14.5px;">실제 체험과 확인된 자료가 있고, 담당자와 협의된 범위 안에서만 사용해주세요.</p>
+
+    <div class="ba-card"><div class="ba-row">
+      <div class="ba-col avoid"><span class="ba-tag">피해주세요</span><p>몽벨급인데 가격은 훨씬 싸다</p></div>
+      <div class="ba-col fix"><span class="ba-tag">이렇게 말해주세요</span><p>오늘 비교한 두 모델의 가격과 무게는 이렇고, 저는 이 핏이 더 마음에 들었어요.</p></div>
+    </div></div>
+
+    <div class="ba-card"><div class="ba-row">
+      <div class="ba-col avoid"><span class="ba-tag">피해주세요</span><p>시에라디자인 못지않은 퀄리티</p></div>
+      <div class="ba-col fix"><span class="ba-tag">이렇게 말해주세요</span><p>제가 중요하게 보는 어깨 움직임과 포켓 구성은 이 제품도 만족스러웠어요.</p></div>
+    </div></div>
+
+    <div class="ba-card"><div class="ba-row">
+      <div class="ba-col avoid"><span class="ba-tag">피해주세요</span><p>1000FP라 다른 패딩보다 더 따뜻하다</p></div>
+      <div class="ba-col fix"><span class="ba-tag">이렇게 말해주세요</span><p>1000FP 다운을 사용한 제품이에요. 오늘은 매장에서 착용감과 핏을 확인해봤어요.</p></div>
+    </div></div>
+
+    <div class="ba-card"><div class="ba-row">
+      <div class="ba-col avoid"><span class="ba-tag">피해주세요</span><p>유명 브랜드 살 필요 없겠는데?</p></div>
+      <div class="ba-col fix"><span class="ba-tag">이렇게 말해주세요</span><p>원래 보던 브랜드 외에 비교해볼 선택지가 하나 더 생겼어요.</p></div>
+    </div></div>
+
+    <div class="ba-card"><div class="ba-row">
+      <div class="ba-col avoid"><span class="ba-tag">피해주세요</span><p>어반사이드 압승 / 성능 똑같네요</p></div>
+      <div class="ba-col fix"><span class="ba-tag">이렇게 말해주세요</span><p>제 선택 기준에서는 이 부분이 구매 이유가 됐어요.</p></div>
+    </div></div>
+
+    <div class="card" style="margin-top:18px;">
+      <ul class="checklist">
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 9v4M12 17h.01M10.3 3.86l-8.13 14A2 2 0 0 0 3.87 21h16.26a2 2 0 0 0 1.7-3.14l-8.13-14a2 2 0 0 0-3.4 0z" stroke="#AE4B2E" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>실제로 해보지 않은 방문·체험을 한 것처럼 연출하지 않기</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 9v4M12 17h.01M10.3 3.86l-8.13 14A2 2 0 0 0 3.87 21h16.26a2 2 0 0 0 1.7-3.14l-8.13-14a2 2 0 0 0-3.4 0z" stroke="#AE4B2E" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>경쟁 브랜드를 낮추거나 조롱하는 뉘앙스 사용하지 않기</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 9v4M12 17h.01M10.3 3.86l-8.13 14A2 2 0 0 0 3.87 21h16.26a2 2 0 0 0 1.7-3.14l-8.13-14a2 2 0 0 0-3.4 0z" stroke="#AE4B2E" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>짧은 착용 경험을 혹한기 보온성·장기 내구성처럼 단정하지 않기</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 9v4M12 17h.01M10.3 3.86l-8.13 14A2 2 0 0 0 3.87 21h16.26a2 2 0 0 0 1.7-3.14l-8.13-14a2 2 0 0 0-3.4 0z" stroke="#AE4B2E" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>제목·썸네일·자막에도 위 표현이 들어가지 않는지 확인하기</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section id="s5">
+    <div class="s-head"><span class="s-num">5</span><h2>광고 고지</h2></div>
+    <p style="color:var(--ink-soft); font-size:14.5px;">제작비·제품 제공 등 실제로 받으신 내역에 맞게 고지해주세요.</p>
+    <div class="quote-block">
+      <p class="q-label">예시 문구</p>
+      <p>"본 콘텐츠는 어반사이드로부터 제작비와 제품을 제공받아 제작했습니다."</p>
+    </div>
+    <p style="font-size:13.5px; color:var(--ink-faint); margin-bottom:16px;">제품만 제공받으셨다면 실제 관계에 맞게 문구를 수정해주세요.</p>
+    <div class="card">
+      <ul class="checklist">
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#3B5741" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>영상 시작 부분에 제공 관계 언급</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#3B5741" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>쇼츠·릴스는 플랫폼 광고 표시 기능도 함께 사용</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#3B5741" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>설명(더보기) 첫 부분에도 제공 관계 기재</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#3B5741" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>표시 문구가 자막·UI에 가려지지 않는지 모바일 화면에서 확인</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 6 -->
+  <section id="s6">
+    <div class="s-head"><span class="s-num">6</span><h2>촬영 시 유의사항</h2></div>
+    <div class="card">
+      <ul class="checklist">
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#3B5741" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>촬영은 사전에 협의된 장소 범위 안에서만 진행 (팝업 외 공간이 필요하면 미리 상의)</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#3B5741" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>경쟁 브랜드 매장 내부·다른 매장 직원 응대 장면은 별도 협의 없이 촬영하지 않기</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#3B5741" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>다른 방문객·직원의 얼굴/이름표/대화가 담기지 않도록 구도 유의, 담겼다면 편집 시 알려주기</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#3B5741" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>경쟁사 로고를 과도하게 강조하거나 협업처럼 보이게 사용하지 않기</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 7 -->
+  <section id="s7">
+    <div class="s-head"><span class="s-num">7</span><h2>쇼츠·릴스 구성 예시</h2></div>
+    <p style="color:var(--ink-soft); font-size:14.5px;">아래 시간은 예시예요. 채널 스타일과 설명 분량에 맞게 조정하셔도 좋아요.</p>
+    <div class="card">
+      <ul class="tl">
+        <li><p class="tl-step">시작</p><p class="tl-body">광고 고지 + <b>발견형</b> 구매 고민 제시 · <b>비교형</b> 비교 제품과 사용 목적 제시</p></li>
+        <li><p class="tl-step">기준 설정</p><p class="tl-body">내가 보는 기준 2~3개 소개 · <b>비교형</b>은 모델·사이즈와 비교 항목 2~3개</p></li>
+        <li><p class="tl-step">핵심 장면</p><p class="tl-body">착용하며 핏·움직임·디테일 확인 · <b>비교형</b>은 같은 기준으로 두 제품 확인</p></li>
+        <li><p class="tl-step">선택 이유</p><p class="tl-body">마음에 든 요소와 나에게 맞는 사용 상황 설명</p></li>
+        <li><p class="tl-step">마무리</p><p class="tl-body">정확한 기간·위치 안내와 함께 직접 착용해보시라고 유도</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 8 -->
+  <section id="s8">
+    <div class="s-head"><span class="s-num">8</span><h2>제출 항목 · 순서</h2></div>
+    <div class="card">
+      <ul class="flow">
+        <li data-i="1">기획안 (대본 또는 핵심 멘트, 비교형은 비교 자료 포함)</li>
+        <li data-i="2">촬영 장소 확인</li>
+        <li data-i="3">제목 및 썸네일안</li>
+        <li data-i="4">가편집본 → 담당자 검수</li>
+        <li data-i="5">최종본 확정 및 게시</li>
+      </ul>
+    </div>
+    <p style="margin-top:14px; font-size:14px; color:var(--ink-soft);">가편집본 검수는 대사뿐 아니라 제목·썸네일·자막까지 함께 확인하는 단계예요. 게시 전 반드시 담당자 컨펌을 받아주세요.</p>
+  </section>
+
+  <footer>
+    어반사이드 x 더현대 여의도 팝업 크리에이터 가이드 · 문의사항은 담당 마케터에게 연락해주세요
+  </footer>
+
+</div>
+</body>
+</html>
