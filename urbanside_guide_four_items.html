@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>어반사이드 촬영 가이드 · 4개 품목</title>
+<style>
+  @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css');
+
+  :root{
+    --bg: #ffffff;
+    --bg-raised: #f4f4f2;
+    --line: rgba(20,24,27,0.12);
+    --line-soft: rgba(20,24,27,0.07);
+    --ink: #14181b;
+    --ink-dim: #6c7472;
+    --ice: #21708f;
+    --ice-dim: #d7e6ec;
+    --amber: #a86a1c;
+    --amber-dim: #e7c896;
+  }
+
+  *{ box-sizing:border-box; }
+
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height:1.6;
+    padding:0 0 80px;
+  }
+
+  .wrap{ max-width:880px; margin:0 auto; padding:56px 28px 0; }
+
+  header{ margin-bottom:28px; }
+  .kicker{ color:var(--ink-dim); font-size:14px; margin:0; }
+
+  .top-link{
+    background:var(--ink);
+    border:2px solid var(--amber);
+    border-radius:6px;
+    padding:18px 22px;
+    margin-bottom:32px;
+    font-size:14.5px;
+  }
+  .top-link .reminder{
+    display:block;
+    color:var(--amber-dim);
+    font-weight:700;
+    font-size:13.5px;
+    margin-bottom:8px;
+  }
+  .top-link .row{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    flex-wrap:wrap;
+  }
+  .top-link a{
+    color:#fff;
+    font-weight:700;
+    font-size:15.5px;
+    text-decoration:underline;
+    text-underline-offset:2px;
+  }
+  .top-link .label{ color:rgba(255,255,255,0.7); font-weight:600; }
+
+  .banner{
+    background:var(--bg-raised);
+    border-left:3px solid var(--ink);
+    border-radius:4px;
+    padding:20px 22px;
+    margin-bottom:48px;
+    font-size:14.5px;
+  }
+  .banner strong{ font-weight:600; }
+  .banner p{ margin:0 0 8px; }
+  .banner p:last-child{ margin-bottom:0; }
+
+  section{ margin-bottom:56px; }
+
+  h2{
+    font-family:'Pretendard', sans-serif;
+    font-weight:600;
+    font-size:22px;
+    margin:0 0 20px;
+    padding-bottom:14px;
+    border-bottom:1px solid var(--line);
+  }
+
+  /* lineup table */
+  .lineup-table{
+    display:grid;
+    grid-template-columns: 1.8fr 0.9fr 0.9fr 0.7fr 1fr;
+    border:1px solid var(--line);
+    border-radius:4px;
+    overflow:hidden;
+    font-size:13.5px;
+  }
+  .lineup-table > div{
+    padding:12px 14px;
+    border-bottom:1px solid var(--line-soft);
+    display:flex;
+    align-items:center;
+  }
+  .lineup-table > div.head{
+    background:var(--bg-raised);
+    color:var(--ink-dim);
+    font-weight:600;
+    font-size:12.5px;
+  }
+
+  @media (max-width:680px){
+    .lineup-table{ grid-template-columns:1fr; }
+    .lineup-table > div.head:nth-child(n+2){ display:none; }
+    .lineup-table > div{ border-bottom:none; padding:4px 14px; }
+    .lineup-table > div:nth-child(5n+1){ padding-top:16px; font-weight:600; border-top:1px solid var(--line); }
+  }
+
+  /* product section */
+  .product-section{ border-top:2px solid var(--ink); padding-top:28px; }
+  .product-head{ display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:8px; }
+  .product-head .idx{ font-size:13px; color:var(--ink-dim); font-weight:600; }
+  .product-head h3{
+    font-family:'Pretendard', sans-serif;
+    font-weight:700;
+    font-size:20px;
+    margin:0;
+  }
+  .badge{ display:inline-block; padding:3px 10px; border-radius:20px; font-size:12px; font-weight:600; }
+  .badge.new{ background:var(--ice-dim); color:#175169; }
+  .badge.carry{ background:var(--amber-dim); color:#7a4f14; }
+
+  .quick-spec{ color:var(--ink-dim); font-size:13.5px; margin:0 0 20px; }
+  .quick-spec b{ color:var(--ink); font-weight:600; }
+
+  .hook-card{ background:var(--bg-raised); border-radius:6px; padding:20px 22px; margin-bottom:22px; }
+  .hook-card ul{ margin:0; padding:0; list-style:none; }
+  .hook-card li{ padding:12px 0; border-top:1px solid var(--line-soft); font-size:14px; }
+  .hook-card li:first-child{ border-top:none; padding-top:0; }
+  .hook-line{ display:block; font-weight:600; margin-bottom:4px; color:var(--ink); }
+  .hook-desc{ color:var(--ink-dim); font-size:13px; }
+
+  .sub-block{ margin-bottom:20px; }
+  .sub-block h4{
+    font-size:13.5px;
+    font-weight:700;
+    color:var(--ink-dim);
+    margin:0 0 12px;
+    text-transform:uppercase;
+    letter-spacing:0.02em;
+  }
+  .sub-block ul{ margin:0; padding-left:18px; }
+  .sub-block li{ font-size:14px; color:var(--ink); margin-bottom:8px; }
+  .sub-block li:last-child{ margin-bottom:0; }
+  .sub-block li .d{ display:block; color:var(--ink-dim); font-size:13px; margin-top:2px; }
+
+  .caution{
+    border:1px solid var(--amber-dim);
+    background:linear-gradient(180deg, rgba(168,106,28,0.06), rgba(168,106,28,0.015));
+    border-radius:6px;
+    padding:24px 26px;
+  }
+  .caution h3{
+    font-family:'Pretendard', sans-serif;
+    font-weight:600;
+    font-size:18px;
+    margin:0 0 12px;
+    color:var(--amber);
+  }
+  .caution p{ margin:0 0 10px; font-size:14.5px; color:var(--ink); }
+  .caution p:last-child{ margin-bottom:0; }
+  .caution .example{ color:var(--ink-dim); font-size:13.5px; }
+  .caution .example .no{ color:#a83f3f; text-decoration:line-through; }
+  .caution .example .yes{ color:#337a3e; }
+
+  footer{ max-width:880px; margin:0 auto; padding:0 28px; color:var(--ink-dim); font-size:13px; }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header>
+    <p class="kicker">어반사이드 26FW · 촬영 가이드</p>
+  </header>
+
+  <div class="banner">
+    <p>이번 촬영은 <strong>에일러론 울트라 1000 SUL 후드 다운(차콜)</strong>, <strong>에일러론 울트라 1000 SUL 다운(블랙)</strong>, <strong>플랩 90 폴라텍 알파 다이렉트 후디(라이트 그레이)</strong>, <strong>제로인 옥타 에어 후디(라이트 그레이)</strong> 네 품목입니다.</p>
+    <p>에일러론 두 제품과 플랩 90은 <strong>작년 대비 보완된 캐리오버</strong>이고, 제로인 옥타 에어 후디만 <strong>이번 시즌 신제품</strong>입니다.</p>
+  </div>
+
+  <div class="top-link">
+    <span class="reminder">⚠️ 촬영 전 꼭 확인해 주세요</span>
+    <div class="row">
+      <span class="label">26FW 메인 협업 가이드</span>
+      <a href="https://urbansidekr.github.io/urbanside-26fw-guide/?format=short&portfolio=free#content-guide" target="_blank" rel="noopener">urbansidekr.github.io/urbanside-26fw-guide</a>
+    </div>
+  </div>
+
+  <section>
+    <h2>라인업 한눈에 보기</h2>
+    <div class="lineup-table">
+      <div class="head">품목</div>
+      <div class="head">컬러</div>
+      <div class="head">카테고리</div>
+      <div class="head">무게(L)</div>
+      <div class="head">상태</div>
+
+      <div><b>에일러론 울트라 1000 SUL 후드 다운</b></div>
+      <div>차콜</div>
+      <div>다운 재킷</div>
+      <div>330g</div>
+      <div>캐리오버 (완판작)</div>
+
+      <div><b>에일러론 울트라 1000 SUL 다운</b></div>
+      <div>블랙</div>
+      <div>다운 재킷</div>
+      <div>255g</div>
+      <div>캐리오버 (완판작)</div>
+
+      <div><b>플랩 90 폴라텍 알파 다이렉트 후디</b></div>
+      <div>라이트 그레이</div>
+      <div>후디</div>
+      <div>155g</div>
+      <div>캐리오버</div>
+
+      <div><b>제로인 옥타 에어 후디</b></div>
+      <div>라이트 그레이</div>
+      <div>후디</div>
+      <div>219g</div>
+      <div>신규</div>
+    </div>
+  </section>
+
+  <!-- 01 에일러론 후드 다운 -->
+  <section class="product-section">
+    <div class="product-head">
+      <span class="idx">01</span>
+      <h3>에일러론 울트라 1000 SUL 후드 다운 — 차콜</h3>
+      <span class="badge carry">캐리오버 · 완판작</span>
+    </div>
+    <p class="quick-spec">1000FP · POLISH P/WHITE MOTHER GOOSE DOWN (95:5) · 125g · <b>330g</b> (L) · 세미오버 · 3포인트 후드 조절 + 히든 스트링</p>
+
+    <div class="hook-card">
+      <ul>
+        <li>
+          <span class="hook-line">"작년에 한 달 만에 품절됐던 다운, 충전량 늘려 돌아왔다"</span>
+          <span class="hook-desc">112g → 125g 증량. 완판 이력과 증량 포인트를 같이 던지면 좋음.</span>
+        </li>
+        <li>
+          <span class="hook-line">"후드 스트링, 밖으로 안 나온다"</span>
+          <span class="hook-desc">외부 노출형에서 내부 히든형 구조로 변경. 후드 외관이 깔끔해진 걸 클로즈업으로.</span>
+        </li>
+        <li>
+          <span class="hook-line">"후드 3포인트로 고정, 고개 돌려도 안 흔들린다"</span>
+          <span class="hook-desc">좌·우·후면 3점 조절 시스템. 바람 부는 상황에서 후드가 두상에 밀착되는 걸 보여주면 좋음.</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <h4>작년 대비 개선 포인트</h4>
+      <ul>
+        <li>다운 충전량 업그레이드<span class="d">L 사이즈 기준 112g → 125g (+13g)</span></li>
+        <li>핏 밸런스 개선<span class="d">슬림 세미오버에서 여유 있는 세미오버로 구조 확장</span></li>
+        <li>후드 스트링 구조 개선<span class="d">외부 노출형에서 내부 히든형으로 변경</span></li>
+        <li>패커블 구조 사용성 개선<span class="d">분리형 보관에서 제품 연결형 구조로 변경</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 02 에일러론 다운 -->
+  <section class="product-section">
+    <div class="product-head">
+      <span class="idx">02</span>
+      <h3>에일러론 울트라 1000 SUL 다운 — 블랙</h3>
+      <span class="badge carry">캐리오버 · 완판작</span>
+    </div>
+    <p class="quick-spec">1000FP · POLISH P/WHITE MOTHER GOOSE DOWN (95:5) · 80g · <b>255g</b> (L) · 레귤러 · 논후디</p>
+
+    <div class="hook-card">
+      <ul>
+        <li>
+          <span class="hook-line">"작년에 한 달 만에 품절됐던 그 다운, 더 든든해져서 돌아왔다"</span>
+          <span class="hook-desc">완판 이력과 함께 "이번엔 뭐가 달라졌는지" 궁금증으로 이어가면 좋음.</span>
+        </li>
+        <li>
+          <span class="hook-line">"충전량 64g → 80g, 얇다는 얘기 나올 일 없다"</span>
+          <span class="hook-desc">전시즌 대비 +16g 증량. 손으로 눌러 로프트 차이를 보여주는 컷 추천.</span>
+        </li>
+        <li>
+          <span class="hook-line">"슬림했던 핏이 레귤러로 넉넉해졌다"</span>
+          <span class="hook-desc">단독 착용 시 실루엣이 자연스러워진 부분.</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <h4>작년 대비 개선 포인트</h4>
+      <ul>
+        <li>다운 충전량 증가<span class="d">L 사이즈 기준 64g → 80g (+16g)</span></li>
+        <li>핏 밸런스 개선<span class="d">슬림 핏에서 여유 있는 레귤러 핏으로 구조 확장</span></li>
+        <li>내부 수납 활용성 강화<span class="d">내부 메쉬 오픈 포켓 신규 적용</span></li>
+        <li>패커블 구조 사용성 개선<span class="d">분리형 보관에서 제품 연결형 구조로 변경</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 03 플랩 90 -->
+  <section class="product-section">
+    <div class="product-head">
+      <span class="idx">03</span>
+      <h3>플랩 90 폴라텍 알파 다이렉트 후디 — 라이트 그레이</h3>
+      <span class="badge carry">캐리오버</span>
+    </div>
+    <p class="quick-spec">POLARTEC® ALPHA DIRECT 90 · <b>155g</b> (L) · 세미오버 · 썸홀 + 소매 접밴드</p>
+
+    <div class="hook-card">
+      <ul>
+        <li>
+          <span class="hook-line">"25FW부터 이어온 캐리오버 스테디"</span>
+          <span class="hook-desc">한 시즌 반짝하는 제품이 아니라 계속 검증되며 개선되는 액티브 레이어 핵심 라인이라는 서사.</span>
+        </li>
+        <li>
+          <span class="hook-line">"155g, 다운 안에 넣어도 부피감이 없다"</span>
+          <span class="hook-desc">Alpha Direct 90 특유의 오픈 니트 구조로 초경량·고통기. 다운 안에 겹쳐 입는 컷과 잘 어울림.</span>
+        </li>
+        <li>
+          <span class="hook-line">"핸드 포켓 지퍼를 없앴다"</span>
+          <span class="hook-desc">경량화를 위해 지퍼 디테일 자체를 제거. 불필요한 무게를 뺀 이유를 짧게 짚어주면 좋음.</span>
+        </li>
+        <li>
+          <span class="hook-line">"레귤러였던 핏, 이번엔 세미오버"</span>
+          <span class="hook-desc">지난 25FW 레귤러 핏에서 여유로운 세미오버로 확장. 단독 착용 실루엣이 편해진 부분.</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <h4>디자인 포인트</h4>
+      <ul>
+        <li>미니멀 액티브 후디 디자인 강화<span class="d">핸드 포켓 지퍼 삭제, 과도한 스포츠웨어 무드를 줄인 실루엣</span></li>
+        <li>썸홀 및 소매 접밴드 적용<span class="d">활동 시 소매 들뜸·말림 최소화, 안정적으로 손목을 감싸는 구조</span></li>
+        <li>밑단 경량 스트링 적용<span class="d">착용 환경에 따라 핏 조절, 활동 중 밑단 들뜸 방지</span></li>
+        <li>봉제 디테일 최소화<span class="d">플랫 스티치로 외관상 봉제선 존재감 최소화</span></li>
+        <li>세미오버 핏 기반 실루엣 업그레이드<span class="d">전시즌 레귤러 핏에서 여유로운 세미오버로 확장</span></li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <h4>작년 대비 개선 포인트</h4>
+      <ul>
+        <li>핸드 포켓 지퍼 삭제<span class="d">부자재 제거로 경량화, 압박 요소 감소</span></li>
+        <li>썸홀 적용<span class="d">소매 들뜸·말림 방지, 저온 환경에서 손등까지 커버</span></li>
+        <li>몸판 봉제선 구조 개선<span class="d">팔 움직임 시 거슬림을 줄이는 방향으로 패턴 수정</span></li>
+        <li>밑단 경량 스트링 추가<span class="d">밑단 들뜸·외부 공기 유입 감소</span></li>
+        <li>지퍼 풀러 경량화<span class="d">불필요한 부자재 중량 감소</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 04 제로인 옥타 에어 후디 -->
+  <section class="product-section">
+    <div class="product-head">
+      <span class="idx">04</span>
+      <h3>제로인 옥타 에어 후디 — 라이트 그레이</h3>
+      <span class="badge new">신규</span>
+    </div>
+    <p class="quick-spec">OCTA® 폴리에스터 100% · <b>219g</b> (L) · 세미오버 · 바라클라바형 후드</p>
+
+    <div class="hook-card">
+      <ul>
+        <li>
+          <span class="hook-line">"후드가 아니라 목까지 감싸는 바라클라바"</span>
+          <span class="hook-desc">얼굴·목 라인이 이어지는 구조. 후드를 뒤집어써서 목까지 감싸지는 걸 보여주는 컷이 핵심.</span>
+        </li>
+        <li>
+          <span class="hook-line">"219g, 미드레이어인데 이렇게 가볍다"</span>
+          <span class="hook-desc">다운 재킷 안에 겹쳐 입어도 부담 없는 무게.</span>
+        </li>
+        <li>
+          <span class="hook-line">"옆선이 하나로 이어져 있다"</span>
+          <span class="hook-desc">소매 하단부터 밑단까지 이어지는 사이드 일체형 패널 구조. 팔 벌리는 동작으로 당김이 없다는 걸 보여주면 좋음.</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <h4>디자인 포인트</h4>
+      <ul>
+        <li>바라클라바형 후드 구조<span class="d">후드와 넥 라인이 자연스럽게 연결, 저온·강풍 환경에서 체온 유지</span></li>
+        <li>라글란 패턴과 사이드 일체형 패널<span class="d">어깨·팔 움직임을 자연스럽게 따라오는 구조, 언더암홀 절개 삭제</span></li>
+        <li>핸드 포켓·밑단 접밴드 경량 미니멀 구조<span class="d">지퍼와 스트링을 제거하고 접밴드로 무게·디테일 최소화</span></li>
+        <li>썸홀 적용<span class="d">소매 말림·들뜸 방지, 저온 환경에서 손등까지 보온</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="caution">
+      <h3>촬영 시 참고사항</h3>
+      <p>지정된 컬러웨이(차콜 / 블랙 / 라이트그레이 · 라이트그레이)를 <strong>그대로 유지</strong>해 주세요.</p>
+      <p>스펙 비교 멘트에서 <strong>타 브랜드명은 직접 언급하지 말아주세요.</strong> "동급 제품 대비"처럼 수치와 포지션으로만 비교해 주시면 됩니다.</p>
+      <p>에일러론 두 제품과 플랩 90은 <strong>"작년 대비 보완된 캐리오버"</strong>, 제로인 옥타 에어 후디는 <strong>"이번 시즌 신제품"</strong>— 톤을 서로 바꿔 쓰지 않도록 주의해 주세요.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="caution">
+      <h3>추가 전달사항</h3>
+      <p><strong>더현대 서울 팝업스토어 오픈 안내</strong><br>
+      일정: 10월 1일부터 2주간 진행 · 장소: 더현대 서울 4층 어반사이드 팝업스토어<br>
+      어반사이드 26FW 컬렉션을 오프라인에서 직접 경험할 수 있는 팝업스토어가 열린다는 소식을 영상 내 자막/음성 또는 캡션으로 언급해 주세요.</p>
+      <p><strong>4910 어반사이드 브랜드 페이지 링크 연계</strong><br>
+      추후 1차 검수 시점에 4910 앱 내 어반사이드 브랜드/기획전 페이지 링크를 공유해 드릴 예정입니다.<br>
+      공유받으신 링크는 인스타그램 프로필/스토리 링크, 유튜브 고정 댓글/설명란에 반영해 주시거나 DM 자동 발송 기능을 통해 구독자분들께 전달해 주시면 됩니다.</p>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  어반사이드 26FW 콘텐츠 촬영 가이드 · 문의 사항은 담당자에게 확인해 주세요.
+</footer>
+
+</body>
+</html>
