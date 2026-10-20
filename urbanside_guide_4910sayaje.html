@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>어반사이드 × 4910 · 사야제 촬영 가이드</title>
+<style>
+  @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css');
+
+  :root{
+    --bg: #ffffff;
+    --bg-raised: #f4f4f2;
+    --line: rgba(20,24,27,0.12);
+    --line-soft: rgba(20,24,27,0.07);
+    --ink: #14181b;
+    --ink-dim: #6c7472;
+    --ice: #21708f;
+    --ice-dim: #d7e6ec;
+    --amber: #a86a1c;
+    --amber-dim: #e7c896;
+  }
+
+  *{ box-sizing:border-box; }
+
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height:1.6;
+    padding:0 0 80px;
+  }
+
+  .wrap{ max-width:880px; margin:0 auto; padding:56px 28px 0; }
+
+  header{ margin-bottom:24px; }
+  .kicker{ color:var(--ink-dim); font-size:14px; margin:0; }
+
+  /* campaign hero */
+  .campaign{
+    background:var(--ink);
+    color:#fff;
+    border-radius:8px;
+    padding:30px 30px 28px;
+    margin-bottom:28px;
+  }
+  .campaign .label{
+    color:var(--amber-dim);
+    font-size:13px;
+    font-weight:700;
+    margin:0 0 10px;
+  }
+  .campaign h1{
+    font-family:'Pretendard', sans-serif;
+    font-weight:700;
+    font-size:clamp(34px, 6vw, 46px);
+    line-height:1.15;
+    margin:0 0 14px;
+  }
+  .campaign .meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px 22px;
+    font-size:15px;
+    color:rgba(255,255,255,0.86);
+  }
+  .campaign .meta b{ color:#fff; font-weight:700; }
+
+  .banner{
+    background:var(--bg-raised);
+    border-left:3px solid var(--ink);
+    border-radius:4px;
+    padding:20px 22px;
+    margin-bottom:48px;
+    font-size:14.5px;
+  }
+  .banner strong{ font-weight:600; }
+  .banner p{ margin:0 0 8px; }
+  .banner p:last-child{ margin-bottom:0; }
+
+  section{ margin-bottom:56px; }
+
+  h2{
+    font-family:'Pretendard', sans-serif;
+    font-weight:600;
+    font-size:22px;
+    margin:0 0 20px;
+    padding-bottom:14px;
+    border-bottom:1px solid var(--line);
+  }
+
+  /* price table */
+  .price-table{
+    display:grid;
+    grid-template-columns: 2fr 1fr 0.8fr 1.1fr;
+    border:1px solid var(--line);
+    border-radius:4px;
+    overflow:hidden;
+    font-size:14.5px;
+  }
+  .price-table > div{
+    padding:15px 16px;
+    border-bottom:1px solid var(--line-soft);
+    display:flex;
+    align-items:center;
+  }
+  .price-table > div.head{
+    background:var(--bg-raised);
+    color:var(--ink-dim);
+    font-weight:600;
+    font-size:12.5px;
+  }
+  .price-table .orig{ color:var(--ink-dim); text-decoration:line-through; }
+  .price-table .rate{ color:var(--amber); font-weight:700; }
+  .price-table .sale{ font-weight:700; font-size:16px; }
+
+  @media (max-width:680px){
+    .price-table{ grid-template-columns:1fr 1fr; }
+    .price-table > div.head{ display:none; }
+    .price-table > div:nth-child(4n+1){ grid-column:1 / -1; font-weight:600; padding-top:16px; border-top:1px solid var(--line); border-bottom:none; }
+    .price-table > div{ border-bottom:none; padding:4px 16px; }
+  }
+
+  /* product section */
+  .product-section{ border-top:2px solid var(--ink); padding-top:28px; }
+  .product-head{ display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:8px; }
+  .product-head .idx{ font-size:13px; color:var(--ink-dim); font-weight:600; }
+  .product-head h3{
+    font-family:'Pretendard', sans-serif;
+    font-weight:700;
+    font-size:20px;
+    margin:0;
+  }
+  .badge{ display:inline-block; padding:3px 10px; border-radius:20px; font-size:12px; font-weight:600; }
+  .badge.new{ background:var(--ice-dim); color:#175169; }
+
+  .price-line{ margin:0 0 6px; font-size:14.5px; }
+  .price-line s{ color:var(--ink-dim); margin-right:6px; }
+  .price-line .arrow{ color:var(--ink-dim); margin-right:6px; }
+  .price-line b{ font-size:17px; }
+  .price-line .rate{ color:var(--amber); font-weight:700; margin-left:8px; }
+
+  .fabric-line{
+    margin:0 0 8px;
+    padding:10px 14px;
+    background:var(--ice-dim);
+    border-radius:4px;
+    font-size:14px;
+    color:#175169;
+  }
+  .fabric-line .k{ font-weight:700; margin-right:8px; }
+  .fabric-line b{ font-weight:700; }
+
+  .quick-spec{ color:var(--ink-dim); font-size:13.5px; margin:0 0 20px; }
+  .quick-spec b{ color:var(--ink); font-weight:600; }
+
+  .hook-card{ background:var(--bg-raised); border-radius:6px; padding:20px 22px; margin-bottom:22px; }
+  .hook-card ul{ margin:0; padding:0; list-style:none; }
+  .hook-card li{ padding:12px 0; border-top:1px solid var(--line-soft); font-size:14px; }
+  .hook-card li:first-child{ border-top:none; padding-top:0; }
+  .hook-line{ display:block; font-weight:600; margin-bottom:4px; color:var(--ink); }
+  .hook-desc{ color:var(--ink-dim); font-size:13px; }
+
+  .sub-block{ margin-bottom:20px; }
+  .sub-block h4{
+    font-size:13.5px;
+    font-weight:700;
+    color:var(--ink-dim);
+    margin:0 0 12px;
+    letter-spacing:0.02em;
+  }
+  .sub-block ul{ margin:0; padding-left:18px; }
+  .sub-block li{ font-size:14px; color:var(--ink); margin-bottom:8px; }
+  .sub-block li:last-child{ margin-bottom:0; }
+  .sub-block li .d{ display:block; color:var(--ink-dim); font-size:13px; margin-top:2px; }
+
+  .caution{
+    border:1px solid var(--amber-dim);
+    background:linear-gradient(180deg, rgba(168,106,28,0.06), rgba(168,106,28,0.015));
+    border-radius:6px;
+    padding:24px 26px;
+  }
+  .caution h3{
+    font-family:'Pretendard', sans-serif;
+    font-weight:600;
+    font-size:18px;
+    margin:0 0 12px;
+    color:var(--amber);
+  }
+  .caution p{ margin:0 0 10px; font-size:14.5px; color:var(--ink); }
+  .caution p:last-child{ margin-bottom:0; }
+  .caution .example{ color:var(--ink-dim); font-size:13.5px; }
+  .caution .example .no{ color:#a83f3f; text-decoration:line-through; }
+  .caution .example .yes{ color:#337a3e; }
+
+  footer{ max-width:880px; margin:0 auto; padding:0 28px; color:var(--ink-dim); font-size:13px; }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header>
+    <p class="kicker">어반사이드 26FW · 촬영 가이드</p>
+  </header>
+
+  <div class="campaign">
+    <p class="label">어반사이드 × 4910 · 겨울 블랙프라이데이 캠페인</p>
+    <h1>사야제</h1>
+    <div class="meta">
+      <span>기간 <b>11월 2일 – 11월 15일</b></span>
+      <span><b>4910 단독 최저가</b></span>
+    </div>
+  </div>
+
+  <div class="banner">
+    <p>이번 캠페인은 <strong>써모코어 액티브 빌레이 파카</strong>, <strong>써모코어 액티브 후드 재킷</strong>, <strong>플랩 가루이시 후디</strong> 세 제품으로 진행됩니다. 세 제품 모두 이번 시즌 신제품입니다.</p>
+    <p>콘텐츠에서 <strong>캠페인 기간(11/2~11/15)과 4910 단독 최저가</strong>, 그리고 아래 <strong>할인율·할인가</strong>를 함께 전달해 주세요.</p>
+    <p>세 제품 모두 <strong>원단(소재)명을 강조해서 표현</strong>해 주세요. 제품별 원단명은 각 제품 섹션에 정리해 두었습니다.</p>
+  </div>
+
+  <section>
+    <h2>캠페인 가격 안내</h2>
+    <div class="price-table">
+      <div class="head">품목</div>
+      <div class="head">정가</div>
+      <div class="head">할인율</div>
+      <div class="head">블프 할인가</div>
+
+      <div><b>써모코어 액티브 빌레이 파카</b></div>
+      <div class="orig">249,000원</div>
+      <div class="rate">30%</div>
+      <div class="sale">174,000원</div>
+
+      <div><b>써모코어 액티브 후드 재킷</b></div>
+      <div class="orig">209,000원</div>
+      <div class="rate">25%</div>
+      <div class="sale">157,000원</div>
+
+      <div><b>플랩 가루이시 후디</b></div>
+      <div class="orig">139,000원</div>
+      <div class="rate">35%</div>
+      <div class="sale">90,000원</div>
+    </div>
+  </section>
+
+  <!-- 01 빌레이 파카 -->
+  <section class="product-section">
+    <div class="product-head">
+      <span class="idx">01</span>
+      <h3>써모코어 액티브 빌레이 파카</h3>
+      <span class="badge new">신제품</span>
+    </div>
+    <p class="price-line"><s>249,000원</s><span class="arrow">→</span><b>174,000원</b><span class="rate">30% 할인</span></p>
+    <p class="fabric-line"><span class="k">원단·소재</span><b>국내 생산 20D 나일론</b>(겉감·안감) + <b>PrimaLoft® Rise</b> 충전재 (몸판 170g / 소매·후드 133g)</p>
+    <p class="quick-spec"><b>765g</b> (L) · 오버 · Black, Light Gray · S–XL</p>
+
+    <div class="hook-card">
+      <ul>
+        <li>
+          <span class="hook-line">"젖어도, 땀 차도 보온이 무너지지 않는다"</span>
+          <span class="hook-desc">PrimaLoft® 합성 충전재라 습기·결로 환경에서도 보온 성능 저하 리스크가 적음. 눈·비 오는 환경이나 땀이 찬 상황을 연출하면 설득력이 높음.</span>
+        </li>
+        <li>
+          <span class="hook-line">"몸판은 170g, 소매와 후드는 133g"</span>
+          <span class="hook-desc">체온 유지가 필요한 몸통은 두껍게, 움직임이 많은 소매·후드는 가볍게 차등 충전. 구조를 말로만 설명하지 말고 팔을 크게 움직이는 컷과 함께 보여주면 좋음.</span>
+        </li>
+        <li>
+          <span class="hook-line">"후드가 떨어진다"</span>
+          <span class="hook-desc">후드 탈부착으로 2가지 실루엣 연출 가능. 후드를 떼고 다시 다는 과정을 한 컷으로 보여주면 좋음.</span>
+        </li>
+        <li>
+          <span class="hook-line">"장갑 끼고도 열리는 앞 지퍼 포켓"</span>
+          <span class="hook-desc">전면에 세로로 길게 배치된 지퍼 포켓. 빌레이 환경에서 장갑을 낀 채 접근하기 쉽도록 설계된 구조.</span>
+        </li>
+        <li>
+          <span class="hook-line">"소매 안쪽 접밴드로 손목 열 손실 차단"</span>
+          <span class="hook-desc">외부에서는 보이지 않는 히든 이너 커프. 정지·휴식 시간이 긴 환경에서 손목 보온을 챙기는 디테일.</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <h4>디자인 포인트</h4>
+      <ul>
+        <li>레이어 분리 기반 구조 디자인<span class="d">겉감과 안감을 분리해 원단 간 간섭을 줄이고, 구조 자체가 만드는 드레이프로 소프트한 볼륨 구현</span></li>
+        <li>고정 스티치 기반 볼륨 안정화<span class="d">과도한 퀼팅 라인 없이 부분 고정 스티치만 적용한 미니멀한 아웃도어 무드</span></li>
+        <li>탈부착 후드 + 2포인트 후드 조절<span class="d">후드 좌·우 2점 조절로 두상에 맞게 고정</span></li>
+        <li>부위별 볼륨 차이<span class="d">몸판은 안정된 볼륨, 소매·후드는 경량 실루엣으로 상체 중심 볼륨 강조</span></li>
+        <li>핸드 포켓 기모 안감, 지퍼 클로징 이너 포켓, 밑단 스트링</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <h4>제품 기획 목적 · 차별화 포인트</h4>
+      <ul>
+        <li>하드쉘과 인슐레이션 사이 경계 영역을 커버하는 액티브 빌레이 아우터<span class="d">젖은 환경과 고강도 활동까지 대응하는 합성 인슐레이션 파카 포지션</span></li>
+        <li>습윤·결로 환경 대응력 확보<span class="d">습기·결로 환경에서의 성능 저하를 줄이고 장시간 착용에서도 일정한 보온 레벨 유지</span></li>
+        <li>동급 제품 대비 차별점<span class="d">고정형 후드가 대부분인 동급 제품과 달리 탈부착 후드 시스템 적용, 유사 스펙(20D 겉감 + 합성 충전재) 대비 가격 경쟁력 확보</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 02 후드 재킷 -->
+  <section class="product-section">
+    <div class="product-head">
+      <span class="idx">02</span>
+      <h3>써모코어 액티브 후드 재킷</h3>
+      <span class="badge new">신제품</span>
+    </div>
+    <p class="price-line"><s>209,000원</s><span class="arrow">→</span><b>157,000원</b><span class="rate">25% 할인</span></p>
+    <p class="fabric-line"><span class="k">원단·소재</span><b>국내 생산 10D 나일론</b>(겉감·안감) + <b>PrimaLoft® ThermoPlume®</b> Ball 270g 충전재</p>
+    <p class="quick-spec"><b>485g</b> (L) · 세미오버 · Black, Light Gray · S–XL</p>
+
+    <div class="hook-card">
+      <ul>
+        <li>
+          <span class="hook-line">"볼타입 충전재로 만든 풍성한 로프트"</span>
+          <span class="hook-desc">PrimaLoft® ThermoPlume® 볼타입 충전재로 로프트감이 풍성하고, 습기·세탁 환경에서도 관리가 편함.</span>
+        </li>
+        <li>
+          <span class="hook-line">"몸통·팔은 볼, 옆구리는 판"</span>
+          <span class="hook-desc">부위별로 충전 방식이 다른 하이브리드 패널 구조. 옷 안쪽을 클로즈업으로 보여주면 반응이 좋음.</span>
+        </li>
+        <li>
+          <span class="hook-line">"후드 끈이 안 보인다"</span>
+          <span class="hook-desc">전면 접밴드와 후면 히든 스트링으로 외부 노출을 최소화한 미니멀 후드. 후드를 쓰고 벗는 컷으로 구조를 보여주면 좋음.</span>
+        </li>
+        <li>
+          <span class="hook-line">"손 넣으면 따뜻한 기모 포켓"</span>
+          <span class="hook-desc">핸드 포켓 안쪽 기모 안감. 겨울 실사용에서 체감되는 디테일.</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <h4>디자인 포인트</h4>
+      <ul>
+        <li>하이브리드 패널 구조 시각화<span class="d">몸판·소매·후드는 볼 타입, 측면은 판 타입 충전재로 구분 적용</span></li>
+        <li>미니멀 후드 구조<span class="d">전면 접밴드 마감 + 후면 히든 스트링</span></li>
+        <li>밑단 스트링 적용<span class="d">바람 차단과 실루엣 조절을 동시에 확보</span></li>
+        <li>핸드 포켓 기모 안감</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <h4>제품 기획 목적 · 차별화 포인트</h4>
+      <ul>
+        <li>일상과 액티브 환경을 모두 커버하는 경량 패딩<span class="d">기능성 아우터와 캐주얼 패딩의 경계를 커버하는 데일리 퍼포먼스 포지션</span></li>
+        <li>습기·세탁 환경에서의 관리 편의성<span class="d">습기·세탁 환경에서의 안정성, 볼 타입 충전재로 형태 유지력과 복원력 강화</span></li>
+        <li>동급 제품 대비 차별점<span class="d">동급 합성 충전재 대비 습윤·장시간 착용 안정성, 7D 원단 대비 10D 나일론으로 인열 강도와 내구성 개선, 더 낮은 가격 포지션</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 03 가루이시 후디 -->
+  <section class="product-section">
+    <div class="product-head">
+      <span class="idx">03</span>
+      <h3>플랩 가루이시 후디</h3>
+      <span class="badge new">신제품</span>
+    </div>
+    <p class="price-line"><s>139,000원</s><span class="arrow">→</span><b>90,000원</b><span class="rate">35% 할인</span></p>
+    <p class="fabric-line"><span class="k">원단·소재</span><b>TORAY사 KARUISHI®</b> (폴리에스터 100%) · Karuishi® 계열 중 최경량 원단</p>
+    <p class="quick-spec"><b>175g</b> (L) · 세미오버 · Black · S–XL</p>
+
+    <div class="hook-card">
+      <ul>
+        <li>
+          <span class="hook-line">"175g, 후디인데 이 정도 무게"</span>
+          <span class="hook-desc">Karuishi® 계열 중 가장 가벼운 원단을 적용. 동급 제품 대비 약 2배 가벼운 착용감이라는 점을 손에 들어보는 컷으로 보여주면 좋음.</span>
+        </li>
+        <li>
+          <span class="hook-line">"소매에 워치홀이 있다"</span>
+          <span class="hook-desc">스포츠 워치·스마트 워치를 소매를 걷지 않고 확인할 수 있는 워치홀. 러닝·트레킹 중 손목을 확인하는 장면과 잘 어울림.</span>
+        </li>
+        <li>
+          <span class="hook-line">"후드가 아니라 목까지 감싸는 바라클라바"</span>
+          <span class="hook-desc">후드와 넥 라인이 이어지는 구조로 별도 넥 게이터 없이 저온·강풍 대응. 후드를 뒤집어써서 목까지 감싸지는 컷이 핵심.</span>
+        </li>
+        <li>
+          <span class="hook-line">"어깨는 자유롭게, 암홀은 안정적으로"</span>
+          <span class="hook-desc">라글란과 셋인을 결합한 하이브리드 라글란 슬리브. 팔을 들어 올리거나 배낭을 멘 동작에서 봉제 압력이 적다는 점을 동작으로 보여주면 좋음.</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <h4>디자인 포인트</h4>
+      <ul>
+        <li>바라클라바 후드 구조<span class="d">얼굴과 목 주변을 안정적으로 감싸는 시그니처 후드</span></li>
+        <li>하이브리드 라글란 슬리브<span class="d">셋인과 라글란의 장점을 결합해 자연스러운 숄더 실루엣과 활동성 확보</span></li>
+        <li>썸홀 &amp; 워치홀 적용<span class="d">소매 들뜸·말림을 줄이고 워치 활용 편의성 강화</span></li>
+        <li>캥거루 포켓 기반 미니멀 후디 디자인</li>
+        <li>소매·밑단 접밴드, 플랫 스티치</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <h4>제품 기획 목적 · 차별화 포인트</h4>
+      <ul>
+        <li>Karuishi® 기반 액티브 레이어 카테고리 확장<span class="d">Octa® 중심 액티브 레이어에서 확장해 브랜드 내 처음 도입한 퍼포먼스 소재</span></li>
+        <li>초경량 보온 레이어 구축<span class="d">보온성 대비 무게·부피 부담이 큰 기존 플리스·미드 레이어의 한계를 보완</span></li>
+        <li>동급 제품 대비 차별점<span class="d">같은 Karuishi® 계열 중 최경량 원단, 워치홀 추가, 일반 후드가 아닌 바라클라바형 후드 적용</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="caution">
+      <h3>촬영 시 참고사항</h3>
+      <p>할인율과 할인가는 <strong>위 가격표 그대로</strong> 표기해 주세요. 정가와 할인가가 혼동되지 않도록 함께 노출해 주시면 좋습니다.</p>
+      <p>캠페인 기간(<strong>11월 2일 ~ 11월 15일</strong>)과 <strong>4910 단독 최저가</strong> 문구는 영상이나 캡션에서 함께 언급해 주세요.</p>
+      <p>세 제품 모두 콘텐츠 표현 시 <strong>원단 또는 소재를 강조</strong>해 주세요.</p>
+      <p class="example">예) "TORAY사 KARUISHI® 소재를 썼는데, 이 가격?!"</p>
+      <p>스펙 비교 멘트에서 <strong>타 브랜드명은 직접 언급하지 말아주세요.</strong> "동급 제품 대비"처럼 수치와 포지션으로만 비교해 주시면 됩니다.</p>
+      <p class="example">
+        <span class="no">"○○ 브랜드보다 두 배 가벼워요"</span> (X) &nbsp;→&nbsp;
+        <span class="yes">"동급 제품 대비 약 두 배 가벼워요"</span> (O)
+      </p>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  어반사이드 26FW 콘텐츠 촬영 가이드 · 문의 사항은 담당자에게 확인해 주세요.
+</footer>
+
+</body>
+</html>
