@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>어반사이드 촬영 가이드 · 제로인 옥타 에어 후디 × 메리노 울 롱슬리브 × 플랩 90</title>
+<style>
+  @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css');
+
+  :root{
+    --bg: #ffffff;
+    --bg-raised: #f4f4f2;
+    --line: rgba(20,24,27,0.12);
+    --line-soft: rgba(20,24,27,0.07);
+    --ink: #14181b;
+    --ink-dim: #6c7472;
+    --ice: #21708f;
+    --ice-dim: #d7e6ec;
+    --amber: #a86a1c;
+    --amber-dim: #e7c896;
+  }
+
+  *{ box-sizing:border-box; }
+
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height:1.6;
+    padding:0 0 80px;
+  }
+
+  .wrap{ max-width:880px; margin:0 auto; padding:56px 28px 0; }
+
+  header{ margin-bottom:28px; }
+  .kicker{ color:var(--ink-dim); font-size:14px; margin:0; }
+
+  .banner{
+    background:var(--bg-raised);
+    border-left:3px solid var(--ink);
+    border-radius:4px;
+    padding:20px 22px;
+    margin-bottom:48px;
+    font-size:14.5px;
+  }
+  .banner strong{ font-weight:600; }
+  .banner p{ margin:0 0 8px; }
+  .banner p:last-child{ margin-bottom:0; }
+
+  section{ margin-bottom:56px; }
+
+  h2{
+    font-family:'Pretendard', sans-serif;
+    font-weight:600;
+    font-size:22px;
+    margin:0 0 20px;
+    padding-bottom:14px;
+    border-bottom:1px solid var(--line);
+  }
+
+  /* lineup table */
+  .lineup-table{
+    display:grid;
+    grid-template-columns: 1.7fr 1.6fr 1.3fr 0.7fr 0.9fr;
+    border:1px solid var(--line);
+    border-radius:4px;
+    overflow:hidden;
+    font-size:13.5px;
+  }
+  .lineup-table > div{
+    padding:12px 14px;
+    border-bottom:1px solid var(--line-soft);
+    display:flex;
+    align-items:center;
+  }
+  .lineup-table > div.head{
+    background:var(--bg-raised);
+    color:var(--ink-dim);
+    font-weight:600;
+    font-size:12.5px;
+  }
+
+  @media (max-width:680px){
+    .lineup-table{ grid-template-columns:1fr; }
+    .lineup-table > div.head:nth-child(n+2){ display:none; }
+    .lineup-table > div{ border-bottom:none; padding:4px 14px; }
+    .lineup-table > div:nth-child(5n+1){ padding-top:16px; font-weight:600; border-top:1px solid var(--line); }
+  }
+
+  /* product section */
+  .product-section{ border-top:2px solid var(--ink); padding-top:28px; }
+  .product-head{ display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:8px; }
+  .product-head .idx{ font-size:13px; color:var(--ink-dim); font-weight:600; }
+  .product-head h3{
+    font-family:'Pretendard', sans-serif;
+    font-weight:700;
+    font-size:20px;
+    margin:0;
+  }
+  .badge{ display:inline-block; padding:3px 10px; border-radius:20px; font-size:12px; font-weight:600; }
+  .badge.new{ background:var(--ice-dim); color:#175169; }
+  .badge.carry{ background:var(--amber-dim); color:#7a4f14; }
+
+  .quick-spec{ color:var(--ink-dim); font-size:13.5px; margin:0 0 20px; }
+  .quick-spec b{ color:var(--ink); font-weight:600; }
+
+  .hook-card{ background:var(--bg-raised); border-radius:6px; padding:20px 22px; margin-bottom:22px; }
+  .hook-card ul{ margin:0; padding:0; list-style:none; }
+  .hook-card li{ padding:12px 0; border-top:1px solid var(--line-soft); font-size:14px; }
+  .hook-card li:first-child{ border-top:none; padding-top:0; }
+  .hook-line{ display:block; font-weight:600; margin-bottom:4px; color:var(--ink); }
+  .hook-desc{ color:var(--ink-dim); font-size:13px; }
+
+  .sub-block{ margin-bottom:20px; }
+  .sub-block h4{
+    font-size:13.5px;
+    font-weight:700;
+    color:var(--ink-dim);
+    margin:0 0 12px;
+    letter-spacing:0.02em;
+  }
+  .sub-block ul{ margin:0; padding-left:18px; }
+  .sub-block li{ font-size:14px; color:var(--ink); margin-bottom:8px; }
+  .sub-block li:last-child{ margin-bottom:0; }
+  .sub-block li .d{ display:block; color:var(--ink-dim); font-size:13px; margin-top:2px; }
+
+  .caution{
+    border:1px solid var(--amber-dim);
+    background:linear-gradient(180deg, rgba(168,106,28,0.06), rgba(168,106,28,0.015));
+    border-radius:6px;
+    padding:24px 26px;
+  }
+  .caution h3{
+    font-family:'Pretendard', sans-serif;
+    font-weight:600;
+    font-size:18px;
+    margin:0 0 12px;
+    color:var(--amber);
+  }
+  .caution p{ margin:0 0 10px; font-size:14.5px; color:var(--ink); }
+  .caution p:last-child{ margin-bottom:0; }
+  .caution ul{ margin:0 0 10px; padding-left:18px; }
+  .caution li{ font-size:14px; margin-bottom:6px; }
+  .caution .example{ color:var(--ink-dim); font-size:13.5px; }
+  .caution .example .no{ color:#a83f3f; text-decoration:line-through; }
+  .caution .example .yes{ color:#337a3e; }
+
+  footer{ max-width:880px; margin:0 auto; padding:0 28px; color:var(--ink-dim); font-size:13px; }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header>
+    <p class="kicker">어반사이드 26FW · 촬영 가이드</p>
+  </header>
+
+  <div class="banner">
+    <p>이번 가이드는 <strong>제로인 옥타 에어 후디</strong>, <strong>메리노 울 롱슬리브 티셔츠</strong>, <strong>플랩 90 폴라텍 알파 다이렉트 후디</strong> 세 품목입니다.</p>
+    <p>제로인 옥타 에어 후디와 메리노 울 롱슬리브 티셔츠는 <strong>이번 시즌 신제품</strong>이고, 플랩 90은 25FW부터 이어온 <strong>캐리오버</strong>입니다.</p>
+  </div>
+
+  <section>
+    <h2>라인업 한눈에 보기</h2>
+    <div class="lineup-table">
+      <div class="head">품목</div>
+      <div class="head">핵심 소재</div>
+      <div class="head">컬러</div>
+      <div class="head">무게(L)</div>
+      <div class="head">상태</div>
+
+      <div><b>제로인 옥타 에어 후디</b></div>
+      <div>OCTA®</div>
+      <div>Black, Brown, Light Gray, Camel</div>
+      <div>219g</div>
+      <div>신규</div>
+
+      <div><b>메리노 울 롱슬리브 티셔츠</b></div>
+      <div>17.5 Micron Extra Fine Merino Wool</div>
+      <div>Black, Charcoal</div>
+      <div>192g</div>
+      <div>신규</div>
+
+      <div><b>플랩 90 폴라텍 알파 다이렉트 후디</b></div>
+      <div>POLARTEC® ALPHA DIRECT 90</div>
+      <div>Black, Light Gray</div>
+      <div>155g</div>
+      <div>캐리오버</div>
+    </div>
+  </section>
+
+  <!-- 01 제로인 옥타 에어 후디 -->
+  <section class="product-section">
+    <div class="product-head">
+      <span class="idx">01</span>
+      <h3>제로인 옥타 에어 후디</h3>
+      <span class="badge new">신규</span>
+    </div>
+    <p class="quick-spec">OCTA® 폴리에스터 100% · <b>219g</b> (L) · 세미오버 · Black, Brown, Light Gray, Camel · S–XL · 체감 온도 약 5~15°C (단독 착용 기준)</p>
+
+    <div class="hook-card">
+      <ul>
+        <li>
+          <span class="hook-line">"후드가 아니라 목까지 감싸는 바라클라바"</span>
+          <span class="hook-desc">얼굴·목 라인이 이어지는 구조. 후드를 뒤집어써서 목까지 감싸지는 걸 보여주는 컷이 핵심.</span>
+        </li>
+        <li>
+          <span class="hook-line">"열은 내보내고, 보온은 유지한다"</span>
+          <span class="hook-desc">OCTA® 기반 Heat Regulation 구조로 활동 중 열기와 습기를 빠르게 확산·배출하면서 체온 밸런스를 유지. 러닝·트레킹처럼 땀이 나는 상황과 함께 보여주면 좋음.</span>
+        </li>
+        <li>
+          <span class="hook-line">"풀오버가 아니라 전면 지퍼 후드 집업"</span>
+          <span class="hook-desc">착용 환경에 따라 빠르게 체온 조절이 가능하고, 쉘이나 인슐레이션 안에서도 착탈이 편한 구조. 지퍼를 열고 닫으며 체온을 조절하는 컷 추천.</span>
+        </li>
+        <li>
+          <span class="hook-line">"옆선이 하나로 이어져 있다"</span>
+          <span class="hook-desc">소매 하단부터 밑단까지 이어지는 사이드 일체형 패널 구조. 팔 벌리는 동작으로 당김이 없다는 걸 보여주면 좋음.</span>
+        </li>
+        <li>
+          <span class="hook-line">"핸드 포켓 지퍼도, 밑단 스트링도 뺐다"</span>
+          <span class="hook-desc">접밴드로 정리해 무게와 디테일을 최소화한 경량 미니멀 구조.</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <h4>디자인 포인트</h4>
+      <ul>
+        <li>바라클라바형 후드 구조<span class="d">후드와 넥 라인이 자연스럽게 연결, 저온·강풍 환경에서 체온 유지와 착용 안정성</span></li>
+        <li>라글란 패턴과 사이드 일체형 패널 구조<span class="d">어깨·팔 움직임을 자연스럽게 따라오고, 언더암홀 절개를 삭제해 마찰 최소화</span></li>
+        <li>핸드 포켓·밑단 접밴드 적용 경량 미니멀 구조<span class="d">지퍼와 스트링을 제거하고 접밴드를 적용해 무게·디테일 최소화</span></li>
+        <li>썸홀 적용<span class="d">소매 말림·들뜸을 줄이고 저온 환경에서 손등까지 보온</span></li>
+        <li>플랫 스티치 적용<span class="d">봉제선 두께·이질감을 줄여 피부 마찰 감소</span></li>
+        <li>핸드 포켓 기모 안감<span class="d">저온 환경에서 손 보온성 강화</span></li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <h4>제품 기획 목적 · 차별화 포인트</h4>
+      <ul>
+        <li>OCTA® 기반 액티브 레이어 시스템 확장<span class="d">OCTA® 기반 통합 라인 ZeroIn 시리즈 안에서 기존 옥타 하이브리드 쉘 시리즈와 연결되는 액티브 미드레이어 포지션</span></li>
+        <li>활동 환경 대응형 초경량 후디<span class="d">보온 중심 플리스 후디의 과열·내부 습도 축적 문제를 보완해 보온·통기·건조 성능을 동시에 확보</span></li>
+        <li>동급 제품 대비 차별점<span class="d">풀오버가 많은 동급 후디와 달리 전면 지퍼 후드 집업 구조, 바라클라바형 후드, 기모 안감 핸드 포켓 적용</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 02 메리노 울 롱슬리브 티셔츠 -->
+  <section class="product-section">
+    <div class="product-head">
+      <span class="idx">02</span>
+      <h3>메리노 울 롱슬리브 티셔츠</h3>
+      <span class="badge new">신규</span>
+    </div>
+    <p class="quick-spec">17.5 Micron Extra Fine Merino Wool · 메리노 울 87% / 나일론 13% · <b>192g</b> (L) · 레귤러 · Black, Charcoal · S–XL · 체감 온도 약 10~20°C (단독 착용 기준)</p>
+
+    <div class="hook-card">
+      <ul>
+        <li>
+          <span class="hook-line">"17.5 마이크론, 맨살에 닿는 울"</span>
+          <span class="hook-desc">일반 울 대비 까슬거림을 줄인 Extra Fine Merino Wool. 원단을 팔에 대보는 컷 등으로 부드러운 촉감을 전달. 피부에 따라 느낌이 다를 수 있어 "전혀 안 까슬하다"처럼 단정하는 표현은 피해주세요.</span>
+        </li>
+        <li>
+          <span class="hook-line">"울 87%, 나일론 13%"</span>
+          <span class="hook-desc">순수 울의 약점인 마찰 내구성과 형태 안정성을 나일론 혼용으로 보완. "오래 입는 울"이라는 서사로 연결하기 좋음.</span>
+        </li>
+        <li>
+          <span class="hook-line">"땀은 흡수하고, 냄새는 줄인다"</span>
+          <span class="hook-desc">메리노 울 특유의 흡습·방취 특성과 체온 조절 기능. 트레킹·여행처럼 오래 입는 상황과 잘 어울림.</span>
+        </li>
+        <li>
+          <span class="hook-line">"어깨 절개가 앞뒤로 다르다"</span>
+          <span class="hook-desc">앞·뒷판 어깨 절개를 비대칭(오프셋)으로 설계하고 곡선형 팔 절개를 더한 액티브 패턴. 베이직 울 티셔츠와 다르다는 점을 절개 라인 클로즈업으로 보여주면 좋음.</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <h4>디자인 포인트</h4>
+      <ul>
+        <li>톤온톤 플랫 스티치<span class="d">원단과 어우러지는 톤온톤 스티치로 절개·봉제 흐름이 은은하게 드러나는 미니멀 액티브 무드</span></li>
+        <li>앞·뒷판 비대칭(오프셋) 어깨 절개 구조<span class="d">앞뒤 어깨 절개 라인을 동일선상에 맞추지 않고 비대칭 흐름으로 설계</span></li>
+        <li>몸판 측면 절개 라인<span class="d">입체적인 라인 흐름으로 상체 실루엣을 정돈</span></li>
+        <li>전방 이동 셋인 슬리브 구조<span class="d">어깨 절개 라인을 전면 방향으로 이동해 어깨 마찰 구간을 줄이면서 미니멀한 외관 유지</span></li>
+        <li>곡선형 팔 절개 라인<span class="d">팔 상단에 곡선 흐름을 적용해 입체적이고 유연한 라인감 구현</span></li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <h4>제품 기획 목적 · 차별화 포인트</h4>
+      <ul>
+        <li>어반사이드 메리노 울 시리즈 첫 도입<span class="d">합성 기능성 소재 중심의 액티브웨어 라인업에서 확장해 메리노 울 기반 퍼포먼스 레이어 카테고리를 처음 도입</span></li>
+        <li>"편하게 오래 입을 수 있는 메리노 울 레이어"<span class="d">일반 울의 까슬거림과 착용 피로도를 개선하고, 체온 조절과 흡습·방취로 장시간 착용 부담을 낮춘 컴포트 퍼포먼스 레이어</span></li>
+        <li>동급 제품 대비 차별점<span class="d">동급 프리미엄 메리노 제품과 같은 17.5 Micron 원단 스펙에 액티브 절개 기반 디자인을 더하고, 구매 진입장벽을 낮춘 포지션</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 03 플랩 90 -->
+  <section class="product-section">
+    <div class="product-head">
+      <span class="idx">03</span>
+      <h3>플랩 90 폴라텍 알파 다이렉트 후디</h3>
+      <span class="badge carry">캐리오버</span>
+    </div>
+    <p class="quick-spec">POLARTEC® ALPHA DIRECT 90 · 폴리에스터 100% · <b>155g</b> (L) · 세미오버 · Black, Light Gray · S–XL · 체감 온도 약 8~18°C (단독 착용 기준)</p>
+
+    <div class="hook-card">
+      <ul>
+        <li>
+          <span class="hook-line">"25FW부터 이어온 캐리오버 스테디"</span>
+          <span class="hook-desc">한 시즌 반짝하는 제품이 아니라 계속 검증되며 개선되는 액티브 레이어 핵심 라인이라는 서사.</span>
+        </li>
+        <li>
+          <span class="hook-line">"155g, 후디인데 부피감이 없다"</span>
+          <span class="hook-desc">Alpha Direct 90 특유의 오픈 니트 구조로 초경량·고통기. 쉘이나 아우터 안에 겹쳐 입는 컷과 잘 어울림.</span>
+        </li>
+        <li>
+          <span class="hook-line">"핸드 포켓 지퍼를 없앴다"</span>
+          <span class="hook-desc">경량화를 위해 지퍼 디테일 자체를 제거. 불필요한 무게를 뺀 이유를 짧게 짚어주면 좋음.</span>
+        </li>
+        <li>
+          <span class="hook-line">"레귤러였던 핏, 이번엔 세미오버"</span>
+          <span class="hook-desc">지난 25FW 레귤러 핏에서 여유로운 세미오버로 확장. 단독 착용 실루엣이 편해진 부분.</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <h4>디자인 포인트</h4>
+      <ul>
+        <li>미니멀 액티브 후디 디자인 강화<span class="d">핸드 포켓 지퍼 삭제, 과도한 스포츠웨어 무드를 줄인 실루엣</span></li>
+        <li>썸홀 및 소매 접밴드 적용<span class="d">소매 들뜸·말림 최소화, 안정적으로 손목을 감싸는 구조</span></li>
+        <li>밑단 경량 스트링 적용<span class="d">착용 환경에 따라 핏 조절, 밑단 들뜸 방지</span></li>
+        <li>봉제 디테일 최소화<span class="d">플랫 스티치로 외관상 봉제선 존재감 최소화</span></li>
+        <li>세미오버 핏 기반 실루엣 업그레이드<span class="d">전시즌 레귤러 핏에서 여유로운 세미오버로 확장</span></li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <h4>작년 대비 개선 포인트</h4>
+      <ul>
+        <li>핸드 포켓 지퍼 삭제<span class="d">부자재 제거로 경량화, 압박 요소 감소</span></li>
+        <li>썸홀 적용<span class="d">소매 들뜸·말림 방지, 저온 환경에서 손등까지 커버</span></li>
+        <li>몸판 봉제선 구조 개선<span class="d">팔 움직임 시 거슬림을 줄이는 방향으로 패턴 수정</span></li>
+        <li>밑단 경량 스트링 추가<span class="d">밑단 들뜸·외부 공기 유입 감소</span></li>
+        <li>지퍼 풀러 경량화<span class="d">불필요한 부자재 중량 감소</span></li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <h4>제품 기획 목적 · 차별화 포인트</h4>
+      <ul>
+        <li>캐리오버 액티브 레이어 강화<span class="d">25FW부터 전개해 온 Alpha Direct 기반 액티브 후디를 어반사이드 액티브 레이어 라인업의 핵심 스테디 포지션으로 고도화</span></li>
+        <li>전 시즌 착용 피드백 기반 개선<span class="d">핏과 몸판 패턴, 핸드 포켓 지퍼 삭제, 밑단 스트링 추가 등 "입고 오래 움직였을 때 편한 구조"에 집중</span></li>
+        <li>동급 제품 대비 차별점<span class="d">같은 Alpha Direct 90 소재 카테고리 안에서 핸드 포켓 지퍼를 삭제해 더 가볍게, 여유 있는 세미오버 핏으로 더 편하게</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="caution">
+      <h3>촬영 시 참고사항</h3>
+      <p>스펙 비교 멘트에서 <strong>타 브랜드명은 직접 언급하지 말아주세요.</strong> "동급 제품 대비"처럼 수치와 포지션으로만 비교해 주시면 됩니다.</p>
+      <p class="example">
+        <span class="no">"○○ 브랜드와 같은 17.5 마이크론 원단이에요"</span> (X) &nbsp;→&nbsp;
+        <span class="yes">"동급 프리미엄 메리노 제품과 같은 17.5 마이크론 원단이에요"</span> (O)
+      </p>
+      <p>제로인 옥타 에어 후디와 메리노 울 롱슬리브 티셔츠는 <strong>"이번 시즌 신제품"</strong>, 플랩 90은 <strong>"작년 대비 보완된 캐리오버"</strong> 톤으로 각각 소개해 주세요. 톤을 서로 바꿔 쓰지 않도록 주의해 주세요.</p>
+      <p>소재 특성상 아래 내용은 사전에 알고 계시면 좋습니다.</p>
+      <ul>
+        <li><strong>OCTA®</strong>: 배낭 착용이나 벨크로 접촉 등 마찰 환경에서 표면 보풀이 생길 수 있어요.</li>
+        <li><strong>메리노 울</strong>: 30°C 이하 저온에서 단독 손세탁 후 그늘 건조가 필요하고, 피부에 따라 미세한 간지러움을 느낄 수 있어요.</li>
+        <li><strong>알파 다이렉트 90</strong>: 초기 착용이나 마찰 환경에서 섬유 빠짐이 있을 수 있고, 착용·세탁을 거치며 점차 안정화돼요.</li>
+      </ul>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  어반사이드 26FW 콘텐츠 촬영 가이드 · 문의 사항은 담당자에게 확인해 주세요.
+</footer>
+
+</body>
+</html>
