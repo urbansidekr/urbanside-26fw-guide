@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>어반사이드 촬영 가이드 · 에일러론 울트라 1000 SUL × 메리노 울 후디</title>
+<style>
+  @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css');
+
+  :root{
+    --bg: #ffffff;
+    --bg-raised: #f4f4f2;
+    --line: rgba(20,24,27,0.12);
+    --line-soft: rgba(20,24,27,0.07);
+    --ink: #14181b;
+    --ink-dim: #6c7472;
+    --ice: #21708f;
+    --ice-dim: #d7e6ec;
+    --amber: #a86a1c;
+    --amber-dim: #e7c896;
+  }
+
+  *{ box-sizing:border-box; }
+
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height:1.6;
+    padding:0 0 80px;
+  }
+
+  .wrap{ max-width:880px; margin:0 auto; padding:56px 28px 0; }
+
+  header{ margin-bottom:28px; }
+  .kicker{ color:var(--ink-dim); font-size:14px; margin:0; }
+
+  .banner{
+    background:var(--bg-raised);
+    border-left:3px solid var(--ink);
+    border-radius:4px;
+    padding:20px 22px;
+    margin-bottom:48px;
+    font-size:14.5px;
+  }
+  .banner strong{ font-weight:600; }
+  .banner p{ margin:0 0 8px; }
+  .banner p:last-child{ margin-bottom:0; }
+
+  section{ margin-bottom:56px; }
+
+  h2{
+    font-family:'Pretendard', sans-serif;
+    font-weight:600;
+    font-size:22px;
+    margin:0 0 20px;
+    padding-bottom:14px;
+    border-bottom:1px solid var(--line);
+  }
+
+  /* lineup table */
+  .lineup-table{
+    display:grid;
+    grid-template-columns: 1.7fr 1.6fr 1.5fr 0.7fr 1.1fr;
+    border:1px solid var(--line);
+    border-radius:4px;
+    overflow:hidden;
+    font-size:13.5px;
+  }
+  .lineup-table > div{
+    padding:12px 14px;
+    border-bottom:1px solid var(--line-soft);
+    display:flex;
+    align-items:center;
+  }
+  .lineup-table > div.head{
+    background:var(--bg-raised);
+    color:var(--ink-dim);
+    font-weight:600;
+    font-size:12.5px;
+  }
+
+  @media (max-width:680px){
+    .lineup-table{ grid-template-columns:1fr; }
+    .lineup-table > div.head:nth-child(n+2){ display:none; }
+    .lineup-table > div{ border-bottom:none; padding:4px 14px; }
+    .lineup-table > div:nth-child(5n+1){ padding-top:16px; font-weight:600; border-top:1px solid var(--line); }
+  }
+
+  /* product section */
+  .product-section{ border-top:2px solid var(--ink); padding-top:28px; }
+  .product-head{ display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:8px; }
+  .product-head .idx{ font-size:13px; color:var(--ink-dim); font-weight:600; }
+  .product-head h3{
+    font-family:'Pretendard', sans-serif;
+    font-weight:700;
+    font-size:20px;
+    margin:0;
+  }
+  .badge{ display:inline-block; padding:3px 10px; border-radius:20px; font-size:12px; font-weight:600; }
+  .badge.new{ background:var(--ice-dim); color:#175169; }
+  .badge.carry{ background:var(--amber-dim); color:#7a4f14; }
+
+  .quick-spec{ color:var(--ink-dim); font-size:13.5px; margin:0 0 20px; }
+  .quick-spec b{ color:var(--ink); font-weight:600; }
+
+  .hook-card{ background:var(--bg-raised); border-radius:6px; padding:20px 22px; margin-bottom:22px; }
+  .hook-card ul{ margin:0; padding:0; list-style:none; }
+  .hook-card li{ padding:12px 0; border-top:1px solid var(--line-soft); font-size:14px; }
+  .hook-card li:first-child{ border-top:none; padding-top:0; }
+  .hook-line{ display:block; font-weight:600; margin-bottom:4px; color:var(--ink); }
+  .hook-desc{ color:var(--ink-dim); font-size:13px; }
+
+  .sub-block{ margin-bottom:20px; }
+  .sub-block h4{
+    font-size:13.5px;
+    font-weight:700;
+    color:var(--ink-dim);
+    margin:0 0 12px;
+    letter-spacing:0.02em;
+  }
+  .sub-block ul{ margin:0; padding-left:18px; }
+  .sub-block li{ font-size:14px; color:var(--ink); margin-bottom:8px; }
+  .sub-block li:last-child{ margin-bottom:0; }
+  .sub-block li .d{ display:block; color:var(--ink-dim); font-size:13px; margin-top:2px; }
+
+  .caution{
+    border:1px solid var(--amber-dim);
+    background:linear-gradient(180deg, rgba(168,106,28,0.06), rgba(168,106,28,0.015));
+    border-radius:6px;
+    padding:24px 26px;
+  }
+  .caution h3{
+    font-family:'Pretendard', sans-serif;
+    font-weight:600;
+    font-size:18px;
+    margin:0 0 12px;
+    color:var(--amber);
+  }
+  .caution p{ margin:0 0 10px; font-size:14.5px; color:var(--ink); }
+  .caution p:last-child{ margin-bottom:0; }
+  .caution ul{ margin:0 0 10px; padding-left:18px; }
+  .caution li{ font-size:14px; margin-bottom:6px; }
+  .caution .example{ color:var(--ink-dim); font-size:13.5px; }
+  .caution .example .no{ color:#a83f3f; text-decoration:line-through; }
+  .caution .example .yes{ color:#337a3e; }
+
+  footer{ max-width:880px; margin:0 auto; padding:0 28px; color:var(--ink-dim); font-size:13px; }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header>
+    <p class="kicker">어반사이드 26FW · 촬영 가이드</p>
+  </header>
+
+  <div class="banner">
+    <p>이번 가이드는 <strong>에일러론 울트라 1000 SUL 후드 다운</strong>, <strong>에일러론 울트라 1000 SUL 다운</strong>, <strong>메리노 울 후디</strong> 세 품목입니다.</p>
+    <p>에일러론 두 제품은 작년에 완판되었던 제품을 전시즌 대비 보완한 <strong>캐리오버</strong>이고, 메리노 울 후디는 <strong>이번 시즌 신제품</strong>입니다.</p>
+  </div>
+
+  <section>
+    <h2>라인업 한눈에 보기</h2>
+    <div class="lineup-table">
+      <div class="head">품목</div>
+      <div class="head">핵심 소재</div>
+      <div class="head">컬러</div>
+      <div class="head">무게(L)</div>
+      <div class="head">상태</div>
+
+      <div><b>에일러론 울트라 1000 SUL 후드 다운</b></div>
+      <div>1000FP 마더구스 다운 125g</div>
+      <div>Black, Silver, Charcoal, Blue Black, Blue</div>
+      <div>330g</div>
+      <div>캐리오버 (완판작)</div>
+
+      <div><b>에일러론 울트라 1000 SUL 다운</b></div>
+      <div>1000FP 마더구스 다운 80g</div>
+      <div>Black, Silver</div>
+      <div>255g</div>
+      <div>캐리오버 (완판작)</div>
+
+      <div><b>메리노 울 후디</b></div>
+      <div>17.5 Micron Extra Fine Merino Wool</div>
+      <div>Black, Charcoal</div>
+      <div>220g</div>
+      <div>신규</div>
+    </div>
+  </section>
+
+  <!-- 01 에일러론 후드 다운 -->
+  <section class="product-section">
+    <div class="product-head">
+      <span class="idx">01</span>
+      <h3>에일러론 울트라 1000 SUL 후드 다운</h3>
+      <span class="badge carry">캐리오버 · 완판작</span>
+    </div>
+    <p class="quick-spec">1000FP · POLISH P/WHITE MOTHER GOOSE DOWN (95:5) · 125g · <b>330g</b> (L) · TORAY AIRTASTIC® 10D 나일론 · 세미오버 · S–XXL · 체감 온도 약 −8~3°C (저활동 기준)</p>
+
+    <div class="hook-card">
+      <ul>
+        <li>
+          <span class="hook-line">"작년에 한 달 만에 품절됐던 다운, 충전량 늘려 돌아왔다"</span>
+          <span class="hook-desc">112g → 125g 증량. 완판 이력과 증량 포인트를 같이 던지면 좋음. 손으로 눌러 로프트를 보여주는 컷 추천.</span>
+        </li>
+        <li>
+          <span class="hook-line">"후드 스트링, 밖으로 안 나온다"</span>
+          <span class="hook-desc">외부 노출형에서 내부 히든형 구조로 변경. 후드 외관이 깔끔해진 걸 클로즈업으로.</span>
+        </li>
+        <li>
+          <span class="hook-line">"후드 3포인트로 고정, 고개 돌려도 안 흔들린다"</span>
+          <span class="hook-desc">좌·우·후면 3점 조절 시스템. 바람 부는 상황에서 후드가 두상에 밀착되는 걸 보여주면 좋음.</span>
+        </li>
+        <li>
+          <span class="hook-line">"패커블 백, 이제 잃어버릴 걱정 없다"</span>
+          <span class="hook-desc">분리형 파우치에서 제품 일체형 구조로 변경. 접어서 매다는 장면이 비주얼로 강함.</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <h4>디자인 포인트</h4>
+      <ul>
+        <li>세미오버 핏 확장<span class="d">슬림 세미오버에서 여유 있는 세미오버로 개선, 충전량 증가에 따른 자연스러운 볼륨감</span></li>
+        <li>히든 후드 스트링 + 3포인트 후드 조절<span class="d">스토퍼·스트링 노출을 줄이고 후드 좌·우·후면 3점으로 두상에 맞게 고정</span></li>
+        <li>내부 메쉬 오픈 포켓<span class="d">실사용 수납 편의성 향상, 테크니컬 아웃도어 무드 강화</span></li>
+        <li>제품 일체형 패커블 백<span class="d">제품과 연결되는 구조로 분실 가능성을 줄이고 휴대 편의성 강화</span></li>
+        <li>밑단 스트링, 친가드(Chin Guard) 기모 안감<span class="d">체형에 따른 핏 조절, 지퍼 상단 턱 닿는 부분의 부드러운 터치감</span></li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <h4>작년 대비 개선 포인트</h4>
+      <ul>
+        <li>다운 충전량 업그레이드<span class="d">L 사이즈 기준 112g → 125g (+13g)</span></li>
+        <li>핏 밸런스 개선<span class="d">슬림 세미오버에서 여유 있는 세미오버로 구조 확장, 다양한 이너 레이어 착용 가능</span></li>
+        <li>후드 스트링 구조 개선<span class="d">외부 노출형에서 내부 히든형으로 변경해 걸림·마모 감소</span></li>
+        <li>내부 수납 활용성 강화<span class="d">내부 메쉬 오픈 포켓 추가 적용</span></li>
+        <li>패커블 구조 사용성 개선<span class="d">분리형 보관에서 제품 연결형 구조로 변경</span></li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <h4>제품 기획 목적 · 차별화 포인트</h4>
+      <ul>
+        <li>최고 스펙 다운 소재의 기능 극대화<span class="d">수급이 제한적인 1000FP 폴란드 퓨어화이트 마더구스 다운으로 동일 중량 대비 최대 수준의 로프트와 경량성, 보온 효율 구현</span></li>
+        <li>기존 시리즈의 실사용 한계 보완<span class="d">경량성은 유지하면서 충전량을 늘려 "실제 겨울에 입을 수 있는 경량 다운"으로 리포지셔닝</span></li>
+        <li>동급 제품 대비 차별점<span class="d">동급 1000FP 제품 대비 약 30% 더 많은 충전량(L 기준 125g)</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 02 에일러론 다운 -->
+  <section class="product-section">
+    <div class="product-head">
+      <span class="idx">02</span>
+      <h3>에일러론 울트라 1000 SUL 다운</h3>
+      <span class="badge carry">캐리오버 · 완판작</span>
+    </div>
+    <p class="quick-spec">1000FP · POLISH P/WHITE MOTHER GOOSE DOWN (95:5) · 80g · <b>255g</b> (L) · TORAY AIRTASTIC® 10D 나일론 · 레귤러 · 논후디 · S–XXL · 체감 온도 약 −5~5°C (저활동 기준)</p>
+
+    <div class="hook-card">
+      <ul>
+        <li>
+          <span class="hook-line">"작년에 한 달 만에 품절됐던 그 다운, 더 든든해져서 돌아왔다"</span>
+          <span class="hook-desc">완판 이력과 함께 "이번엔 뭐가 달라졌는지" 궁금증으로 이어가면 좋음.</span>
+        </li>
+        <li>
+          <span class="hook-line">"충전량 64g → 80g, 얇다는 얘기 나올 일 없다"</span>
+          <span class="hook-desc">전시즌 대비 +16g 증량. 손으로 눌러 로프트 차이를 보여주는 컷 추천.</span>
+        </li>
+        <li>
+          <span class="hook-line">"슬림했던 핏이 레귤러로 넉넉해졌다"</span>
+          <span class="hook-desc">단독 착용 시 실루엣이 자연스러워진 부분.</span>
+        </li>
+        <li>
+          <span class="hook-line">"후드가 없어서 다른 아우터 안에 입기 좋다"</span>
+          <span class="hook-desc">논후디 구조라 쉘 재킷·헤비 다운·베스트 등 다양한 아우터와 레이어링할 때 넥라인이 깔끔함. 레이어링 컷으로 보여주면 좋음.</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <h4>디자인 포인트</h4>
+      <ul>
+        <li>레귤러 핏 확장<span class="d">슬림에서 여유 있는 레귤러로 개선, 단독 착용 시 자연스러운 실루엣</span></li>
+        <li>볼륨감 있는 프리미엄 다운 외관<span class="d">충전량 증가로 풍성해진 로프트, 초경량 다운 특유의 지나치게 얇은 느낌 보완</span></li>
+        <li>미니멀 논후디 디자인<span class="d">후드 없는 깔끔한 넥 라인, 다양한 아우터와 높은 호환성</span></li>
+        <li>내부 메쉬 오픈 포켓, 제품 일체형 패커블 백</li>
+        <li>밑단 스트링, 친가드(Chin Guard) 기모 안감</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <h4>작년 대비 개선 포인트</h4>
+      <ul>
+        <li>다운 충전량 증가<span class="d">L 사이즈 기준 64g → 80g (+16g)</span></li>
+        <li>핏 밸런스 개선<span class="d">슬림 핏에서 여유 있는 레귤러 핏으로 구조 확장, 단독 착용과 미드 레이어 활용 모두 가능</span></li>
+        <li>내부 수납 활용성 강화<span class="d">내부 메쉬 오픈 포켓 신규 적용</span></li>
+        <li>패커블 구조 사용성 개선<span class="d">분리형 보관에서 제품 연결형 구조로 변경</span></li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <h4>제품 기획 목적 · 차별화 포인트</h4>
+      <ul>
+        <li>하이엔드 다운 소재의 경량 활용 극대화<span class="d">1000FP 폴란드 퓨어화이트 마더구스 다운으로 동일 중량 대비 최대 수준의 로프트와 경량성 확보</span></li>
+        <li>기존 시리즈의 실사용 한계 보완<span class="d">전시즌 64g 제품은 미드 레이어 중심이라 단독 착용 시 보온성·볼륨감이 부족했던 점을 80g으로 보완해 단독 착용과 미드 레이어 모두 커버</span></li>
+        <li>동급 제품 대비 차별점<span class="d">동급 초경량 다운 대비 약 2배 수준의 충전량(L 기준 80g)</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 03 메리노 울 후디 -->
+  <section class="product-section">
+    <div class="product-head">
+      <span class="idx">03</span>
+      <h3>메리노 울 후디</h3>
+      <span class="badge new">신규</span>
+    </div>
+    <p class="quick-spec">17.5 Micron Extra Fine Merino Wool · 메리노 울 87% / 나일론 13% · <b>220g</b> (L) · 레귤러 · Black, Charcoal · S–XL · 체감 온도 약 10~20°C (단독 착용 기준)</p>
+
+    <div class="hook-card">
+      <ul>
+        <li>
+          <span class="hook-line">"메리노 울 롱슬리브에 후드를 더했다"</span>
+          <span class="hook-desc">메리노 울 롱슬리브 티셔츠와 같은 바디 패턴에 후드를 추가한 확장형. 롱슬리브와 나란히 두고 후드 유무를 비교하면 좋음.</span>
+        </li>
+        <li>
+          <span class="hook-line">"후드까지 올리면 목과 머리 주변까지 따뜻하다"</span>
+          <span class="hook-desc">후드 구조로 목과 머리 주변 체온 유지 대응력을 강화. 단독 착용뿐 아니라 쉘·아우터 안에 레이어링하는 장면과 잘 어울림.</span>
+        </li>
+        <li>
+          <span class="hook-line">"17.5 마이크론, 맨살에 닿는 울"</span>
+          <span class="hook-desc">일반 울 대비 까슬거림을 줄인 Extra Fine Merino Wool. 원단을 팔에 대보는 컷 등으로 부드러운 촉감을 전달. 피부에 따라 느낌이 다를 수 있어 "전혀 안 까슬하다"처럼 단정하는 표현은 피해주세요.</span>
+        </li>
+        <li>
+          <span class="hook-line">"울 87%, 나일론 13%"</span>
+          <span class="hook-desc">순수 울의 약점인 마찰 내구성과 형태 안정성을 나일론 혼용으로 보완. "오래 입는 울"이라는 서사로 연결하기 좋음.</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <h4>디자인 포인트</h4>
+      <ul>
+        <li>후드 기반 액티브 레이어 디자인<span class="d">목과 머리 주변까지 자연스럽게 감싸는 후드, 미니멀한 외관 안에서 퍼포먼스웨어 감성 표현</span></li>
+        <li>톤온톤 플랫 스티치<span class="d">원단과 어우러지는 톤온톤 스티치로 절개·봉제 흐름이 은은하게 드러남</span></li>
+        <li>앞·뒷판 비대칭(오프셋) 어깨 절개 구조<span class="d">앞뒤 어깨 절개 라인을 동일선상에 맞추지 않고 비대칭 흐름으로 설계</span></li>
+        <li>몸판 측면 절개 라인, 전방 이동 셋인 슬리브<span class="d">입체적인 실루엣과 어깨 마찰 구간 감소</span></li>
+        <li>곡선형 팔 절개 라인<span class="d">팔 상단 곡선 흐름으로 입체적이고 유연한 라인감 구현</span></li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <h4>제품 기획 목적 · 차별화 포인트</h4>
+      <ul>
+        <li>메리노 울 롱슬리브 바디 기반 후디 확장<span class="d">후디 형태에 대한 지속 수요를 반영해, 기존 바디의 완성도를 유지한 채 활용성을 넓힌 SKU 확장</span></li>
+        <li>"편하게 오래 입을 수 있는 메리노 울 레이어"<span class="d">체온 조절과 흡습·방취로 장시간 착용 부담을 낮추고, 후드로 보온 범위까지 확장한 컴포트 퍼포먼스 후디</span></li>
+        <li>동급 제품 대비 차별점<span class="d">동급 프리미엄 메리노 제품과 같은 17.5 Micron 원단 스펙에 액티브 절개 기반 디자인을 더하고, 구매 진입장벽을 낮춘 포지션</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="caution">
+      <h3>촬영 시 참고사항</h3>
+      <p>에일러론 두 제품은 <strong>폴란드 퓨어화이트 마더구스 다운 소재와 95:5 비율</strong>을 강조해서 언급해 주세요.</p>
+      <p>스펙 비교 멘트에서 <strong>타 브랜드명은 직접 언급하지 말아주세요.</strong> "동급 제품 대비"처럼 수치와 포지션으로만 비교해 주시면 됩니다.</p>
+      <p class="example">
+        <span class="no">"○○ 브랜드보다 충전량이 30% 많아요"</span> (X) &nbsp;→&nbsp;
+        <span class="yes">"동급 제품 대비 충전량이 약 30% 더 많아요"</span> (O)
+      </p>
+      <p>에일러론 두 제품은 <strong>"작년 완판 후 보완된 캐리오버"</strong>, 메리노 울 후디는 <strong>"이번 시즌 신제품"</strong> 톤으로 각각 소개해 주세요. 톤을 서로 바꿔 쓰지 않도록 주의해 주세요.</p>
+      <p>제품 특성상 아래 내용은 사전에 알고 계시면 좋습니다.</p>
+      <ul>
+        <li><strong>에일러론(다운)</strong>: 다운백·다운 테이프를 쓰지 않은 구조라 봉제선으로 미세한 다운이 빠질 수 있고, 퓨어화이트 다운에도 일부 유색 깃털이 섞일 수 있어요.</li>
+        <li><strong>에일러론(지퍼)</strong>: 나일론 2-WAY 지퍼라 하단 핀이 끝까지 체결된 걸 확인한 뒤 천천히 올려주세요.</li>
+        <li><strong>메리노 울</strong>: 30°C 이하 저온에서 단독 손세탁 후 그늘 건조가 필요하고, 피부에 따라 미세한 간지러움을 느낄 수 있어요.</li>
+      </ul>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  어반사이드 26FW 콘텐츠 촬영 가이드 · 문의 사항은 담당자에게 확인해 주세요.
+</footer>
+
+</body>
+</html>
