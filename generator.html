@@ -137,6 +137,7 @@
         <option value="launch">런칭 소식 소구</option>
         <option value="review">제품 상세 리뷰 · USP</option>
         <option value="outdoor">야외 리뷰</option>
+        <option value="outdoor-long">야외 리뷰 롱폼형</option>
         <option value="free">크리에이터 자율</option>
         <option value="office">사무실 방문형</option>
       </select>
@@ -161,7 +162,7 @@
     var BASE_URL = 'https://urbansidekr.github.io/urbanside-26fw-guide/';
 
     var formatLabels = {short:'숏폼(릴스/쇼츠)', feed:'피드형', long:'롱폼', blog:'블로그'};
-    var portfolioLabels = {launch:'런칭 소식 소구', review:'제품 상세 리뷰 · USP', outdoor:'야외 리뷰', free:'크리에이터 자율', office:'사무실 방문형'};
+    var portfolioLabels = {launch:'런칭 소식 소구', review:'제품 상세 리뷰 · USP', outdoor:'야외 리뷰', 'outdoor-long':'야외 리뷰 롱폼형', free:'크리에이터 자율', office:'사무실 방문형'};
 
     function buildAndRender(){
       var format = document.getElementById('selFormat').value;
