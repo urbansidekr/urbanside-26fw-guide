@@ -791,6 +791,66 @@
     cursor:pointer;
     z-index:2;
   }
+  .brand-intro{
+    margin-top:16px;
+    border-top:1px solid var(--hairline);
+    padding-top:16px;
+  }
+  .bi-h{ font-size:14px; font-weight:800; color:var(--ink); }
+  .bi-h span{ font-size:11.5px; font-weight:700; color:var(--orange); margin-left:6px; }
+  .bi-slogan{ font-size:10.5px; font-weight:700; letter-spacing:0.08em; color:var(--ink-faint); margin:4px 0 8px; }
+  .tab-panel p.bi-desc{ font-size:12.5px; margin:0 0 12px; }
+  .bi-step{
+    display:grid;
+    grid-template-columns:56px 1fr;
+    gap:12px;
+    background:var(--bg-card);
+    border:1px solid var(--hairline);
+    border-radius:10px;
+    padding:14px 16px;
+    margin-bottom:8px;
+  }
+  .bi-no{ font-size:20px; font-weight:800; color:var(--ink); line-height:1.1; }
+  .bi-no span{ display:block; font-size:10.5px; font-weight:700; color:var(--orange); margin-top:4px; }
+  .bi-title{ font-size:13px; font-weight:800; color:var(--ink); margin-bottom:6px; }
+  .tab-panel p.bi-ment{
+    font-size:12.5px;
+    color:var(--ink);
+    border-left:2px solid var(--orange);
+    padding-left:10px;
+    margin:0 0 8px;
+  }
+  .bi-chips{ display:flex; flex-wrap:wrap; gap:5px; }
+  .bi-chip{
+    font-size:11px;
+    font-weight:600;
+    background:var(--orange-tint);
+    color:var(--ink);
+    padding:3px 9px;
+    border-radius:999px;
+  }
+  .bi-dd{ display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:12px; }
+  .bi-col{ background:var(--bg-card); border:1px solid var(--hairline); border-radius:10px; padding:12px 14px; }
+  .bi-col-h{ font-size:12px; font-weight:800; margin-bottom:6px; }
+  .bi-col.do .bi-col-h{ color:#2E6B4F; }
+  .bi-col.dont .bi-col-h{ color:#A33A1E; }
+  .bi-col li{ font-size:12px; }
+  @media (max-width:640px){
+    .bi-dd{ grid-template-columns:1fr; }
+    .bi-step{ grid-template-columns:1fr; gap:6px; }
+  }
+  /* 콘텐츠 제작 가이드: 넓은 박스 + 가독성 */
+  #content-guide .tab-module{ max-width:none; }
+  #content-guide .tab-panel{ padding:22px 26px 24px; }
+  #content-guide .tab-panel p{ max-width:none; font-size:14px; line-height:1.75; }
+  #content-guide .tab-panel li{ font-size:13.5px; line-height:1.7; margin-bottom:6px; }
+  #content-guide [data-tab-group="format"] .tab-btns button{ flex:1 1 25%; }
+  #content-guide .tab-btns button{ font-size:13.5px; padding-top:13px; padding-bottom:13px; }
+  #content-guide .tab-panel p.bi-ment{ font-size:13.5px; }
+  #content-guide .bi-col li{ font-size:13px; }
+  @media (max-width:640px){
+    #content-guide .tab-panel{ padding:18px 18px 20px; }
+  }
 </style>
 </head>
 <body>
@@ -1031,9 +1091,72 @@
             <div class="tab-panel" data-panel="format-long">
               <p><b>롱폼(유튜브 등)</b> — 10분 이상. 짧은 포맷에서는 담기 어려운 실사용 맥락과 디테일을 충분한 호흡으로 풀어주세요.</p>
               <ul>
+                <li><b>어반사이드의 철학, 출발 스토리, 브랜드 확장을 소개하는 부분을 필수 포함해 주세요.</b></li>
+                <li><b>브랜드 소스를 3개 이상, 적절한 구간에 필수로 사용해 주세요.</b></li>
                 <li>브랜드/제품명 음성 언급 2회 이상</li>
                 <li>캡션은 1차 초안 작성 후 전달, 검수 필수</li>
               </ul>
+              <div class="brand-intro">
+                <div class="bi-head">
+                  <div class="bi-h">브랜드 소개 구간 가이드 <span>약 30초</span></div>
+                  <div class="bi-slogan">NO GRAVITY · NO LIMIT · NO BOUNDARY</div>
+                  <p class="bi-desc">철학 → 출발 스토리 → 한국 → 일본 순서로 전해 주세요. 예시 멘트는 참고용이에요. 구간별 필수 키워드만 지키고, 본인 말투로 자연스럽게 풀어 주세요.</p>
+                </div>
+                <div class="bi-step">
+                  <div class="bi-no">01<span>0–10s</span></div>
+                  <div class="bi-body">
+                    <div class="bi-title">브랜드 철학 · 제로인</div>
+                    <p class="bi-ment">"어반사이드는 '제로인'이라는 가치관으로, 아웃도어에서 방해가 되는 걸 전부 0으로 만드는 브랜드예요. 가볍지만 기능성은 확실하고, 일상에서 입어도 예쁘죠."</p>
+                    <div class="bi-chips"><span class="bi-chip">제로인</span><span class="bi-chip">가벼움</span><span class="bi-chip">고기능성</span><span class="bi-chip">일상+아웃도어</span></div>
+                  </div>
+                </div>
+                <div class="bi-step">
+                  <div class="bi-no">02<span>10–17s</span></div>
+                  <div class="bi-body">
+                    <div class="bi-title">출발 스토리 · 캠핑기어에서 어패럴로</div>
+                    <p class="bi-ment">"원래는 전문 캠핑기어 브랜드였는데, 4년 전부터 직접 텐트 테스트를 하면서 혹한기에 살아남기 위한 옷을 만들다가 어패럴까지 확장했대요."</p>
+                    <div class="bi-chips"><span class="bi-chip">캠핑기어에서 시작</span><span class="bi-chip">직접 테스트</span><span class="bi-chip">혹한기</span><span class="bi-chip">어패럴 확장</span></div>
+                  </div>
+                </div>
+                <div class="bi-step">
+                  <div class="bi-no">03<span>17–24s</span></div>
+                  <div class="bi-body">
+                    <div class="bi-title">브랜드 확장 · 한국</div>
+                    <p class="bi-ment">"요즘 한국에서 알만한 사람들은 다 아는 아웃도어 브랜드 중 하나예요. 더현대 서울에서도 팝업을 진행했고, 부산 아난티에서도 만나 볼 수 있어요."</p>
+                    <div class="bi-chips"><span class="bi-chip">한국</span><span class="bi-chip">힙한 성장</span><span class="bi-chip">인기</span></div>
+                  </div>
+                </div>
+                <div class="bi-step">
+                  <div class="bi-no">04<span>24–30s</span></div>
+                  <div class="bi-body">
+                    <div class="bi-title">브랜드 확장 · 일본</div>
+                    <p class="bi-ment">"올해부터는 일본에서도 본격적으로 전개 중인데, 오모테산도에도 진출하고, 지금 반응이 엄청 핫해요."</p>
+                    <div class="bi-chips"><span class="bi-chip">일본</span><span class="bi-chip">올해부터 본격 전개</span><span class="bi-chip">핫함</span></div>
+                  </div>
+                </div>
+                <div class="bi-dd">
+                  <div class="bi-col do">
+                    <div class="bi-col-h">Do</div>
+                    <ul>
+                      <li>'제로인'을 브랜드 가치관으로 꼭 언급</li>
+                      <li>가벼움 + 기능성 + 일상에서도 예쁜 디자인을 함께 전달</li>
+                      <li>"직접 테스트해서 만든 브랜드"라는 진정성 강조</li>
+                      <li>"가장 핫한 브랜드 중 하나"처럼 분위기로 표현</li>
+                      <li>영상 내 '유료광고 포함' 표기 + 설명란 첫 줄에 광고 표기</li>
+                    </ul>
+                  </div>
+                  <div class="bi-col dont">
+                    <div class="bi-col-h">Don't</div>
+                    <ul>
+                      <li>제로인을 제품명이나 기술명처럼 설명</li>
+                      <li>출시 연도·수치를 임의로 변경</li>
+                      <li>"한국 1위", "판매량 최다" 등 근거 없는 순위·수치 단정</li>
+                      <li>광고 표기 누락 또는 더보기 안에 숨기기</li>
+                      <li>제공하지 않은 다른 브랜드 자료·로고 사용</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="tab-panel" data-panel="format-blog">
               <p><b>블로그</b> — 자유 형식의 글 구성. 착용 경험과 정보를 자연스러운 호흡으로 풀어주세요.</p>
