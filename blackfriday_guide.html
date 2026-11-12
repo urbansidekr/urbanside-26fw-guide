@@ -71,6 +71,7 @@ button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .dd h3{margin:0 0 8px;font-size:13px}
 .dd.ok h3{color:var(--accent)} .dd.no h3{color:var(--warn)}
 .dd ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:4px}
+.ver{font-size:.78em;font-weight:500;color:var(--muted);white-space:nowrap}
 .foot{font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
 </style>
 
@@ -100,8 +101,17 @@ button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
     <h2>이번 협업의 주요 소구 포인트</h2>
     <p class="lead" style="margin:0">콘텐츠에서는 아래 <b style="color:var(--ink)">두 가지</b>를 중심으로 소구해 주세요.</p>
     <div class="points">
-      <div class="point" style="border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)"><div class="k">소구 포인트 1</div><div class="v">에일러론 울트라 1000 SUL 후드 다운 재킷 할인율</div><div class="k" style="margin-top:6px">재킷 15% 할인 + 블랙 추가 3% + 크리에이터 코드 추가 3% + 80만원 이상 구매시 추가 3%</div></div>
-      <div class="point" style="border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)"><div class="k">소구 포인트 2</div><div class="v">어반사이드 블랙프라이데이</div><div class="k" style="margin-top:6px">11월 17일(화) ~ 12월 3일(목)</div></div>
+      <div class="point" style="border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)"><div class="k">소구 포인트 1</div><div class="v">블랙프라이데이</div>
+        <ul style="margin:8px 0 0;padding-left:18px;font-size:14px;display:flex;flex-direction:column;gap:4px">
+          <li>최대 할인 혜택 안내</li>
+          <li>행사 기간 안내: <span class="num">11월 17일(화) ~ 12월 3일(목)</span></li>
+        </ul></div>
+      <div class="point" style="border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)"><div class="k">소구 포인트 2</div><div class="v">에일러론 울트라 1000 SUL 후드 다운 재킷 <span class="ver">(10D 후디 버전)</span></div>
+        <ul style="margin:8px 0 0;padding-left:18px;font-size:14px;display:flex;flex-direction:column;gap:4px">
+          <li>초경량 보온성</li>
+          <li>착용 핏 및 디테일 <span style="color:var(--muted)">(직접 입어보시고 좋다고 느껴지시는 점)</span></li>
+          <li>가격 및 할인율 <span style="color:var(--muted)">(재킷 15% 할인 + 블랙 추가 3% + 크리에이터 코드 추가 3% + 80만원 이상 구매시 추가 3%)</span></li>
+        </ul></div>
     </div>
   </section>
 
@@ -119,7 +129,7 @@ button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
     <h2>크리에이터 코드</h2>
     <div class="code">
       <span class="c" id="bf-code">2026BFSALE</span>
-      <span class="d">결제 시 입력하면 추가 3% 할인이 적용됩니다.</span>
+      <span class="d">결제 시 입력하면 추가 3% 할인이 적용됩니다.<br><b style="color:var(--ink)">에일러론 울트라 1000 SUL 후드 다운 재킷에만 적용</b>되는 코드입니다.</span>
       <button type="button" id="copy-btn">코드 복사</button>
     </div>
     <div class="notice"><b>공개 위치 안내</b> · 이 코드는 이번 협업 크리에이터분들께만 공개되는 코드입니다. 영상에서는 <b>뒷부분</b>에 공개해 주세요. 캡션에 적어주시는 것은 괜찮습니다.</div>
@@ -130,8 +140,8 @@ button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
     <div class="tbl"><table>
       <thead><tr><th>할인 항목</th><th>할인율</th><th>적용 대상</th><th>적용 단계</th></tr></thead>
       <tbody>
-        <tr><td>에일러론 울트라 1000 SUL 할인</td><td class="num">15%</td><td>에일러론 울트라 1000 SUL 후드 다운 재킷</td><td><span class="tag">① 베이스</span></td></tr>
-        <tr><td>크리에이터 코드 <span class="num">2026BFSALE</span> <span class="tag new">변경</span></td><td class="num">3%</td><td>크리에이터 코드 입력 시</td><td><span class="tag">② 할인코드</span></td></tr>
+        <tr><td>에일러론 울트라 1000 SUL 할인</td><td class="num">15%</td><td>에일러론 울트라 1000 SUL 후드 다운 재킷 <span class="ver">(10D 후디 버전)</span></td><td><span class="tag">① 베이스</span></td></tr>
+        <tr><td>크리에이터 코드 <span class="num">2026BFSALE</span> <span class="tag new">변경</span></td><td class="num">3%</td><td>에일러론 울트라 1000 SUL 후드 다운 재킷만 (코드 입력 시)</td><td><span class="tag">② 할인코드</span></td></tr>
         <tr><td>블랙 컬러 추가 할인</td><td class="num">3%</td><td>26FW 전 시리즈 블랙 컬러 제품</td><td><span class="tag">③ 쿠폰</span></td></tr>
         <tr><td>80만원 이상 구매 추가 할인</td><td class="num">3%</td><td>26FW 시리즈 80만원 이상 구매 시</td><td><span class="tag">③ 쿠폰</span></td></tr>
       </tbody>
@@ -139,7 +149,7 @@ button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
   </section>
 
   <section>
-    <h2>최종가 · 에일러론 울트라 1000 SUL 후드 다운 재킷 (블랙 구매시)</h2>
+    <h2 style="display:block">최종가 · 에일러론 울트라 1000 SUL 후드 다운 재킷 <span class="ver">(10D 후디 버전)</span> (블랙 구매시)</h2>
     <div class="prices">
       <div class="price list">
         <div class="label">정가</div>
